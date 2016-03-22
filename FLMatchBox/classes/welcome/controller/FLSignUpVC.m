@@ -31,13 +31,13 @@
 @implementation FLSignUpVC
 - (IBAction)request:(id)sender {
     
-    
+    [self.view endEditing:YES];
     
     if ([self isMobileNumber:self.phoneNumTf.text]) {//是手机号
         
-         [self.view endEditing:YES];
-        
         NSString *urlstring = [NSString stringWithFormat:@"%@/Matchbox/userregist",BaseUrl];
+        
+        __weak FLSignUpVC *weakSelf = self;
         
         [FLHttpTool postWithUrlString:urlstring param:@{@"user.passWord":self.pswtf.text  ,@"user.name":self.phoneNumTf.text}  success:^(id responseObject) {
             
@@ -49,12 +49,22 @@
                 [SVProgressHUD showSuccessWithStatus:regiParam.message maskType:SVProgressHUDMaskTypeBlack];
                 
                 [SVProgressHUD resetOffsetFromCenter];
+                
+                //跳转
+                [weakSelf performSegueWithIdentifier:@"FLCheckVC" sender:nil];
+                
+
             });
             
-          
+            
             
         } failure:^(NSError *error) {
-            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [SVProgressHUD showErrorWithStatus:@"请求失败" maskType:SVProgressHUDMaskTypeBlack];
+                
+                [SVProgressHUD resetOffsetFromCenter];
+            });
+
             
         }];
 
@@ -73,6 +83,8 @@
     
     
 }
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
