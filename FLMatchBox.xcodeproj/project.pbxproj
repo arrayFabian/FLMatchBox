@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5FB3678136E6B2C64AF8DE7F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E6277AE3EE70F37E7909FB /* libPods.a */; };
 		937F29351C96B4D200912C98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F29341C96B4D200912C98 /* main.m */; };
 		937F29381C96B4D200912C98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F29371C96B4D200912C98 /* AppDelegate.m */; };
 		937F293E1C96B4D200912C98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937F293C1C96B4D200912C98 /* Main.storyboard */; };
@@ -1222,9 +1223,20 @@
 		93A6B4DC1C9FFB5900771D47 /* FLRegiPSWVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A6B4DB1C9FFB5900771D47 /* FLRegiPSWVC.m */; };
 		93A6B4DF1C9FFB7A00771D47 /* FLRegiEditVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A6B4DE1C9FFB7A00771D47 /* FLRegiEditVC.m */; };
 		93A6B4E21C9FFB9800771D47 /* FLLikeTopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A6B4E11C9FFB9800771D47 /* FLLikeTopicVC.m */; };
+		93A6B51B1CA1056300771D47 /* CunstomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A6B5121CA1056300771D47 /* CunstomButton.m */; };
+		93A6B51C1CA1056300771D47 /* CustomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A6B5141CA1056300771D47 /* CustomImageView.m */; };
+		93A6B51D1CA1056300771D47 /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A6B5161CA1056300771D47 /* CustomView.m */; };
+		93A6B51E1CA1056300771D47 /* KSegement.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A6B5181CA1056300771D47 /* KSegement.m */; };
+		93A6B51F1CA1056300771D47 /* ViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A6B51A1CA1056300771D47 /* ViewConfig.m */; };
+		93A6B5271CA123CA00771D47 /* FLRegiServerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A6B5261CA123CA00771D47 /* FLRegiServerVC.m */; };
+		93A6B52F1CA12BDB00771D47 /* FLHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A6B52E1CA12BDB00771D47 /* FLHttpTool.m */; };
+		93A6B5311CA13B5900771D47 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A6B5301CA13B5900771D47 /* Foundation+Log.m */; };
+		93A6B5341CA1798100771D47 /* FLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A6B5331CA1798100771D47 /* FLUser.m */; };
+		93A6B53A1CA17A3E00771D47 /* FLRegiRespoParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A6B5391CA17A3E00771D47 /* FLRegiRespoParam.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		91E6277AE3EE70F37E7909FB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		937F29301C96B4D200912C98 /* FLMatchBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLMatchBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		937F29341C96B4D200912C98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		937F29361C96B4D200912C98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2471,6 +2483,27 @@
 		93A6B4DE1C9FFB7A00771D47 /* FLRegiEditVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLRegiEditVC.m; sourceTree = "<group>"; };
 		93A6B4E01C9FFB9800771D47 /* FLLikeTopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLLikeTopicVC.h; sourceTree = "<group>"; };
 		93A6B4E11C9FFB9800771D47 /* FLLikeTopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLLikeTopicVC.m; sourceTree = "<group>"; };
+		93A6B5111CA1056300771D47 /* CunstomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CunstomButton.h; sourceTree = "<group>"; };
+		93A6B5121CA1056300771D47 /* CunstomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CunstomButton.m; sourceTree = "<group>"; };
+		93A6B5131CA1056300771D47 /* CustomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomImageView.h; sourceTree = "<group>"; };
+		93A6B5141CA1056300771D47 /* CustomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomImageView.m; sourceTree = "<group>"; };
+		93A6B5151CA1056300771D47 /* CustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomView.h; sourceTree = "<group>"; };
+		93A6B5161CA1056300771D47 /* CustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomView.m; sourceTree = "<group>"; };
+		93A6B5171CA1056300771D47 /* KSegement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSegement.h; sourceTree = "<group>"; };
+		93A6B5181CA1056300771D47 /* KSegement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSegement.m; sourceTree = "<group>"; };
+		93A6B5191CA1056300771D47 /* ViewConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewConfig.h; sourceTree = "<group>"; };
+		93A6B51A1CA1056300771D47 /* ViewConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewConfig.m; sourceTree = "<group>"; };
+		93A6B5251CA123CA00771D47 /* FLRegiServerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLRegiServerVC.h; sourceTree = "<group>"; };
+		93A6B5261CA123CA00771D47 /* FLRegiServerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLRegiServerVC.m; sourceTree = "<group>"; };
+		93A6B52D1CA12BDB00771D47 /* FLHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLHttpTool.h; sourceTree = "<group>"; };
+		93A6B52E1CA12BDB00771D47 /* FLHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLHttpTool.m; sourceTree = "<group>"; };
+		93A6B5301CA13B5900771D47 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		93A6B5321CA1798100771D47 /* FLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLUser.h; sourceTree = "<group>"; };
+		93A6B5331CA1798100771D47 /* FLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLUser.m; sourceTree = "<group>"; };
+		93A6B5381CA17A3E00771D47 /* FLRegiRespoParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLRegiRespoParam.h; sourceTree = "<group>"; };
+		93A6B5391CA17A3E00771D47 /* FLRegiRespoParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLRegiRespoParam.m; sourceTree = "<group>"; };
+		DAAC856B886DD318D5DF7070 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		F7FE822C509CE2A677D7E956 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2478,6 +2511,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FB3678136E6B2C64AF8DE7F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2489,6 +2523,8 @@
 			children = (
 				937F29321C96B4D200912C98 /* FLMatchBox */,
 				937F29311C96B4D200912C98 /* Products */,
+				97161C8B10B0CFB870DDDCB8 /* Pods */,
+				96907E9530C9D98CEE59E753 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2513,6 +2549,7 @@
 				937F30B91C97D23900912C98 /* LaunchScreen.storyboard */,
 				937F29521C96BBB900912C98 /* classes */,
 				937F293F1C96B4D200912C98 /* Assets.xcassets */,
+				93A6B5301CA13B5900771D47 /* Foundation+Log.m */,
 				937F29441C96B4D200912C98 /* Info.plist */,
 				937F29331C96B4D200912C98 /* Supporting Files */,
 			);
@@ -2530,6 +2567,7 @@
 		937F29521C96BBB900912C98 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				93A6B5101CA1056300771D47 /* 自定义View */,
 				93A18F541C9AA4DD00F46544 /* Tool */,
 				937F30F81C99644D00912C98 /* category  */,
 				937F29571C96BBB900912C98 /* Main */,
@@ -4085,6 +4123,8 @@
 				93A6B4DE1C9FFB7A00771D47 /* FLRegiEditVC.m */,
 				93A6B4E01C9FFB9800771D47 /* FLLikeTopicVC.h */,
 				93A6B4E11C9FFB9800771D47 /* FLLikeTopicVC.m */,
+				93A6B5251CA123CA00771D47 /* FLRegiServerVC.h */,
+				93A6B5261CA123CA00771D47 /* FLRegiServerVC.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -4092,6 +4132,8 @@
 		93A18F521C9AA45D00F46544 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				93A6B5321CA1798100771D47 /* FLUser.h */,
+				93A6B5331CA1798100771D47 /* FLUser.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -4106,8 +4148,54 @@
 		93A18F541C9AA4DD00F46544 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				93A6B52C1CA12BC500771D47 /* http */,
 			);
 			path = Tool;
+			sourceTree = "<group>";
+		};
+		93A6B5101CA1056300771D47 /* 自定义View */ = {
+			isa = PBXGroup;
+			children = (
+				93A6B5111CA1056300771D47 /* CunstomButton.h */,
+				93A6B5121CA1056300771D47 /* CunstomButton.m */,
+				93A6B5131CA1056300771D47 /* CustomImageView.h */,
+				93A6B5141CA1056300771D47 /* CustomImageView.m */,
+				93A6B5151CA1056300771D47 /* CustomView.h */,
+				93A6B5161CA1056300771D47 /* CustomView.m */,
+				93A6B5171CA1056300771D47 /* KSegement.h */,
+				93A6B5181CA1056300771D47 /* KSegement.m */,
+				93A6B5191CA1056300771D47 /* ViewConfig.h */,
+				93A6B51A1CA1056300771D47 /* ViewConfig.m */,
+			);
+			path = "自定义View";
+			sourceTree = "<group>";
+		};
+		93A6B52C1CA12BC500771D47 /* http */ = {
+			isa = PBXGroup;
+			children = (
+				93A6B52D1CA12BDB00771D47 /* FLHttpTool.h */,
+				93A6B52E1CA12BDB00771D47 /* FLHttpTool.m */,
+				93A6B5381CA17A3E00771D47 /* FLRegiRespoParam.h */,
+				93A6B5391CA17A3E00771D47 /* FLRegiRespoParam.m */,
+			);
+			path = http;
+			sourceTree = "<group>";
+		};
+		96907E9530C9D98CEE59E753 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				91E6277AE3EE70F37E7909FB /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		97161C8B10B0CFB870DDDCB8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DAAC856B886DD318D5DF7070 /* Pods.debug.xcconfig */,
+				F7FE822C509CE2A677D7E956 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -4117,9 +4205,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 937F29471C96B4D200912C98 /* Build configuration list for PBXNativeTarget "FLMatchBox" */;
 			buildPhases = (
+				D7BA63BBB8BB72471A94A352 /* Check Pods Manifest.lock */,
 				937F292C1C96B4D200912C98 /* Sources */,
 				937F292D1C96B4D200912C98 /* Frameworks */,
 				937F292E1C96B4D200912C98 /* Resources */,
+				841C91E17B9CCCD97578C0DF /* Embed Pods Frameworks */,
+				2931A2CE8519EFAC73B5B36A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -5363,15 +5454,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2931A2CE8519EFAC73B5B36A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		841C91E17B9CCCD97578C0DF /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7BA63BBB8BB72471A94A352 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		937F292C1C96B4D200912C98 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				93A18F691C9E7F4D00F46544 /* FLTopicVC.m in Sources */,
+				93A6B5311CA13B5900771D47 /* Foundation+Log.m in Sources */,
 				937F29711C96BC1000912C98 /* FLWelcomeViewController.m in Sources */,
 				93A6B4D31C9FFAD100771D47 /* FLForgetPSWVC.m in Sources */,
+				93A6B51B1CA1056300771D47 /* CunstomButton.m in Sources */,
 				93A6B4DC1C9FFB5900771D47 /* FLRegiPSWVC.m in Sources */,
+				93A6B51D1CA1056300771D47 /* CustomView.m in Sources */,
 				937F31031C99644D00912C98 /* UIImage+FLImage.m in Sources */,
 				937F30F71C99577600912C98 /* FLMatchController.m in Sources */,
 				937F29741C96BD0C00912C98 /* FLScrollView.m in Sources */,
@@ -5381,18 +5523,25 @@
 				937F29381C96B4D200912C98 /* AppDelegate.m in Sources */,
 				93A6B4D91C9FFB3E00771D47 /* FLRegiCheckVC.m in Sources */,
 				93A18F601C9E7F1E00F46544 /* FLBoxVC.m in Sources */,
+				93A6B5341CA1798100771D47 /* FLUser.m in Sources */,
+				93A6B52F1CA12BDB00771D47 /* FLHttpTool.m in Sources */,
 				937F30ED1C9922B600912C98 /* FLThreeSignInView.m in Sources */,
 				937F31021C99644D00912C98 /* UIBarButtonItem+Item.m in Sources */,
+				93A6B51C1CA1056300771D47 /* CustomImageView.m in Sources */,
+				93A6B51E1CA1056300771D47 /* KSegement.m in Sources */,
 				937F31011C99644D00912C98 /* NSDate+MJ.m in Sources */,
 				937F30BE1C97D31F00912C98 /* FLTabBarController.m in Sources */,
 				937F29351C96B4D200912C98 /* main.m in Sources */,
+				93A6B5271CA123CA00771D47 /* FLRegiServerVC.m in Sources */,
 				93A18F5A1C9AA85200F46544 /* FLResetPSWVC.m in Sources */,
 				937F30C11C97D33D00912C98 /* FLNavigationController.m in Sources */,
+				93A6B51F1CA1056300771D47 /* ViewConfig.m in Sources */,
 				93A18F661C9E7F3E00F46544 /* FLProfileVC.m in Sources */,
 				93A6B4DF1C9FFB7A00771D47 /* FLRegiEditVC.m in Sources */,
 				93A18F631C9E7F2D00F46544 /* FLMessageVC.m in Sources */,
 				937F30D51C97EAAF00912C98 /* FLSignUpVC.m in Sources */,
 				937F31071C996FDB00912C98 /* FLLogin.m in Sources */,
+				93A6B53A1CA17A3E00771D47 /* FLRegiRespoParam.m in Sources */,
 				93A6B4E21C9FFB9800771D47 /* FLLikeTopicVC.m in Sources */,
 				93A6B4D61C9FFAEB00771D47 /* FLCheckVC.m in Sources */,
 			);
@@ -5528,6 +5677,7 @@
 		};
 		937F29481C96B4D200912C98 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAAC856B886DD318D5DF7070 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
@@ -5543,6 +5693,7 @@
 		};
 		937F29491C96B4D200912C98 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7FE822C509CE2A677D7E956 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";

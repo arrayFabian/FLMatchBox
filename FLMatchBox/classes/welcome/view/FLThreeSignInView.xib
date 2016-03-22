@@ -54,7 +54,7 @@
                         <constraint firstAttribute="width" constant="44" id="ahe-Pc-JQ5"/>
                         <constraint firstAttribute="height" constant="44" id="rtX-kG-4Yn"/>
                     </constraints>
-                    <state key="normal" image="QQicon"/>
+                    <state key="normal" image="QQicon.png"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9cH-tT-fGJ">
                     <rect key="frame" x="46" y="42" width="44" height="44"/>
@@ -62,7 +62,7 @@
                         <constraint firstAttribute="width" constant="44" id="2Lh-UD-Yc4"/>
                         <constraint firstAttribute="height" constant="44" id="xdV-vq-Uaz"/>
                     </constraints>
-                    <state key="normal" image="weiboicon"/>
+                    <state key="normal" image="weiboicon.png"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUg-OB-Ibm">
                     <rect key="frame" x="237" y="42" width="44" height="44"/>
@@ -70,10 +70,9 @@
                         <constraint firstAttribute="width" constant="44" id="BWU-bz-h3w"/>
                         <constraint firstAttribute="height" constant="44" id="ttj-Fc-YGp"/>
                     </constraints>
-                    <state key="normal" image="weChat_icon"/>
+                    <state key="normal" image="weChat_icon.png"/>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="9cH-tT-fGJ" firstAttribute="top" secondItem="Wf1-eU-ouU" secondAttribute="top" id="5Ec-dV-Lfm"/>
                 <constraint firstItem="bjw-Ha-xts" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="CGn-FP-ZQQ"/>
@@ -91,12 +90,12 @@
                 <constraint firstItem="bjw-Ha-xts" firstAttribute="centerY" secondItem="flm-Mu-8Rp" secondAttribute="centerY" id="uGl-SA-Sqy"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="627" y="397"/>
+            <point key="canvasLocation" x="388" y="375"/>
         </view>
     </objects>
     <resources>
-        <image name="QQicon" width="60" height="60"/>
-        <image name="weChat_icon" width="44" height="44"/>
-        <image name="weiboicon" width="44" height="44"/>
+        <image name="QQicon.png" width="44" height="44"/>
+        <image name="weChat_icon.png" width="44" height="44"/>
+        <image name="weiboicon.png" width="44" height="44"/>
     </resources>
 </document>

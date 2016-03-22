@@ -10,19 +10,12 @@
 
 @interface FLLogin ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *imgView;
-@property (weak, nonatomic) IBOutlet UIButton *chooceCountryBtn;
+@property (weak, nonatomic) IBOutlet UITextField *phoneNum;
+@property (weak, nonatomic) IBOutlet UILabel *countryLb;
+@property (weak, nonatomic) IBOutlet UITextField *shortNum;
 
-@property (weak, nonatomic) IBOutlet UILabel *countryLabel;
-@property (weak, nonatomic) IBOutlet UITextField *shortCutTf;
-@property (weak, nonatomic) IBOutlet UITextField *photoNumTf;
-@property (weak, nonatomic) IBOutlet UITextField *PSWtf;
-
-@property (weak, nonatomic) IBOutlet UIButton *LogInBtn;
-
-@property (weak, nonatomic) IBOutlet UIButton *pswHelpBtn;
-
-
+@property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UIButton *popBtn;
 
 
 @end
@@ -30,12 +23,15 @@
 
 @implementation FLLogin
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
+        [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil];
+        
+        self.contentView.frame = self.bounds;
+        [self addSubview:self.contentView];
+    }
+    return self;
 }
-*/
 
 @end

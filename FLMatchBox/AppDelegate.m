@@ -11,6 +11,8 @@
 #import "FLWelcomeNaviVC.h"
 #import "FLTabBarController.h"
 
+#import <IQKeyboardManager/IQKeyboardManager.h>
+
 @interface AppDelegate ()
 
 @end
@@ -19,6 +21,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager];
+    keyboardManager.enable = YES;
+    keyboardManager.keyboardDistanceFromTextField = 100;
+    keyboardManager.toolbarDoneBarButtonItemText = @"完成";
+    keyboardManager.shouldShowTextFieldPlaceholder = NO;
+    keyboardManager.shouldResignOnTouchOutside = YES;
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];

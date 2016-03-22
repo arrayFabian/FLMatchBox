@@ -15,6 +15,9 @@
 #import "UIImage+FLImage.h"
 #import "UIView+FLFrame.h"
 
+#define BaseUrl @"http://123.184.33.74:8080"
+
+
 #define FLKeyWindow [UIApplication sharedApplication].keyWindow
 #define FLAppScreenWidth [UIScreen mainScreen].bounds.size.width
 #define FLAppScreenHeight [UIScreen mainScreen].bounds.size.height
