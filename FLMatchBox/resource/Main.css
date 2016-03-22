@@ -1,0 +1,421 @@
+﻿body {
+
+}
+
+#Container
+{
+        clear:both;
+        font: 9px 'Lucida Sans Unicode', 'Trebuchet MS', Arial, Helvetica;
+        background-color: #488BBE;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#488BBE), to(#80C5E2));
+        background-image: -webkit-linear-gradient(top, #488BBE, #80C5E2);
+        background-image: -moz-linear-gradient(top, #488BBE, #80C5E2);
+        background-image: -ms-linear-gradient(top, #488BBE, #80C5E2);
+        background-image: -o-linear-gradient(top, #488BBE, #80C5E2);
+        background-image: linear-gradient(top, #488BBE, #80C5E2);
+    
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px;
+    
+        text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    
+        -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+        -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(255, 255, 255, 0.3) inset;    
+    
+        border-width: 1px;
+        border-style: solid;
+        border-color: #488BF0 #488BF0 #488BF0 #488BF0;
+    
+        width:100%;
+        height:600px;
+        margin: 0 auto;
+        
+     /*阴影*/
+     -webkit-box-shadow: 10px 10px 25px #ccc; 
+     -moz-box-shadow: 10px 10px 25px #ccc; 
+     box-shadow: 10px 10px 25px #ccc; 
+    
+     /*透明度*/
+     opacity:0.9;      
+}
+
+.ContainerLeft
+{
+  display:block;
+  float:left;
+  width:14%;
+}
+
+.BasicNav
+{
+  display:block;
+  width:95%;
+  margin:-6px auto;
+  height:115px;
+  background-color:#fff;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  text-align:center;  
+}
+
+.BasicNav ul
+{
+     margin:11px auto;
+     padding-top:10px;
+}
+
+.BasicNav ul li
+{
+   list-style:none;
+   text-align:left;
+   margin-left: -25px;
+   font-size:16px;
+   clear:both;
+   margin-bottom:15px;
+   cursor:pointer;
+}
+
+.BasicNav ul li span.BasicNavTitle
+{
+   width:150px;
+}
+
+.BasicNav ul li span.BasicNavTitle:hover
+{
+  background-color:#E0ECF9; 
+}
+
+.BasicNav ul li span.Poster
+{
+  width:28px;
+  height:20px;  
+  float:left;  
+  background:#fff url(../Images/mail.png) left top no-repeat;  
+}
+
+.BasicNav ul li span.Receiver
+{
+     width:28px;
+  height:20px;  
+  float:left;  
+  background:#fff url(../Images/mail.png) left -32px no-repeat;  
+}
+
+.BasicNav ul li span.Contactor
+{
+      width:28px;
+  height:20px;  
+  float:left;  
+  background:#fff url(../Images/mail.png) left -62px no-repeat;  
+}
+
+.DetaiNav
+{
+  display:block;
+  width:95%;
+  margin:13px auto;
+  height:467px;
+  background-color:#fff;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  text-align:center;  
+}
+
+.DetaiNav ul
+{
+     margin:11px auto;
+     padding-top:10px;
+}
+
+.DetaiNav ul li
+{
+   list-style:none;
+   text-align:left;
+   margin-left: -22px;
+   font-size:12px;
+   clear:both;
+   margin-bottom:8px;
+}
+
+.DetaiNav ul hr
+{
+  clear:both;    
+}
+
+
+.ContainerRight
+{
+  display:block;
+  width:85.5%;
+  margin:5px 0 5px 2px;
+  height:588px;
+  background-color:#fff;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  text-align:center; 
+  float:left;
+}
+
+
+
+
+/*
+:invalid {
+  border: 2px solid #ff0000;
+}
+*/
+
+/* 针对所有的 input 进行验证 */
+/*
+input:valid { border-color: green; } /* 合法 */
+input:invalid { border-color: red; } /* 不合法 */
+
+/* 针对 input 有 required 的属性进行验证 */
+input:required:valid {
+border-color: green;
+}
+input:required:invalid {
+border-color: red;
+}
+
+
+
+
+
+/*
+ input:focus + .hint { display: inline; } 
+ 焦点时显示输入提示 
+*/
+/* input:required:valid + .hint { background: green; }
+ 通过验证的，提示显示绿色背景 */
+/*
+input:required:invalid + .hint { background: red; }
+ /* 没通过验证的，提示显示红色背景 */
+
+
+header
+{
+  float:left;
+  margin-bottom:10px;
+  width:100%; 
+}
+
+/* 离线系统logo */
+header #logo 
+{
+    float:left;
+    width:230;
+    height:35;
+    margin:0 16px 0 8px;
+}
+
+header #UserInfo
+{
+  float:left;
+  width:100;
+  font: 9px 'Lucida Sans Unicode', 'Trebuchet MS', Arial, Helvetica;
+  color:#1E5494;
+}
+
+header #SearchBox
+{
+    text-align:right;
+    float:right;
+    font: 9px 'Lucida Sans Unicode', 'Trebuchet MS', Arial, Helvetica;
+    color:#000000;
+    margin-right:20px;
+    line-height:100%;
+    vertical-align:text-top;
+}
+
+
+
+/*----------a标签----------*/
+a
+{
+    text-decoration: none;
+    color: #1E5494;
+}
+a:hover
+{
+    text-decoration: none;
+    color: #4ED3F6;
+}
+/*----------a标签----------*/
+
+.ContainerRight .TipInfo
+{
+   float:left;   
+   height:30px;
+   line-height:30px;
+   padding-top:10px;
+   margin:15px 0 0 30px;    
+   font: 20px 'Lucida Sans Unicode', 'Trebuchet MS', Arial, Helvetica;
+   background:#fff url(../Images/light.gif) left top no-repeat; 
+   padding-left:50px;
+}
+
+.ContainerRight .TipInfo span
+{
+    color:#1E5494;
+}
+
+
+.ContainerRight .TipRemark
+{
+   clear:both;
+   float:left;
+   margin:5px 0 6px 60px;
+   font: 15px 'Lucida Sans Unicode', 'Trebuchet MS', Arial, Helvetica;
+}
+
+.ContainerRight .PlateNav
+{
+  clear:both; 
+  margin-left:95px;   
+}
+
+.ContainerRight .PlateNav #InformationPlate
+{
+  float:left;
+  margin-right:18px; 
+  padding-left:23px; 
+  height:26px; 
+  padding-top:1px;
+  background:#fff url(../Images/Information.gif) left top no-repeat;
+}
+
+
+.ContainerRight .PlateNav #EBox
+{
+  float:left;
+  margin-right:18px;  
+  padding-left:23px; 
+  height:26px; 
+  padding-top:1px;
+  background:#fff url(../Images/EBox.gif) left top no-repeat;
+}
+
+
+.ContainerRight .PlateNav #SBox
+{
+  float:left;
+  padding-left:23px; 
+  height:26px; 
+  padding-top:1px;
+  background:#fff url(../Images/SBox.gif) left top no-repeat;
+}
+
+.UserInfoPanal {border:1px solid #a7c5e2; clear:both;height:450px; _overflow-y:hidden; text-align:left; width:80%; margin:35px 0 0 60px;  }
+
+.UserInfoPanal .Header {background-color:#eff5fb; height:25px; border-bottom:1px solid #a7c5e2; padding-left:15px; vertical-align:middle; line-height:25px; }
+
+.UserInfoPanal h3
+{
+    margin-left:30px;
+    font-size: 14px;
+}
+
+.UserInfoPanal .UserInfo
+{
+   margin-left:30px;
+}
+
+.UserInfoPanal .UserInfo .UserInfoSingle
+{
+  margin-top:28px;
+  height:42px;
+  border-bottom:solid 1px #E6E6E6; 
+  width:92%;
+}
+
+.UserInfoPanal .UserInfo .UserInfoSingle .UserInfoH
+{
+    width:85px;
+    float:left;
+}
+
+.UserInfoPanal .UserInfo .UserInfoSingle .UserInfoC input
+{
+    width:200px;
+    height:20px;
+    border:solid 1px #E6E6E6;
+ }
+ 
+ 
+ 
+ .UserInfoPanal .UserInfo .ContentSingle
+ {
+  margin-top:28px;
+  height:90px;
+  border-bottom:solid 1px #E6E6E6; 
+  width:92%;
+ }
+ 
+ .UserInfoPanal .UserInfo .ContentSingle .ContentInfoH
+{
+    width:85px;
+    height:80px;
+    line-height:80px;
+    float:left;
+}
+ 
+.UserInfoPanal .UserInfo .ContentSingle .ContentInfoC textarea
+{
+    width:460px;
+    height:66px;
+    border:solid 1px #E6E6E6;
+ }
+ 
+.UserInfoPanal .UserInfo .UserInfoSingle .UserInfoC .calinput {
+  background-image: url(../Images/sprite.png);
+  background-position: 5px 2px;
+  text-align:right;
+  background-repeat: no-repeat;
+  padding-right:5px;
+}
+
+.UserInfoPanal .UserInfo .ListHeader
+{
+  width:95%;
+  height:30px;
+  border-bottom:solid 2px #a7c5e2;
+  margin:15px 0 15px 0;
+  text-align:left;
+}
+
+.UserInfoPanal .UserInfo .ListHeader th
+{
+   padding-left:5px;    
+}
+
+.UserInfoPanal .UserInfo .ListContent
+{
+  width:95%;
+  height:28px;
+  border-bottom:solid 1px #e3e6eb;
+  text-align:left;
+  margin-top:3px;
+}
+
+.UserInfoPanal .UserInfo .ListContent td
+{
+  padding-left:5px;    
+}
+
+.UserInfoPanal .UserInfo .ListContent:hover
+{
+   background-color:#F0F0F0;
+}
+
+.UserInfoPanal .Opration
+{
+  padding-right:60px;
+  text-align:right;
+  padding-top:15px;    
+}

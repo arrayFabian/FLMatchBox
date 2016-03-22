@@ -1,0 +1,35 @@
+//
+//  PrefixHeader.pch
+//  FLMatchBox
+//
+//  Created by asddfg on 16/3/17.
+//  Copyright © 2016年 fabian. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import "UIImage+FLImage.h"
+#import "UIView+FLFrame.h"
+
+#define FLKeyWindow [UIApplication sharedApplication].keyWindow
+#define FLAppScreenWidth [UIScreen mainScreen].bounds.size.width
+#define FLAppScreenHeight [UIScreen mainScreen].bounds.size.height
+
+#ifdef DEBUG//调试
+
+#define FLLog(...) NSLog(__VA_ARGS__)
+
+#else//发布
+
+#define FLLog(...)
+
+#endif
+
+
+
+#endif /* PrefixHeader_pch */
+//  /Users/asddfg/Desktop/项目/火柴盒/FLMatchBox/FLMatchBox/PrefixHeader.pch
