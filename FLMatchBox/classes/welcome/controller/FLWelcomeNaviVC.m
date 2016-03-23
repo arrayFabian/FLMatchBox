@@ -16,13 +16,21 @@
 
 @implementation FLWelcomeNaviVC
 
+- (instancetype)initWithRootViewController:(UIViewController *)rootViewController
+{
+    if (self = [super initWithRootViewController:rootViewController]) {
+        FLLog(@"%s",__func__);
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
    
     
     self.popdelegate = self.interactivePopGestureRecognizer.delegate;
     self.delegate = self;
-    
+  
     
     
     
@@ -32,10 +40,15 @@
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
  
+   
+    
+    
     if (self.viewControllers.count != 0) {
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageWithOriginalName:@"community_back"] style:UIBarButtonItemStylePlain target:self action:@selector(pop)];
         //self.navigationBar.barTintColor = [UIColor redColor];
         //self.navigationBar.tintColor = [UIColor redColor];
+        
+        viewController.navigationItem.leftBarButtonItem.imageInsets = UIEdgeInsetsMake(0, -7, 0, 7);
     }
     
      [super pushViewController:viewController animated:animated];

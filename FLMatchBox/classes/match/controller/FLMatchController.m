@@ -17,15 +17,40 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 100)];
-    view.backgroundColor = [UIColor redColor];
-    [self.view addSubview:view];
-    
-    NSLog(@"%@",NSStringFromCGRect(self.view.frame));
-    
-    self.navigationController.tabBarItem.image = [UIImage imageNamed:@"AppIcon40x40~ipad"];
+    self.navigationItem.titleView.layer.cornerRadius = self.navigationItem.titleView.bounds.size.height/2.f;
+    self.navigationItem.titleView.layer.masksToBounds = YES;
+    self.navigationItem.titleView.layer.borderWidth = 1;
+    self.navigationItem.titleView.layer.borderColor = [[UIColor blackColor]CGColor];
     
     
+     FLLog(@"%s",__func__);
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    FLLog(@"%s",__func__);
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    FLLog(@"%s",__func__);
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    FLLog(@"%s",__func__);
+}
+
+- (void)dealloc
+{
+    FLLog(@"%s",__func__);
 }
 
 - (void)didReceiveMemoryWarning {

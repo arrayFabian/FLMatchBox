@@ -19,13 +19,7 @@
     
    
   
-    UIImage *image = [UIImage imageNamed:@"Social_Box"];
-    
-    UIImage *selectImage = [UIImage imageNamed:@"Social_Box_Select"];
-    
-    self.navigationController.tabBarItem.image = image;
-    
-    self.navigationController.tabBarItem.selectedImage = selectImage;
+
     
 }
 

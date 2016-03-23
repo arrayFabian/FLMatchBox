@@ -16,9 +16,8 @@
 
 + (void)initialize
 {
-//    UITabBarItem *item = [UITabBarItem appearanceWhenContainedIn:self, nil];
-//    NSMutableDictionary *mudict = [NSMutableDictionary dictionary];
-//   
+
+    
     
     
     
@@ -26,17 +25,59 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
-   
+    FLLog(@"%s",__func__);
+    
+    [self initTabBarItem];
+    
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    FLLog(@"%s",__func__);
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+     FLLog(@"%s",__func__);
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+     FLLog(@"%s",__func__);
+}
+
+- (void)dealloc
+{
+     FLLog(@"%s",__func__);
+}
+
+- (void)initTabBarItem
+{
+    NSArray * img = @[@"Social_One",@"Social_Topic",@"Social_Messages",@"Social_Box",@"Social_Private"];
+    NSArray * imgArr = @[@"Social_One_Select",@"Social_Topic_Select",@"Social_Messages_Select",@"Social_Box_Select",@"Social_Private_Select"];
+    
+    NSMutableArray *items = [@[] mutableCopy];
+    for (int i = 0; i < img.count; i++) {
+        UIImage *image = [[UIImage imageNamed:img[i]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        UIImage *selectImage = [[UIImage imageNamed:imgArr[i]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        
+        
+        UITabBarItem *item = [[UITabBarItem alloc]initWithTitle:nil image:image selectedImage:selectImage];
+        item.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0);
+        
+        self.viewControllers[i].tabBarItem = item;
+        
+        
+        
+    }
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-  
-    
-    
-}
 
 /*
 #pragma mark - Navigation

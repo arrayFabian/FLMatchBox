@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FLProfileVC : UIViewController
+@interface FLProfileVC : UITableViewController
 
 @end

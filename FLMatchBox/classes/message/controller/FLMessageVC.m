@@ -16,7 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.navigationItem.titleView.layer.cornerRadius = self.navigationItem.titleView.bounds.size.height/2.f;
+    self.navigationItem.titleView.layer.masksToBounds = YES;
+    self.navigationItem.titleView.layer.borderWidth = 1;
+    self.navigationItem.titleView.layer.borderColor = [[UIColor blackColor]CGColor];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
