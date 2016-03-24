@@ -13,5 +13,6 @@ IB_DESIGNABLE
 @interface CustomView : UIView
 
 @property(nonatomic,assign) IBInspectable BOOL isCircle;
+@property(nonatomic,assign) IBInspectable CGFloat R;
 
 @end

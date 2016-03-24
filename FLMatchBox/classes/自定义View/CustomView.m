@@ -22,5 +22,13 @@
     }
 }
 
+- (void)setR:(CGFloat)R{
+    _R = R;
+    if (_R) {
+        self.layer.cornerRadius = R;
+        self.layer.masksToBounds = YES;
+    }
+}
+
 
 @end

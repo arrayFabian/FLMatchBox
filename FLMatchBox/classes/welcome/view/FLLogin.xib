@@ -135,7 +135,7 @@
                 <constraint firstItem="jZ4-7A-XZT" firstAttribute="centerY" secondItem="Ihs-CC-jgz" secondAttribute="centerY" id="vJp-Rf-4mH"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="293" y="318"/>
+            <point key="canvasLocation" x="226" y="343"/>
         </view>
     </objects>
     <resources>

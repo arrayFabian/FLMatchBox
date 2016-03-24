@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		5FB3678136E6B2C64AF8DE7F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E6277AE3EE70F37E7909FB /* libPods.a */; };
+		933633BD1CA3C553008A7ADE /* FLSetupTopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633BC1CA3C553008A7ADE /* FLSetupTopicVC.m */; };
+		933633C01CA3C56A008A7ADE /* FLChooseTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633BF1CA3C56A008A7ADE /* FLChooseTypeVC.m */; };
+		933633C31CA3C5A2008A7ADE /* FLPreSetupTopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633C21CA3C5A2008A7ADE /* FLPreSetupTopicVC.m */; };
+		933633C61CA3C5EA008A7ADE /* FLUploadTopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633C51CA3C5EA008A7ADE /* FLUploadTopicVC.m */; };
+		933633C91CA3C66D008A7ADE /* FLSetupCompleteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633C81CA3C66D008A7ADE /* FLSetupCompleteVC.m */; };
+		933633CD1CA3CC53008A7ADE /* FLTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633CB1CA3CC53008A7ADE /* FLTopicCell.m */; };
+		933633CE1CA3CC53008A7ADE /* FLTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933633CC1CA3CC53008A7ADE /* FLTopicCell.xib */; };
+		933633D11CA3E3D7008A7ADE /* FLTopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633D01CA3E3D7008A7ADE /* FLTopicModel.m */; };
+		933633D41CA409A8008A7ADE /* FLHeaderScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633D31CA409A8008A7ADE /* FLHeaderScrollView.m */; };
+		933633D61CA41401008A7ADE /* gif001.gif in Resources */ = {isa = PBXBuildFile; fileRef = 933633D51CA41401008A7ADE /* gif001.gif */; };
 		937F29351C96B4D200912C98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F29341C96B4D200912C98 /* main.m */; };
 		937F29381C96B4D200912C98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F29371C96B4D200912C98 /* AppDelegate.m */; };
 		937F293E1C96B4D200912C98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937F293C1C96B4D200912C98 /* Main.storyboard */; };
@@ -1237,6 +1247,24 @@
 
 /* Begin PBXFileReference section */
 		91E6277AE3EE70F37E7909FB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		933633BB1CA3C553008A7ADE /* FLSetupTopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSetupTopicVC.h; sourceTree = "<group>"; };
+		933633BC1CA3C553008A7ADE /* FLSetupTopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSetupTopicVC.m; sourceTree = "<group>"; };
+		933633BE1CA3C56A008A7ADE /* FLChooseTypeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLChooseTypeVC.h; sourceTree = "<group>"; };
+		933633BF1CA3C56A008A7ADE /* FLChooseTypeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLChooseTypeVC.m; sourceTree = "<group>"; };
+		933633C11CA3C5A2008A7ADE /* FLPreSetupTopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPreSetupTopicVC.h; sourceTree = "<group>"; };
+		933633C21CA3C5A2008A7ADE /* FLPreSetupTopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPreSetupTopicVC.m; sourceTree = "<group>"; };
+		933633C41CA3C5EA008A7ADE /* FLUploadTopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLUploadTopicVC.h; sourceTree = "<group>"; };
+		933633C51CA3C5EA008A7ADE /* FLUploadTopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLUploadTopicVC.m; sourceTree = "<group>"; };
+		933633C71CA3C66D008A7ADE /* FLSetupCompleteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSetupCompleteVC.h; sourceTree = "<group>"; };
+		933633C81CA3C66D008A7ADE /* FLSetupCompleteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSetupCompleteVC.m; sourceTree = "<group>"; };
+		933633CA1CA3CC53008A7ADE /* FLTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLTopicCell.h; sourceTree = "<group>"; };
+		933633CB1CA3CC53008A7ADE /* FLTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLTopicCell.m; sourceTree = "<group>"; };
+		933633CC1CA3CC53008A7ADE /* FLTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FLTopicCell.xib; sourceTree = "<group>"; };
+		933633CF1CA3E3D7008A7ADE /* FLTopicModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLTopicModel.h; sourceTree = "<group>"; };
+		933633D01CA3E3D7008A7ADE /* FLTopicModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLTopicModel.m; sourceTree = "<group>"; };
+		933633D21CA409A8008A7ADE /* FLHeaderScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLHeaderScrollView.h; sourceTree = "<group>"; };
+		933633D31CA409A8008A7ADE /* FLHeaderScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLHeaderScrollView.m; sourceTree = "<group>"; };
+		933633D51CA41401008A7ADE /* gif001.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = gif001.gif; sourceTree = "<group>"; };
 		937F29301C96B4D200912C98 /* FLMatchBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLMatchBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		937F29341C96B4D200912C98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		937F29361C96B4D200912C98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2765,6 +2793,16 @@
 			children = (
 				93A18F671C9E7F4D00F46544 /* FLTopicVC.h */,
 				93A18F681C9E7F4D00F46544 /* FLTopicVC.m */,
+				933633C11CA3C5A2008A7ADE /* FLPreSetupTopicVC.h */,
+				933633C21CA3C5A2008A7ADE /* FLPreSetupTopicVC.m */,
+				933633BB1CA3C553008A7ADE /* FLSetupTopicVC.h */,
+				933633BC1CA3C553008A7ADE /* FLSetupTopicVC.m */,
+				933633BE1CA3C56A008A7ADE /* FLChooseTypeVC.h */,
+				933633BF1CA3C56A008A7ADE /* FLChooseTypeVC.m */,
+				933633C41CA3C5EA008A7ADE /* FLUploadTopicVC.h */,
+				933633C51CA3C5EA008A7ADE /* FLUploadTopicVC.m */,
+				933633C71CA3C66D008A7ADE /* FLSetupCompleteVC.h */,
+				933633C81CA3C66D008A7ADE /* FLSetupCompleteVC.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -2772,6 +2810,8 @@
 		937F29691C96BBB900912C98 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				933633CF1CA3E3D7008A7ADE /* FLTopicModel.h */,
+				933633D01CA3E3D7008A7ADE /* FLTopicModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -2779,6 +2819,11 @@
 		937F296A1C96BBB900912C98 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				933633CA1CA3CC53008A7ADE /* FLTopicCell.h */,
+				933633CB1CA3CC53008A7ADE /* FLTopicCell.m */,
+				933633CC1CA3CC53008A7ADE /* FLTopicCell.xib */,
+				933633D21CA409A8008A7ADE /* FLHeaderScrollView.h */,
+				933633D31CA409A8008A7ADE /* FLHeaderScrollView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -2836,6 +2881,7 @@
 		93A186031C998BD600F46544 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				933633D51CA41401008A7ADE /* gif001.gif */,
 				93A186041C998BD600F46544 /* 3.0guidebottom@2x.png */,
 				93A186051C998BD600F46544 /* 3.0guideTopLeft@2x.png */,
 				93A186061C998BD600F46544 /* 3.0guideTopRight@2x.png */,
@@ -4568,6 +4614,7 @@
 				93A18EC21C998BDE00F46544 /* System_TitleImage_NG@2x.png in Resources */,
 				93A18E401C998BDE00F46544 /* Social_Friend_New_NG@3x.png in Resources */,
 				93A18DB31C998BDE00F46544 /* RecordingSignal007_NG@3x.png in Resources */,
+				933633D61CA41401008A7ADE /* gif001.gif in Resources */,
 				93A18C091C998BDE00F46544 /* follow_btn_NG@3x.png in Resources */,
 				93A18E511C998BDE00F46544 /* Social_GoToGift_NG@2x.png in Resources */,
 				93A18B011C998BDE00F46544 /* BubblePhotoMask_Sending_MultiFirst_NG@3x.png in Resources */,
@@ -5448,6 +5495,7 @@
 				93A18C841C998BDE00F46544 /* ImageSelectedOff@3x.png in Resources */,
 				93A18BF11C998BDE00F46544 /* Expression_94@2x.png in Resources */,
 				93A18BBE1C998BDE00F46544 /* Expression_48@2x.png in Resources */,
+				933633CE1CA3CC53008A7ADE /* FLTopicCell.xib in Resources */,
 				93A18BEF1C998BDE00F46544 /* Expression_92@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -5507,6 +5555,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				933633CD1CA3CC53008A7ADE /* FLTopicCell.m in Sources */,
 				93A18F691C9E7F4D00F46544 /* FLTopicVC.m in Sources */,
 				93A6B5311CA13B5900771D47 /* Foundation+Log.m in Sources */,
 				937F29711C96BC1000912C98 /* FLWelcomeViewController.m in Sources */,
@@ -5514,13 +5563,17 @@
 				93A6B51B1CA1056300771D47 /* CunstomButton.m in Sources */,
 				93A6B4DC1C9FFB5900771D47 /* FLRegiPSWVC.m in Sources */,
 				93A6B51D1CA1056300771D47 /* CustomView.m in Sources */,
+				933633C91CA3C66D008A7ADE /* FLSetupCompleteVC.m in Sources */,
+				933633C01CA3C56A008A7ADE /* FLChooseTypeVC.m in Sources */,
 				937F31031C99644D00912C98 /* UIImage+FLImage.m in Sources */,
 				937F30F71C99577600912C98 /* FLMatchController.m in Sources */,
 				937F29741C96BD0C00912C98 /* FLScrollView.m in Sources */,
 				937F30D21C97EA9A00912C98 /* FLSignInVC.m in Sources */,
+				933633C61CA3C5EA008A7ADE /* FLUploadTopicVC.m in Sources */,
 				937F30CF1C97E9E800912C98 /* FLWelcomeNaviVC.m in Sources */,
 				937F31041C99644D00912C98 /* UIView+FLFrame.m in Sources */,
 				937F29381C96B4D200912C98 /* AppDelegate.m in Sources */,
+				933633BD1CA3C553008A7ADE /* FLSetupTopicVC.m in Sources */,
 				93A6B4D91C9FFB3E00771D47 /* FLRegiCheckVC.m in Sources */,
 				93A18F601C9E7F1E00F46544 /* FLBoxVC.m in Sources */,
 				93A6B5341CA1798100771D47 /* FLUser.m in Sources */,
@@ -5529,6 +5582,7 @@
 				937F31021C99644D00912C98 /* UIBarButtonItem+Item.m in Sources */,
 				93A6B51C1CA1056300771D47 /* CustomImageView.m in Sources */,
 				93A6B51E1CA1056300771D47 /* KSegement.m in Sources */,
+				933633C31CA3C5A2008A7ADE /* FLPreSetupTopicVC.m in Sources */,
 				937F31011C99644D00912C98 /* NSDate+MJ.m in Sources */,
 				937F30BE1C97D31F00912C98 /* FLTabBarController.m in Sources */,
 				937F29351C96B4D200912C98 /* main.m in Sources */,
@@ -5536,8 +5590,10 @@
 				93A18F5A1C9AA85200F46544 /* FLResetPSWVC.m in Sources */,
 				937F30C11C97D33D00912C98 /* FLNavigationController.m in Sources */,
 				93A6B51F1CA1056300771D47 /* ViewConfig.m in Sources */,
+				933633D11CA3E3D7008A7ADE /* FLTopicModel.m in Sources */,
 				93A18F661C9E7F3E00F46544 /* FLProfileVC.m in Sources */,
 				93A6B4DF1C9FFB7A00771D47 /* FLRegiEditVC.m in Sources */,
+				933633D41CA409A8008A7ADE /* FLHeaderScrollView.m in Sources */,
 				93A18F631C9E7F2D00F46544 /* FLMessageVC.m in Sources */,
 				937F30D51C97EAAF00912C98 /* FLSignUpVC.m in Sources */,
 				937F31071C996FDB00912C98 /* FLLogin.m in Sources */,
