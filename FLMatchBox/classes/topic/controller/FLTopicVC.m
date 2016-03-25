@@ -36,7 +36,7 @@
 @property (nonatomic, strong) NSMutableArray *knewArr;
 @property (nonatomic, assign) NSUInteger knewIndex;
 
-@property (nonatomic, assign) BOOL isFirstFreshNewTopic;
+@property (nonatomic, assign) NSUInteger isNewTopicFirstChoose;
 
 
 @end
@@ -45,18 +45,18 @@
 - (IBAction)segmentValueChange:(id)sender
 {
     if (self.segment.selectedSegmentIndex == 1 ) {
-//        if (self.isFirstFreshNewTopic == YES) {
-//            [self.ktableView.mj_header beginRefreshing];
-//            self.isFirstFreshNewTopic = NO;
-//        }
-        
+
+        if (self.isNewTopicFirstChoose) {
+            self.isNewTopicFirstChoose = NO;
+            [self.knewtableView.mj_header beginRefreshing];
+            [self.knewtableView reloadData];
+        }
         [self.view bringSubviewToFront:self.knewtableView];
         [self.view bringSubviewToFront:self.chooseBtnView];
-        [self.knewtableView reloadData];
+       
         
     }else{
         [self.view bringSubviewToFront:self.ktableView];
-        [self.ktableView reloadData];
         
     }
     
@@ -70,10 +70,14 @@
     
      FLLog(@"%s",__func__);
     
-    [self initUI];
     [self initData];
     
+    [self initUI];
+    
+    
     [self setUpRefresh];
+    
+    [self.ktableView reloadData];
     
 }
 
@@ -86,7 +90,6 @@
     self.ktableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
         _foundIndex = 1;
-        [_fountArr removeAllObjects];
         [weakSelf loadFoundData];
         
     }];
@@ -94,7 +97,6 @@
     
     MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
         _knewIndex = 1;
-        [_knewArr removeAllObjects];
         [weakSelf loadNewData];
         
     }];
@@ -111,7 +113,7 @@
     
     //第一次自动创新
     [self.ktableView.mj_header beginRefreshing];
-    [self.knewtableView.mj_header beginRefreshing];
+   
     
     self.ktableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         
@@ -143,8 +145,7 @@
     FLHeaderScrollView *scrollView = [[FLHeaderScrollView alloc] initWithFrame:CGRectMake(0, 0, self.ktableView.width, 150)];
     scrollView.itemsArr = @[@"logBanner1.jpg",@"logBanner2.jpg",@"logBanner3.jpg",@"logBanner4.jpg",@"logBanner5.jpg"];
     self.ktableView.tableHeaderView = scrollView;
-    
-    
+   
     
 }
 
@@ -156,7 +157,9 @@
     _knewIndex = 1;
     _knewArr = [@[] mutableCopy];
     
-    _isFirstFreshNewTopic = YES;
+    _isNewTopicFirstChoose = YES;
+    
+   
 }
 
 //ktableView
@@ -178,14 +181,18 @@
                 [weakSelf.ktableView.mj_footer endRefreshingWithNoMoreData];
                 
             }else{
-//                
-//                NSArray *modelArr = [FLTopicModel mj_objectArrayWithKeyValuesArray:arr];
-//                [_fountArr addObjectsFromArray:modelArr];
-                
-                for (NSDictionary *dict in arr) {
-                    FLTopicModel *model = [FLTopicModel mj_objectWithKeyValues:dict];
-                    [_fountArr addObject:model];
+               
+                if (_foundIndex == 1) {
+                    [_fountArr removeAllObjects];
                 }
+                
+                NSArray *modelArr = [FLTopicModel mj_objectArrayWithKeyValuesArray:arr];
+                [_fountArr addObjectsFromArray:modelArr];
+
+//                for (NSDictionary *dict in arr) {
+//                    FLTopicModel *model = [FLTopicModel mj_objectWithKeyValues:dict];
+//                    [_fountArr addObject:model];
+//                }
                 FLLog(@"fountArr:%@",_fountArr);
 
 
@@ -226,6 +233,10 @@
                 [weakSelf.knewtableView.mj_footer endRefreshingWithNoMoreData];
                 
             }else{
+                if (_knewIndex == 1) {
+                    [_knewArr removeAllObjects];
+                }
+                
                 NSArray *modelArr = [FLTopicModel mj_objectArrayWithKeyValuesArray:arr];
                 [_knewArr addObjectsFromArray:modelArr];
                 FLLog(@"_knewArr %@",_knewArr);

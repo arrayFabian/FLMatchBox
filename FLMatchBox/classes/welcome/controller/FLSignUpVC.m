@@ -9,13 +9,17 @@
 #import "FLSignUpVC.h"
 #import "FLThreeSignInView.h"
 #import "FLSignInVC.h"
+#import "FLLogin.h"
 
 #import "FLHttpTool.h"
+
+#import "FLAccount.h"
+#import "FLAccountTool.h"
 
 #import <SVProgressHUD.h>
 #import <MJExtension/MJExtension.h>
 
-#import "FLRegiRespoParam.h"
+
 
 
 @interface FLSignUpVC ()<UITextFieldDelegate>
@@ -26,6 +30,10 @@
 @property (copy, nonatomic) NSString *psw;
 @property (copy, nonatomic) NSString *phoneNum;
 
+@property (weak, nonatomic) IBOutlet FLLogin *customCountryView;
+
+
+
 @end
 
 @implementation FLSignUpVC
@@ -33,32 +41,48 @@
     
     [self.view endEditing:YES];
     
-    if ([self isMobileNumber:self.phoneNumTf.text]) {//是手机号
+    if ([self isMobileNumber:self.customCountryView.phoneNum.text]) {//是手机号
         
         NSString *urlstring = [NSString stringWithFormat:@"%@/Matchbox/userregist",BaseUrl];
         
         __weak FLSignUpVC *weakSelf = self;
         
-        [FLHttpTool postWithUrlString:urlstring param:@{@"user.passWord":self.pswtf.text  ,@"user.name":self.phoneNumTf.text}  success:^(id responseObject) {
+        [FLHttpTool postWithUrlString:urlstring param:@{@"user.passWord":self.pswtf.text  ,@"user.name":self.customCountryView.phoneNum.text}  success:^(id responseObject) {
             
             NSDictionary *dict = responseObject;
-            FLRegiRespoParam *regiParam = [FLRegiRespoParam mj_objectWithKeyValues:dict];
-            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-            
-            
-            
+            if ([dict[@"result"] integerValue] == 0) {
+                FLLog(@"注册成功");
+                 NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+                [userDefaults setValue:dict[@"userId"] forKey:@"userId"];
+                
+                NSDictionary *dict1 = @{@"userId":dict[@"userId"],
+                                        @"password":self.customCountryView.phoneNum.text,
+                                       @"name":self.pswtf.text};
+                
+                FLAccount *account = [FLAccount accountWithDict:dict1];
+                [FLAccountTool saveAccount:account];
+                
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [SVProgressHUD showSuccessWithStatus:dict[@"message"] maskType:SVProgressHUDMaskTypeBlack];
+                    
+                    [SVProgressHUD resetOffsetFromCenter];
+                    
+                    //跳转
+                    [weakSelf performSegueWithIdentifier:@"FLRegiEditVC" sender:nil];
+                    
+                    
+                });
+
+                
+            }
+           
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [SVProgressHUD showSuccessWithStatus:regiParam.message maskType:SVProgressHUDMaskTypeBlack];
+                [SVProgressHUD showSuccessWithStatus:dict[@"message"] maskType:SVProgressHUDMaskTypeBlack];
                 
                 [SVProgressHUD resetOffsetFromCenter];
+                               
                 
-                //跳转
-                [weakSelf performSegueWithIdentifier:@"FLCheckVC" sender:nil];
-                
-
             });
-            
-            
             
         } failure:^(NSError *error) {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -91,7 +115,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.phoneNumTf.delegate = self;
+    self.customCountryView.phoneNum.delegate = self;
     self.pswtf.delegate = self;
     
     
@@ -191,7 +215,7 @@
     
     if (textField == self.pswtf) {
         self.psw = tempStr;
-    }else if (textField == self.phoneNumTf){
+    }else if (textField == self.customCountryView.phoneNum){
         self.phoneNum = tempStr;
     
     }

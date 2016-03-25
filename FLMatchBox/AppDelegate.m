@@ -22,15 +22,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager];
-    keyboardManager.enable = YES;
-    keyboardManager.keyboardDistanceFromTextField = 100;
-    keyboardManager.toolbarDoneBarButtonItemText = @"完成";
-    keyboardManager.shouldShowTextFieldPlaceholder = NO;
-    keyboardManager.shouldResignOnTouchOutside = YES;
-    
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    [self setUpIQKeyboard];
+    
+    //[self autoLogin];
+    
+   
     
     FLWelcomeNaviVC *navi = [[UIStoryboard storyboardWithName:@"Login" bundle:nil]instantiateInitialViewController];
     self.window.rootViewController = navi;
@@ -45,9 +44,39 @@
     return YES;
 }
 
+- (void)autoLogin
+{
+    NSUserDefaults *kdefault = [NSUserDefaults standardUserDefaults];
+    NSString *accout = [kdefault objectForKey:@"account"];
+    NSString *psw = [kdefault objectForKey:@"psw"];
+    
+    if (accout && psw) {
+        FLTabBarController *tabBarVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController];
+        self.window.rootViewController = tabBarVC;
+        
+        //登入请求
+        
+        
+        
+        
+    }else{
+        FLWelcomeNaviVC *navi = [[UIStoryboard storyboardWithName:@"Login" bundle:nil]instantiateInitialViewController];
+        self.window.rootViewController = navi;
+    }
+    
+    
+    
+    
+}
+
 - (void)setUpIQKeyboard
 {
-    
+    IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager];
+    keyboardManager.enable = YES;
+    keyboardManager.keyboardDistanceFromTextField = 100;
+    keyboardManager.toolbarDoneBarButtonItemText = @"完成";
+    keyboardManager.shouldShowTextFieldPlaceholder = NO;
+    keyboardManager.shouldResignOnTouchOutside = YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -10,4 +10,9 @@
 
 @interface FLLogin : UIView
 
+@property (weak, nonatomic) IBOutlet UITextField *phoneNum;
+@property (weak, nonatomic) IBOutlet UILabel *countryLb;
+@property (weak, nonatomic) IBOutlet UITextField *shortNum;
+@property (weak, nonatomic) IBOutlet UIButton *popBtn;
+
 @end

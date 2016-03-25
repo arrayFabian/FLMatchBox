@@ -61,7 +61,7 @@
     NSArray * img = @[@"Social_One",@"Social_Topic",@"Social_Messages",@"Social_Box",@"Social_Private"];
     NSArray * imgArr = @[@"Social_One_Select",@"Social_Topic_Select",@"Social_Messages_Select",@"Social_Box_Select",@"Social_Private_Select"];
     
-    NSMutableArray *items = [@[] mutableCopy];
+   
     for (int i = 0; i < img.count; i++) {
         UIImage *image = [[UIImage imageNamed:img[i]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
         UIImage *selectImage = [[UIImage imageNamed:imgArr[i]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

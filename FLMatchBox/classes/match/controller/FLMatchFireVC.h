@@ -1,17 +1,13 @@
 //
-//  FLRegiEditVC.h
+//  FLMatchFireVC.h
 //  FLMatchBox
 //
-//  Created by asddfg on 16/3/21.
+//  Created by asddfg on 16/3/25.
 //  Copyright © 2016年 fabian. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface FLRegiEditVC : UIViewController
-
-
-
-
+@interface FLMatchFireVC : UIViewController
 
 @end

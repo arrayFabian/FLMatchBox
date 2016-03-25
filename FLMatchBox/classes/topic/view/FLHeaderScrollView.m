@@ -36,7 +36,7 @@
         _scrollView.bounces = NO;
         
         //page
-        UIPageControl *page = [[UIPageControl alloc]initWithFrame:CGRectMake(0, self.bounds.size.height - 25, self.bounds.size.width, 20)];
+        UIPageControl *page = [[UIPageControl alloc]initWithFrame:CGRectMake(self.bounds.size.width - 100, self.bounds.size.height - 25, 100, 20)];
         _page.numberOfPages = 0;
         _page = page;
         [self addSubview:page];
