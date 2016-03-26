@@ -127,8 +127,8 @@
                                     <constraint firstAttribute="height" constant="88" id="lFU-TT-oYj"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lpO-ic-5qx">
-                                <rect key="frame" x="60" y="336" width="200" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="lpO-ic-5qx">
+                                <rect key="frame" x="60" y="334" width="200" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="MvY-Pr-vU3"/>
                                     <constraint firstAttribute="height" constant="30" id="U4S-c1-axP"/>
@@ -141,6 +141,13 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="J4g-aX-xiS"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Md-c1-pq9">
+                                <rect key="frame" x="60" y="368" width="200" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="6L6-Pa-UMa"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvc-il-Sed" customClass="CunstomButton">
@@ -162,9 +169,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lpO-ic-5qx" firstAttribute="top" secondItem="NUz-rt-Xm3" secondAttribute="bottom" constant="8" id="4gb-Hf-xWa"/>
+                            <constraint firstItem="lpO-ic-5qx" firstAttribute="top" secondItem="NUz-rt-Xm3" secondAttribute="bottom" constant="6" id="4gb-Hf-xWa"/>
                             <constraint firstItem="N7g-Sk-yac" firstAttribute="centerX" secondItem="4OF-ud-Fnx" secondAttribute="centerX" id="4gk-kx-ixc"/>
                             <constraint firstItem="4OF-ud-Fnx" firstAttribute="top" secondItem="y5f-lO-HZi" secondAttribute="bottom" constant="72" id="7h9-JM-7v4"/>
+                            <constraint firstItem="6Md-c1-pq9" firstAttribute="width" secondItem="NUz-rt-Xm3" secondAttribute="width" id="7wz-jd-P1w"/>
                             <constraint firstItem="4OF-ud-Fnx" firstAttribute="centerX" secondItem="HYb-X8-WDc" secondAttribute="centerX" id="BeF-Fp-oXT"/>
                             <constraint firstItem="qvc-il-Sed" firstAttribute="top" secondItem="NUz-rt-Xm3" secondAttribute="bottom" constant="71" id="Gjd-Pg-hTg"/>
                             <constraint firstItem="NUz-rt-Xm3" firstAttribute="centerX" secondItem="HYb-X8-WDc" secondAttribute="centerX" id="Kom-x4-tVG"/>
@@ -173,10 +181,12 @@
                             <constraint firstItem="N7g-Sk-yac" firstAttribute="top" secondItem="4OF-ud-Fnx" secondAttribute="bottom" constant="-1" id="Uav-Y7-dzC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HNj-re-5hV" secondAttribute="trailing" constant="-16" id="XE8-CU-7me"/>
                             <constraint firstItem="TD6-Ah-2fL" firstAttribute="leading" secondItem="N7g-Sk-yac" secondAttribute="trailing" constant="-78" id="YzG-Od-2mo"/>
+                            <constraint firstItem="6Md-c1-pq9" firstAttribute="top" secondItem="lpO-ic-5qx" secondAttribute="bottom" constant="4" id="ZkE-AF-ee8"/>
                             <constraint firstItem="HNj-re-5hV" firstAttribute="leading" secondItem="HYb-X8-WDc" secondAttribute="leadingMargin" constant="-16" id="ahL-0m-Hgu"/>
                             <constraint firstItem="fS2-SY-R5d" firstAttribute="top" secondItem="HNj-re-5hV" secondAttribute="bottom" id="b67-l4-eOW"/>
                             <constraint firstItem="qvc-il-Sed" firstAttribute="centerX" secondItem="NUz-rt-Xm3" secondAttribute="centerX" id="eKs-Yv-DFR"/>
                             <constraint firstItem="lpO-ic-5qx" firstAttribute="centerX" secondItem="NUz-rt-Xm3" secondAttribute="centerX" id="eQ8-Bv-a5N"/>
+                            <constraint firstItem="6Md-c1-pq9" firstAttribute="centerX" secondItem="lpO-ic-5qx" secondAttribute="centerX" id="k64-fl-OL6"/>
                             <constraint firstItem="TD6-Ah-2fL" firstAttribute="top" secondItem="N7g-Sk-yac" secondAttribute="bottom" constant="-21" id="uJP-NN-NiE"/>
                         </constraints>
                     </view>
@@ -190,7 +200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CG6-el-6F2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2051" y="1397"/>
+            <point key="canvasLocation" x="-2125" y="1179"/>
         </scene>
         <!--火柴盒服务协议-->
         <scene sceneID="ooK-6i-7yA">
@@ -415,19 +425,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3q-O1-qzO" customClass="CunstomButton">
-                                <rect key="frame" x="64" y="321" width="200" height="30"/>
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="进入火柴盒">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="btnGotoMatchboxDidClick:" destination="DoZ-Q0-UBI" eventType="touchUpInside" id="QzA-ws-dif"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入昵称" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tNZ-gE-l24">
                                 <rect key="frame" x="64" y="242" width="200" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -476,13 +473,33 @@
                                     <action selector="btnheadImgDidClick:" destination="DoZ-Q0-UBI" eventType="touchUpInside" id="2ty-jj-48d"/>
                                 </connections>
                             </button>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Yh3-hR-wMm">
+                                <rect key="frame" x="0.0" y="64" width="320" height="2"/>
+                                <color key="progressTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3q-O1-qzO" customClass="CunstomButton">
+                                <rect key="frame" x="64" y="321" width="200" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="进入火柴盒">
+                                    <color key="titleColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnGotoMatchboxDidClick:" destination="DoZ-Q0-UBI" eventType="touchUpInside" id="QzA-ws-dif"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="sxt-bD-MAV" firstAttribute="trailing" secondItem="d3V-Xp-Ki3" secondAttribute="trailing" constant="-4" id="7KO-By-Vdf"/>
+                            <constraint firstItem="Yh3-hR-wMm" firstAttribute="leading" secondItem="5Xx-D3-JhE" secondAttribute="leadingMargin" constant="-16" id="E2C-DT-IDP"/>
                             <constraint firstItem="d3V-Xp-Ki3" firstAttribute="top" secondItem="pnf-I1-8Ki" secondAttribute="bottom" constant="35" id="GSH-Pz-ho4"/>
                             <constraint firstItem="sxt-bD-MAV" firstAttribute="bottom" secondItem="d3V-Xp-Ki3" secondAttribute="bottom" constant="-1" id="KaB-zF-7zf"/>
+                            <constraint firstItem="Yh3-hR-wMm" firstAttribute="top" secondItem="pnf-I1-8Ki" secondAttribute="bottom" id="QDq-TD-MOL"/>
                             <constraint firstItem="d3V-Xp-Ki3" firstAttribute="centerX" secondItem="5Xx-D3-JhE" secondAttribute="centerX" id="Y4R-m0-PQd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Yh3-hR-wMm" secondAttribute="trailing" constant="-16" id="jNy-Tv-BDX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="编辑资料" id="0du-Ao-Nvw"/>
@@ -492,6 +509,7 @@
                         <outlet property="imgCamera" destination="sxt-bD-MAV" id="UNq-VB-n0T"/>
                         <outlet property="lbTip" destination="Bm7-7G-XDe" id="Mf9-Wh-Oy3"/>
                         <outlet property="lineView" destination="J1b-hd-YsN" id="4sb-cS-mr8"/>
+                        <outlet property="progressView" destination="Yh3-hR-wMm" id="LUl-j3-IdM"/>
                         <outlet property="tfName" destination="tNZ-gE-l24" id="KLi-SW-AcQ"/>
                         <segue destination="O5h-Am-ewW" kind="push" identifier="FLLikeTopicVC" id="ESt-bq-RXF"/>
                     </connections>
@@ -500,7 +518,7 @@
             </objects>
             <point key="canvasLocation" x="-1709" y="2148"/>
         </scene>
-        <!--Like TopicVC-->
+        <!--选择喜欢的话题-->
         <scene sceneID="DIl-fe-97M">
             <objects>
                 <viewController id="O5h-Am-ewW" customClass="FLLikeTopicVC" sceneMemberID="viewController">
@@ -518,18 +536,27 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Cs-qe-rHC">
-                                <rect key="frame" x="113" y="505" width="94" height="30"/>
-                                <state key="normal" title="完成"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Cs-qe-rHC" customClass="CunstomButton">
+                                <rect key="frame" x="79" y="518" width="155" height="30"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.25882352939999997" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="完成">
+                                    <color key="titleColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="completeGotoMainVC:" destination="O5h-Am-ewW" eventType="touchUpInside" id="syg-6y-K9x"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="TDS-oo-PjA"/>
+                    <navigationItem key="navigationItem" title="选择喜欢的话题" id="TDS-oo-PjA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6St-4d-uZL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1135" y="2182"/>
+            <point key="canvasLocation" x="-1328" y="2175"/>
         </scene>
         <!--登录-->
         <scene sceneID="iZx-Cf-hmy">
@@ -553,15 +580,13 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTl-cq-iTy" customClass="CunstomButton">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HTl-cq-iTy" customClass="CunstomButton">
                                 <rect key="frame" x="60" y="372" width="200" height="35"/>
-                                <color key="backgroundColor" red="0.20392156862745098" green="0.25490196078431371" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="3xF-1U-FzG"/>
                                 </constraints>
-                                <state key="normal" title="登入">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <state key="normal" title="登入"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -578,7 +603,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <state key="normal" title="忘记密码？"/>
                                 <connections>
-                                    <action selector="pswHelpBtnClick:" destination="RHN-UT-cxD" eventType="touchUpInside" id="cYo-iP-yJb"/>
                                     <segue destination="8NH-qh-xT0" kind="push" id="hkv-HO-FY4"/>
                                 </connections>
                             </button>
@@ -639,10 +663,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="登录" id="DkT-3B-f1N"/>
+                    <connections>
+                        <outlet property="LogInBtn" destination="HTl-cq-iTy" id="iiJ-hh-RGj"/>
+                        <outlet property="PSWtf" destination="7Zy-5s-vrb" id="rF1-sL-Hr4"/>
+                        <outlet property="customView" destination="oFU-AE-3v4" id="feY-TL-ZXT"/>
+                        <outlet property="imgView" destination="07k-k2-BdL" id="4tP-vN-1z9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bAA-05-ass" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1611" y="218"/>
+            <point key="canvasLocation" x="-1559" y="220"/>
         </scene>
         <!--忘记密码-->
         <scene sceneID="vGk-SR-KJp">

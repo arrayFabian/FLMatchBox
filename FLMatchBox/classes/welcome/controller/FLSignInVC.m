@@ -8,28 +8,32 @@
 
 #import "FLSignInVC.h"
 #import "FLSignUpVC.h"
+#import "FLLogin.h"
 
 #import "FLThreeSignInView.h"
+#import "FLLoginRespoParam.h"
+
+#import "FLHttpTool.h"
+#import <MJExtension/MJExtension.h>
+
 
 
 #define APPW [UIScreen mainScreen].bounds.size.width
 #define APPH [UIScreen mainScreen].bounds.size.height
 
-@interface FLSignInVC ()
+@interface FLSignInVC ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
-@property (weak, nonatomic) IBOutlet UIButton *chooceCountryBtn;
 
-@property (weak, nonatomic) IBOutlet UILabel *countryLabel;
-@property (weak, nonatomic) IBOutlet UITextField *shortCutTf;
-@property (weak, nonatomic) IBOutlet UITextField *photoNumTf;
 @property (weak, nonatomic) IBOutlet UITextField *PSWtf;
 
 @property (weak, nonatomic) IBOutlet UIButton *LogInBtn;
 
 @property (weak, nonatomic) IBOutlet UIButton *pswHelpBtn;
 
+@property (weak, nonatomic) IBOutlet FLLogin *customView;
 
-
+@property (copy, nonatomic) NSString *psw;
+@property (copy, nonatomic) NSString *phoneNum;
 
 
 @property (nonatomic, weak) FLThreeSignInView *threeView;
@@ -41,6 +45,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.frame = [UIScreen mainScreen].bounds;
+    
+    self.customView.phoneNum.delegate = self;
+    self.PSWtf.delegate = self;
     
    // [self setUpThreeView];
     
@@ -67,10 +74,7 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    [self.view endEditing:YES];
-}
+
 
 - (void)setUpThreeView
 {
@@ -81,13 +85,35 @@
 }
 - (IBAction)loginBtnClick:(id)sender
 {
+    //
+    NSDictionary *param = @{@"password":self.PSWtf.text,
+                             @"name":_customView.phoneNum.text };
     
-    [UIApplication sharedApplication].keyWindow.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController];
+    [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/useruserlogin",BaseUrl] param:param success:^(id responseObject) {
+        FLLog(@"%@",responseObject);
+        NSDictionary *result = responseObject;
+        if ([result[@"result"] integerValue] == 0) {
+            
+           // FLLoginRespoParam *loginRespoParam = [FLLoginRespoParam paramWithDict:result];
+            
+          
+            [UIApplication sharedApplication].keyWindow.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"FLTabBarController"];
+            
+        }else{
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"提示" message:result[@"message"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
+            [alertView show];
+            
+            
+        }
+        
+    } failure:^(NSError *error) {
+        
+        
+    }];
     
-}
+   }
 
-- (IBAction)pswHelpBtnClick:(id)sender {
-}
+
 
 - (void)dealloc
 {
@@ -95,6 +121,34 @@
 }
 
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    
+    NSString *tempStr = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    if (textField == self.PSWtf) {
+        self.psw = tempStr;
+    }else if (textField == self.customView.phoneNum){
+        self.phoneNum = tempStr;
+        
+    }
+    
+    
+    if (self.psw.length >= 6 && self.phoneNum.length == 11) {
+        
+        self.LogInBtn.enabled = YES;
+        self.LogInBtn.backgroundColor = [UIColor colorWithRed:66/255.0 green:83/255.0 blue:86/255.0 alpha:1];
+        
+        
+    }else{
+        self.LogInBtn.enabled = NO;
+        self.LogInBtn.backgroundColor = [UIColor colorWithRed:196/255.0 green:204/255.0 blue:203/255.0 alpha:1];
+        
+    }
+    
+    
+    return YES;
+}
 /*
 #pragma mark - Navigation
 

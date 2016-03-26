@@ -24,6 +24,7 @@
 		933633E11CA4EAE3008A7ADE /* FLPostCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633E01CA4EAE3008A7ADE /* FLPostCellModel.m */; };
 		933633EF1CA55B7D008A7ADE /* FLAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633EE1CA55B7D008A7ADE /* FLAccount.m */; };
 		933633F21CA55FD1008A7ADE /* FLAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633F11CA55FD1008A7ADE /* FLAccountTool.m */; };
+		933633F51CA6730B008A7ADE /* FLLoginRespoParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633F41CA6730B008A7ADE /* FLLoginRespoParam.m */; };
 		937F29351C96B4D200912C98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F29341C96B4D200912C98 /* main.m */; };
 		937F29381C96B4D200912C98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F29371C96B4D200912C98 /* AppDelegate.m */; };
 		937F293E1C96B4D200912C98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937F293C1C96B4D200912C98 /* Main.storyboard */; };
@@ -1281,6 +1282,8 @@
 		933633EE1CA55B7D008A7ADE /* FLAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAccount.m; sourceTree = "<group>"; };
 		933633F01CA55FD1008A7ADE /* FLAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAccountTool.h; sourceTree = "<group>"; };
 		933633F11CA55FD1008A7ADE /* FLAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAccountTool.m; sourceTree = "<group>"; };
+		933633F31CA6730B008A7ADE /* FLLoginRespoParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLLoginRespoParam.h; sourceTree = "<group>"; };
+		933633F41CA6730B008A7ADE /* FLLoginRespoParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLLoginRespoParam.m; sourceTree = "<group>"; };
 		937F29301C96B4D200912C98 /* FLMatchBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLMatchBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		937F29341C96B4D200912C98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		937F29361C96B4D200912C98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -4159,6 +4162,8 @@
 		93A18F4E1C9AA45D00F46544 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				933633F31CA6730B008A7ADE /* FLLoginRespoParam.h */,
+				933633F41CA6730B008A7ADE /* FLLoginRespoParam.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -5616,6 +5621,7 @@
 				937F30ED1C9922B600912C98 /* FLThreeSignInView.m in Sources */,
 				937F31021C99644D00912C98 /* UIBarButtonItem+Item.m in Sources */,
 				93A6B51C1CA1056300771D47 /* CustomImageView.m in Sources */,
+				933633F51CA6730B008A7ADE /* FLLoginRespoParam.m in Sources */,
 				93A6B51E1CA1056300771D47 /* KSegement.m in Sources */,
 				933633C31CA3C5A2008A7ADE /* FLPreSetupTopicVC.m in Sources */,
 				937F31011C99644D00912C98 /* NSDate+MJ.m in Sources */,

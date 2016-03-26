@@ -52,6 +52,43 @@
 
 }
 
++ (void)uploadWithImage:(UIImage *)image url:(NSString *)url filename:(NSString *)filename name:(NSString *)name  mimeType:(NSString *)mimeType params:(NSDictionary *)param progress:(void (^)(NSProgress *uploadProgress))progress success:(void (^)(id))success failure:(void (^)(NSError *error))failure
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json",
+                                                                              @"text/html",
+                                                                              @"text/json",
+                                                                              @"text/plain",
+                                                                              @"text/javascript",
+                                                                              @"text/xml",
+                                                                              @"image/*"]];
+    
+    [manager POST:url  parameters:param constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        
+        NSData *imageData = UIImageJPEGRepresentation(image, 0.5);
+        
+        [formData appendPartWithFileData:imageData name:name fileName:filename mimeType:mimeType];
+        
+        
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
+        if (progress) {
+            progress(uploadProgress);
+        }
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        if (success) {
+            success(responseObject);
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        if (failure) {
+            failure(error);
+        }
+        
+    }];
+
+}
 
 
 @end

@@ -22,9 +22,11 @@
     
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    [self.view endEditing:YES];
+- (IBAction)completeGotoMainVC:(id)sender {
+    
+    FLKeyWindow.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"FLTabBarController"];
+    
 }
+
 
 @end

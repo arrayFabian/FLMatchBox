@@ -34,7 +34,7 @@
     FLWelcomeNaviVC *navi = [[UIStoryboard storyboardWithName:@"Login" bundle:nil]instantiateInitialViewController];
     self.window.rootViewController = navi;
     
-//    FLTabBarController *tabBarVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController];
+//    FLTabBarController *tabBarVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"FLTabBarController"];
 //     self.window.rootViewController = tabBarVC;
     
     [self.window makeKeyAndVisible];
@@ -51,7 +51,7 @@
     NSString *psw = [kdefault objectForKey:@"psw"];
     
     if (accout && psw) {
-        FLTabBarController *tabBarVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateInitialViewController];
+        FLTabBarController *tabBarVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"FLTabBarController"];
         self.window.rootViewController = tabBarVC;
         
         //登入请求
