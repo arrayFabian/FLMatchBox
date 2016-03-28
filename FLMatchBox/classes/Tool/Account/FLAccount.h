@@ -21,7 +21,7 @@
 /**
  *  登录手机号
  */
-@property (nonatomic, assign) NSString *name;
+@property (nonatomic, copy) NSString *name;
 
 + (instancetype)accountWithDict:(NSDictionary *)dict;
 

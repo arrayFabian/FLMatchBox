@@ -24,7 +24,6 @@
 		933633E11CA4EAE3008A7ADE /* FLPostCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633E01CA4EAE3008A7ADE /* FLPostCellModel.m */; };
 		933633EF1CA55B7D008A7ADE /* FLAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633EE1CA55B7D008A7ADE /* FLAccount.m */; };
 		933633F21CA55FD1008A7ADE /* FLAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633F11CA55FD1008A7ADE /* FLAccountTool.m */; };
-		933633F51CA6730B008A7ADE /* FLLoginRespoParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633F41CA6730B008A7ADE /* FLLoginRespoParam.m */; };
 		937F29351C96B4D200912C98 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F29341C96B4D200912C98 /* main.m */; };
 		937F29381C96B4D200912C98 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F29371C96B4D200912C98 /* AppDelegate.m */; };
 		937F293E1C96B4D200912C98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 937F293C1C96B4D200912C98 /* Main.storyboard */; };
@@ -1248,7 +1247,10 @@
 		93A6B5271CA123CA00771D47 /* FLRegiServerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A6B5261CA123CA00771D47 /* FLRegiServerVC.m */; };
 		93A6B52F1CA12BDB00771D47 /* FLHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A6B52E1CA12BDB00771D47 /* FLHttpTool.m */; };
 		93A6B5311CA13B5900771D47 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A6B5301CA13B5900771D47 /* Foundation+Log.m */; };
-		93A6B5341CA1798100771D47 /* FLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A6B5331CA1798100771D47 /* FLUser.m */; };
+		93FBBB8A1CA91FAA003293DF /* UIViewController+FLMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 93FBBB891CA91FAA003293DF /* UIViewController+FLMethod.m */; };
+		93FBBB8D1CA92148003293DF /* FLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 93FBBB8C1CA92148003293DF /* FLUser.m */; };
+		93FBBB901CA93048003293DF /* FLSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = 93FBBB8F1CA93048003293DF /* FLSetting.m */; };
+		93FBBB931CA9307F003293DF /* FLSelfDataVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93FBBB921CA9307F003293DF /* FLSelfDataVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1282,8 +1284,6 @@
 		933633EE1CA55B7D008A7ADE /* FLAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAccount.m; sourceTree = "<group>"; };
 		933633F01CA55FD1008A7ADE /* FLAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAccountTool.h; sourceTree = "<group>"; };
 		933633F11CA55FD1008A7ADE /* FLAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAccountTool.m; sourceTree = "<group>"; };
-		933633F31CA6730B008A7ADE /* FLLoginRespoParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLLoginRespoParam.h; sourceTree = "<group>"; };
-		933633F41CA6730B008A7ADE /* FLLoginRespoParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLLoginRespoParam.m; sourceTree = "<group>"; };
 		937F29301C96B4D200912C98 /* FLMatchBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FLMatchBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		937F29341C96B4D200912C98 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		937F29361C96B4D200912C98 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -2545,8 +2545,14 @@
 		93A6B52D1CA12BDB00771D47 /* FLHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLHttpTool.h; sourceTree = "<group>"; };
 		93A6B52E1CA12BDB00771D47 /* FLHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLHttpTool.m; sourceTree = "<group>"; };
 		93A6B5301CA13B5900771D47 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
-		93A6B5321CA1798100771D47 /* FLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLUser.h; sourceTree = "<group>"; };
-		93A6B5331CA1798100771D47 /* FLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLUser.m; sourceTree = "<group>"; };
+		93FBBB881CA91FAA003293DF /* UIViewController+FLMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+FLMethod.h"; sourceTree = "<group>"; };
+		93FBBB891CA91FAA003293DF /* UIViewController+FLMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+FLMethod.m"; sourceTree = "<group>"; };
+		93FBBB8B1CA92148003293DF /* FLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLUser.h; sourceTree = "<group>"; };
+		93FBBB8C1CA92148003293DF /* FLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLUser.m; sourceTree = "<group>"; };
+		93FBBB8E1CA93048003293DF /* FLSetting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSetting.h; sourceTree = "<group>"; };
+		93FBBB8F1CA93048003293DF /* FLSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSetting.m; sourceTree = "<group>"; };
+		93FBBB911CA9307F003293DF /* FLSelfDataVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSelfDataVC.h; sourceTree = "<group>"; };
+		93FBBB921CA9307F003293DF /* FLSelfDataVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSelfDataVC.m; sourceTree = "<group>"; };
 		DAAC856B886DD318D5DF7070 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F7FE822C509CE2A677D7E956 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2795,6 +2801,10 @@
 			children = (
 				93A18F641C9E7F3E00F46544 /* FLProfileVC.h */,
 				93A18F651C9E7F3E00F46544 /* FLProfileVC.m */,
+				93FBBB8E1CA93048003293DF /* FLSetting.h */,
+				93FBBB8F1CA93048003293DF /* FLSetting.m */,
+				93FBBB911CA9307F003293DF /* FLSelfDataVC.h */,
+				93FBBB921CA9307F003293DF /* FLSelfDataVC.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -2909,6 +2919,8 @@
 				937F30FE1C99644D00912C98 /* UIImage+FLImage.m */,
 				937F30FF1C99644D00912C98 /* UIView+FLFrame.h */,
 				937F31001C99644D00912C98 /* UIView+FLFrame.m */,
+				93FBBB881CA91FAA003293DF /* UIViewController+FLMethod.h */,
+				93FBBB891CA91FAA003293DF /* UIViewController+FLMethod.m */,
 			);
 			path = "category ";
 			sourceTree = "<group>";
@@ -4162,8 +4174,8 @@
 		93A18F4E1C9AA45D00F46544 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				933633F31CA6730B008A7ADE /* FLLoginRespoParam.h */,
-				933633F41CA6730B008A7ADE /* FLLoginRespoParam.m */,
+				93FBBB8B1CA92148003293DF /* FLUser.h */,
+				93FBBB8C1CA92148003293DF /* FLUser.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -4215,8 +4227,6 @@
 		93A18F521C9AA45D00F46544 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				93A6B5321CA1798100771D47 /* FLUser.h */,
-				93A6B5331CA1798100771D47 /* FLUser.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -5592,6 +5602,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93FBBB8A1CA91FAA003293DF /* UIViewController+FLMethod.m in Sources */,
 				933633CD1CA3CC53008A7ADE /* FLTopicCell.m in Sources */,
 				93A18F691C9E7F4D00F46544 /* FLTopicVC.m in Sources */,
 				93A6B5311CA13B5900771D47 /* Foundation+Log.m in Sources */,
@@ -5599,6 +5610,7 @@
 				937F29711C96BC1000912C98 /* FLWelcomeViewController.m in Sources */,
 				933633E11CA4EAE3008A7ADE /* FLPostCellModel.m in Sources */,
 				93A6B4D31C9FFAD100771D47 /* FLForgetPSWVC.m in Sources */,
+				93FBBB931CA9307F003293DF /* FLSelfDataVC.m in Sources */,
 				93A6B51B1CA1056300771D47 /* CunstomButton.m in Sources */,
 				93A6B4DC1C9FFB5900771D47 /* FLRegiPSWVC.m in Sources */,
 				933633EF1CA55B7D008A7ADE /* FLAccount.m in Sources */,
@@ -5615,13 +5627,12 @@
 				937F29381C96B4D200912C98 /* AppDelegate.m in Sources */,
 				933633BD1CA3C553008A7ADE /* FLSetupTopicVC.m in Sources */,
 				93A6B4D91C9FFB3E00771D47 /* FLRegiCheckVC.m in Sources */,
+				93FBBB8D1CA92148003293DF /* FLUser.m in Sources */,
 				93A18F601C9E7F1E00F46544 /* FLBoxVC.m in Sources */,
-				93A6B5341CA1798100771D47 /* FLUser.m in Sources */,
 				93A6B52F1CA12BDB00771D47 /* FLHttpTool.m in Sources */,
 				937F30ED1C9922B600912C98 /* FLThreeSignInView.m in Sources */,
 				937F31021C99644D00912C98 /* UIBarButtonItem+Item.m in Sources */,
 				93A6B51C1CA1056300771D47 /* CustomImageView.m in Sources */,
-				933633F51CA6730B008A7ADE /* FLLoginRespoParam.m in Sources */,
 				93A6B51E1CA1056300771D47 /* KSegement.m in Sources */,
 				933633C31CA3C5A2008A7ADE /* FLPreSetupTopicVC.m in Sources */,
 				937F31011C99644D00912C98 /* NSDate+MJ.m in Sources */,
@@ -5641,6 +5652,7 @@
 				937F30D51C97EAAF00912C98 /* FLSignUpVC.m in Sources */,
 				937F31071C996FDB00912C98 /* FLLogin.m in Sources */,
 				93A6B4E21C9FFB9800771D47 /* FLLikeTopicVC.m in Sources */,
+				93FBBB901CA93048003293DF /* FLSetting.m in Sources */,
 				93A6B4D61C9FFAEB00771D47 /* FLCheckVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

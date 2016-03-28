@@ -1,14 +1,14 @@
 //
-//  FLLoginRespoParam.h
+//  FLUser.h
 //  FLMatchBox
 //
-//  Created by asddfg on 16/3/26.
+//  Created by asddfg on 16/3/28.
 //  Copyright © 2016年 fabian. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface FLLoginRespoParam : NSObject
+@interface FLUser : NSObject
 
 @property (nonatomic, copy) NSString *result;
 
@@ -24,6 +24,8 @@
 
 @property (nonatomic, copy) NSString *url;
 
-+ (instancetype)paramWithDict:(NSDictionary *)dict;
++ (instancetype)userparamWithDict:(NSDictionary *)dict;
+
+- (instancetype)initWithDict:(NSDictionary *)dict;
 
 @end

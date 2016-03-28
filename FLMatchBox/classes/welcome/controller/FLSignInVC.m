@@ -11,11 +11,15 @@
 #import "FLLogin.h"
 
 #import "FLThreeSignInView.h"
-#import "FLLoginRespoParam.h"
+
 
 #import "FLHttpTool.h"
 #import <MJExtension/MJExtension.h>
 
+
+#import "FLUser.h"
+#import "FLAccount.h"
+#import "FLAccountTool.h"
 
 
 #define APPW [UIScreen mainScreen].bounds.size.width
@@ -89,15 +93,37 @@
     NSDictionary *param = @{@"password":self.PSWtf.text,
                              @"name":_customView.phoneNum.text };
     
+    
+    __weak __typeof(&*self) weakSelf = self;
     [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/useruserlogin",BaseUrl] param:param success:^(id responseObject) {
         FLLog(@"%@",responseObject);
         NSDictionary *result = responseObject;
         if ([result[@"result"] integerValue] == 0) {
             
-           // FLLoginRespoParam *loginRespoParam = [FLLoginRespoParam paramWithDict:result];
+            NSDictionary *accountDict = @{@"password":self.PSWtf.text,
+                                      @"name":_customView.phoneNum.text,
+                                      @"userId":result[@"userId"]};
+            FLAccount *account = [FLAccount accountWithDict:accountDict];
+            [FLAccountTool saveAccount:account];
             
+            
+             // 登录成功后拿到的数据不全 利用userId重新请求
+            
+            [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/usergetUserInfoById",BaseUrl] param:@{@"userId":result[@"userId"]} success:^(id responseObject) {
+                
+                NSDictionary *dict = responseObject;
+                FLUser *user = [FLUser mj_objectWithKeyValues:dict];
+                [FLAccountTool saveUser:user];
+                
+                
+                 [UIApplication sharedApplication].keyWindow.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"FLTabBarController"];
+                
+            } failure:^(NSError *error) {
+                
+                
+            }];
           
-            [UIApplication sharedApplication].keyWindow.rootViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"FLTabBarController"];
+           
             
         }else{
             UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"提示" message:result[@"message"] delegate:self cancelButtonTitle:@"确定" otherButtonTitles: nil];
@@ -108,10 +134,10 @@
         
     } failure:^(NSError *error) {
         
-        
+        [self sentAlert:@"请求失败" detail:@"请检查网络"];
     }];
     
-   }
+}
 
 
 

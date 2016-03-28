@@ -11,7 +11,14 @@
 #import "FLWelcomeNaviVC.h"
 #import "FLTabBarController.h"
 
+#import "FLAccountTool.h"
+#import "FLAccount.h"
+#import "FLUser.h"
+
+#import "FLHttpTool.h"
+
 #import <IQKeyboardManager/IQKeyboardManager.h>
+#import <MJExtension.h>
 
 @interface AppDelegate ()
 
@@ -24,38 +31,76 @@
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     
     [self setUpIQKeyboard];
     
-    //[self autoLogin];
+    [self autoLogin];
     
    
     
-    FLWelcomeNaviVC *navi = [[UIStoryboard storyboardWithName:@"Login" bundle:nil]instantiateInitialViewController];
-    self.window.rootViewController = navi;
     
-//    FLTabBarController *tabBarVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"FLTabBarController"];
-//     self.window.rootViewController = tabBarVC;
-    
-    [self.window makeKeyAndVisible];
+   
     
 
     
     return YES;
 }
 
+
+
 - (void)autoLogin
 {
-    NSUserDefaults *kdefault = [NSUserDefaults standardUserDefaults];
-    NSString *accout = [kdefault objectForKey:@"account"];
-    NSString *psw = [kdefault objectForKey:@"psw"];
+    FLAccount *account = [FLAccountTool account];
     
-    if (accout && psw) {
+    if (account.password && account.name) {
+        
         FLTabBarController *tabBarVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"FLTabBarController"];
         self.window.rootViewController = tabBarVC;
         
         //登入请求
+     
+        NSDictionary *param = @{@"password":account.password,
+                                @"name":account.name };
         
+        
+        [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/useruserlogin",BaseUrl] param:param success:^(id responseObject) {
+          
+            NSDictionary *result = responseObject;
+            if ([result[@"result"] integerValue] == 0) {
+                
+                NSDictionary *accountDict = @{@"password":account.password,
+                                              @"name":account.name,
+                                              @"userId":result[@"userId"]};
+                FLAccount *account = [FLAccount accountWithDict:accountDict];
+                [FLAccountTool saveAccount:account];
+                
+                
+                // 登录成功后拿到的数据不全 利用userId重新请求
+                
+                [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/usergetUserInfoById",BaseUrl] param:@{@"userId":result[@"userId"]} success:^(id responseObject) {
+                    
+                    NSDictionary *dict = responseObject;
+                    FLUser *user = [FLUser mj_objectWithKeyValues:dict];
+                    [FLAccountTool saveUser:user];
+                    
+                    
+                 
+                    
+                } failure:^(NSError *error) {
+                    
+                    
+                }];
+                
+                
+                
+            }
+            
+            
+        } failure:^(NSError *error) {
+            
+           
+        }];
         
         
         
