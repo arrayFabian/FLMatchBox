@@ -10,22 +10,26 @@
 
 @interface FLUser : NSObject
 
+
 @property (nonatomic, copy) NSString *result;
 
 @property (nonatomic, assign) NSInteger userId;
 
-@property (nonatomic, copy) NSString *myInfo;
+@property (nonatomic, copy) NSString *userName;
 
-@property (nonatomic, copy) NSString *message;
-
-@property (nonatomic, copy) NSString *username;
-
-@property (nonatomic, copy) NSString *sex;
+@property (nonatomic, copy) NSString *fansCount;
 
 @property (nonatomic, copy) NSString *url;
 
-+ (instancetype)userparamWithDict:(NSDictionary *)dict;
+@property (nonatomic, copy) NSString *myInfo;
 
-- (instancetype)initWithDict:(NSDictionary *)dict;
+@property (nonatomic, copy) NSString *sex;
+
+@property (nonatomic, copy) NSString *name;
+
+@property (nonatomic, copy) NSString *myActionCount;
+
+
+
 
 @end

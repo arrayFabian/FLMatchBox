@@ -86,11 +86,11 @@
     
     NSString *headImgUrl = [NSString stringWithFormat:@"%@/Matchbox%@",BaseUrl,user.url];
     [self.imgHeadView sd_setImageWithURL:[NSURL URLWithString:headImgUrl] placeholderImage:[UIImage imageNamed:@"d1.JPG"]];
-    self.lbName.text = user.username;
+    self.lbName.text = user.userName;
     self.lbIntroduce.text = user.myInfo;
-    
-    
-    
+    self.lbUserId.text = [NSString stringWithFormat:@"ID:%ld",user.userId];
+    [self.btnFollow setTitle:[NSString stringWithFormat:@"%ld 关注",[user.myActionCount integerValue]] forState:UIControlStateNormal];
+    [self.btnFans setTitle:[NSString stringWithFormat:@"%ld 粉丝",[user.fansCount integerValue]] forState:UIControlStateNormal];
     
 }
 

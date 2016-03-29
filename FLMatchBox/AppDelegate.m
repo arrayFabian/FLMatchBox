@@ -14,11 +14,14 @@
 #import "FLAccountTool.h"
 #import "FLAccount.h"
 #import "FLUser.h"
+#import "FLLoginResponseModel.h"
 
 #import "FLHttpTool.h"
 
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import <MJExtension.h>
+
+#import "Reachability.h"
 
 @interface AppDelegate ()
 
@@ -38,7 +41,7 @@
     [self autoLogin];
     
    
-    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
     
    
     
@@ -47,6 +50,22 @@
     return YES;
 }
 
+//- (void)reachabilityChanged:(NSNotification *)note
+//{
+//    Reachability *curReach = [note object];
+//    
+//    NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
+//    [self setupInterfaceWithReachability:curReach];
+//    
+//}
+//
+//- (void)setupInterfaceWithReachability:(Reachability *)curReach
+//{
+//    NetworkStatus status = [curReach currentReachabilityStatus];
+//    if (status == NotReachable) {
+//       
+//    }
+//}
 
 
 - (void)autoLogin
@@ -67,7 +86,9 @@
         [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/useruserlogin",BaseUrl] param:param success:^(id responseObject) {
           
             NSDictionary *result = responseObject;
-            if ([result[@"result"] integerValue] == 0) {
+            if ([result[@"result"] integerValue] == 0) {//登入成功返回模型
+                
+                //FLLoginResponseModel *loginResposeModel = [FLLoginResponseModel mj_objectWithKeyValues:result];
                 
                 NSDictionary *accountDict = @{@"password":account.password,
                                               @"name":account.name,
@@ -78,7 +99,7 @@
                 
                 // 登录成功后拿到的数据不全 利用userId重新请求
                 
-                [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/usergetUserInfoById",BaseUrl] param:@{@"userId":result[@"userId"]} success:^(id responseObject) {
+                [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/usergetUserInfoById",BaseUrl] param:@{@"userId":result[@"userId"]} success:^(id responseObject) {//个人数据模型
                     
                     NSDictionary *dict = responseObject;
                     FLUser *user = [FLUser mj_objectWithKeyValues:dict];

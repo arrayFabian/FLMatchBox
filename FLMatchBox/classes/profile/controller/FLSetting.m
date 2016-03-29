@@ -10,6 +10,14 @@
 
 @interface FLSetting ()
 
+@property (weak, nonatomic) IBOutlet UILabel *lbTextFont;
+@property (weak, nonatomic) IBOutlet UILabel *lbCache;
+
+@property (weak, nonatomic) IBOutlet UILabel *lbVersion;
+
+
+
+
 @end
 
 @implementation FLSetting

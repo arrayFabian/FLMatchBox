@@ -9,7 +9,7 @@
         <!--Welcome NaviVC-->
         <scene sceneID="wtf-jI-sTf">
             <objects>
-                <navigationController id="M2W-N3-PgV" customClass="FLWelcomeNaviVC" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FLWelcomeNaviVC" id="M2W-N3-PgV" customClass="FLWelcomeNaviVC" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="He3-0i-cMK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -1,19 +1,14 @@
 //
-//  FLUser.m
+//  FLLoginResponseModel.m
 //  FLMatchBox
 //
-//  Created by asddfg on 16/3/28.
+//  Created by asddfg on 16/3/29.
 //  Copyright © 2016年 fabian. All rights reserved.
 //
 
-#import "FLUser.h"
-
+#import "FLLoginResponseModel.h"
 #import <MJExtension/MJExtension.h>
-
-@implementation FLUser
+@implementation FLLoginResponseModel
 MJExtensionCodingImplementation
-
-
-
 
 @end
