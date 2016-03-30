@@ -18,3 +18,5 @@ pod 'HYBNetworking', '~> 2.0.1'
 
 pod 'MMPopupView', '~> 1.7'
 
+pod 'MBProgressHUD', '~> 0.9.2'
+

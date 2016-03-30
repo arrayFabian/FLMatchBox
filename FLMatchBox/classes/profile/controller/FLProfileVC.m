@@ -28,7 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnFans;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnCollect;
-@property (weak, nonatomic) IBOutlet UILabel *lbIntroduce;
+@property (weak, nonatomic) IBOutlet UIButton *btnIntroduce;
 
 @property (nonatomic, strong)NSMutableArray *topics;
 @property (nonatomic, strong)NSMutableArray *posts;
@@ -49,6 +49,14 @@
     
     
 }
+- (IBAction)btnIntroDIdClick:(id)sender {
+}
+- (IBAction)btnFollowDidClick:(id)sender {
+}
+- (IBAction)btnFansDidClick:(id)sender {
+}
+- (IBAction)btnColletDidClick:(id)sender {
+}
 
 
 - (void)viewWillAppear:(BOOL)animated
@@ -59,6 +67,9 @@
     
     
 }
+
+
+
 - (IBAction)tapGesture:(UITapGestureRecognizer *)sender
 {
     UIImageView *tapView = (UIImageView *)sender.view;
@@ -87,7 +98,13 @@
     NSString *headImgUrl = [NSString stringWithFormat:@"%@/Matchbox%@",BaseUrl,user.url];
     [self.imgHeadView sd_setImageWithURL:[NSURL URLWithString:headImgUrl] placeholderImage:[UIImage imageNamed:@"d1.JPG"]];
     self.lbName.text = user.userName;
-    self.lbIntroduce.text = user.myInfo;
+    
+    if ([user.myInfo isEqualToString:@""]) {
+        [self.btnIntroduce setTitle:@"点此处设置签名" forState:UIControlStateNormal];
+    }else{
+         [self.btnIntroduce setTitle:user.myInfo forState:UIControlStateNormal];
+    }
+   
     self.lbUserId.text = [NSString stringWithFormat:@"ID:%ld",user.userId];
     [self.btnFollow setTitle:[NSString stringWithFormat:@"%ld 关注",[user.myActionCount integerValue]] forState:UIControlStateNormal];
     [self.btnFans setTitle:[NSString stringWithFormat:@"%ld 粉丝",[user.fansCount integerValue]] forState:UIControlStateNormal];

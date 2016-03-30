@@ -24,7 +24,21 @@
 {
     [self.view endEditing:YES];
     
-    self.textViewIntro.delegate = self;
+    [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/MMatchbox/userupdate",BaseUrl] param:@{@"user.id":@(_user.userId),@"user.myInfo":self.textViewIntro.text} success:^(id responseObject) {
+        if ([responseObject[@"result"] integerValue] == 0) {
+            
+            _user.myInfo = self.textViewIntro.text;
+            [FLAccountTool saveUser:_user];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        }
+        
+        
+    } failure:^(NSError *error) {
+        
+        
+    }];
     
     
 }
@@ -32,14 +46,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
  
-
+    self.textViewIntro.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    [self.textViewIntro becomeFirstResponder];
+   
     FLUser *user = [FLAccountTool user];
     _user = user;
     
@@ -47,6 +61,13 @@
     self.lbTextNum.text = [NSString stringWithFormat:@"%ld",30-self.textViewIntro.text.length];
     
     
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [self.textViewIntro becomeFirstResponder];
 }
 
 #pragma mark- textview delegate

@@ -19,10 +19,14 @@
 #import "FLHttpTool.h"
 
 @interface FLTopicVC ()<UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *kupdatetableView;
 
 @property (weak, nonatomic) IBOutlet UITableView *ktableView;
 @property (weak, nonatomic) IBOutlet UITableView *knewtableView;
 @property (weak, nonatomic) IBOutlet UIView *chooseBtnView;
+@property (weak, nonatomic) IBOutlet UIButton *btnTopicNew;
+@property (weak, nonatomic) IBOutlet UIButton *btnTopicUpdate;
+@property (weak, nonatomic) IBOutlet UILabel *lbMoveLine;
 
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segment;
@@ -36,7 +40,10 @@
 @property (nonatomic, strong) NSMutableArray *knewArr;
 @property (nonatomic, assign) NSUInteger knewIndex;
 
-@property (nonatomic, assign) NSUInteger isNewTopicFirstChoose;
+@property (nonatomic, strong) NSMutableArray *kupdateArr;
+@property (nonatomic, assign) NSUInteger kupdateIndex;
+
+
 
 
 @end
@@ -45,16 +52,16 @@
 - (IBAction)segmentValueChange:(id)sender
 {
     if (self.segment.selectedSegmentIndex == 1 ) {
-
-        if (self.isNewTopicFirstChoose) {
-            self.isNewTopicFirstChoose = NO;
-            [self.knewtableView.mj_header beginRefreshing];
-            [self.knewtableView reloadData];
-        }
-        [self.view bringSubviewToFront:self.knewtableView];
-        [self.view bringSubviewToFront:self.chooseBtnView];
-       
         
+        if (self.btnTopicNew.selected) {
+            [self.view bringSubviewToFront:self.knewtableView];
+        }else{
+            [self.view bringSubviewToFront:self.kupdatetableView];
+        }
+        
+        [self.view bringSubviewToFront:self.chooseBtnView];
+        
+
     }else{
         [self.view bringSubviewToFront:self.ktableView];
         
@@ -64,6 +71,27 @@
     
     
 }
+
+- (IBAction)btnTopicNewClick:(id)sender
+{
+    self.btnTopicNew.selected = YES;
+    self.btnTopicUpdate.selected = NO;
+    self.lbMoveLine.transform = CGAffineTransformIdentity;
+   
+    [self.view bringSubviewToFront:self.knewtableView];
+
+    
+    
+}
+- (IBAction)btnTopicUpdateClick:(id)sender
+{
+    self.btnTopicNew.selected = NO;
+    self.btnTopicUpdate.selected = YES;
+    self.lbMoveLine.transform = CGAffineTransformMakeTranslation(self.lbMoveLine.width, 0);
+    [self.view bringSubviewToFront:self.kupdatetableView];
+}
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -77,7 +105,7 @@
     
     [self setUpRefresh];
     
-    [self.ktableView reloadData];
+    
     
 }
 
@@ -87,6 +115,7 @@
     //数据处理：  下拉清空之前数据，把新得到的数据赋给数组； 上啦加载将请求到的数据添加进数组
     __weak __typeof(&*self) weakSelf = self;
     
+    //ktableView
     self.ktableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
         _foundIndex = 1;
@@ -94,7 +123,15 @@
         
     }];
     
+    self.ktableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        
+        _foundIndex++;
+        [weakSelf loadFoundData];
+        
+    }];
+
     
+    //knewtableView
     MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
         _knewIndex = 1;
         [weakSelf loadNewData];
@@ -111,18 +148,6 @@
     
     self.knewtableView.mj_header = header;
     
-    //第一次自动创新
-    [self.ktableView.mj_header beginRefreshing];
-   
-    
-    self.ktableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        
-        _foundIndex++;
-        [weakSelf loadFoundData];
-        
-    }];
-    
-    
     MJRefreshBackGifFooter *footer = [MJRefreshBackGifFooter footerWithRefreshingBlock:^{
         _knewIndex++;
         [weakSelf loadNewData];
@@ -130,6 +155,28 @@
     }];
     [footer setImages:imagesArr forState:MJRefreshStateRefreshing];
     self.knewtableView.mj_footer = footer;
+    
+    
+    //kupdatetableView
+    self.kupdatetableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        _kupdateIndex = 1;
+        [weakSelf loadUpdateData];
+        
+    }];
+    
+    self.kupdatetableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        
+        _kupdateIndex++;
+        [weakSelf loadUpdateData];
+        
+    }];
+
+    //第一次自动创新
+    [self.ktableView.mj_header beginRefreshing];
+     [self.knewtableView.mj_header beginRefreshing];
+     [self.kupdatetableView.mj_header beginRefreshing];
+    
 
 }
 
@@ -147,6 +194,9 @@
     self.ktableView.tableHeaderView = scrollView;
    
     
+    self.btnTopicNew.selected = YES;
+    self.btnTopicUpdate.selected = NO;
+    
 }
 
 - (void)initData
@@ -157,8 +207,8 @@
     _knewIndex = 1;
     _knewArr = [@[] mutableCopy];
     
-    _isNewTopicFirstChoose = YES;
-    
+    _kupdateArr = [@[] mutableCopy];
+    _kupdateIndex = 1;
    
 }
 
@@ -258,6 +308,52 @@
     
 }
 
+//kupdatetableView
+- (void)loadUpdateData
+{
+    NSDictionary *param = @{@"userId":@1,
+                            @"pageModel.pageSize":@20,
+                            @"pageModel.pageIndex":@(_kupdateIndex)};
+    
+    NSString *urlstring = [NSString stringWithFormat:@"%@/Matchbox/usergetTopicListNew",BaseUrl];
+    
+    __weak __typeof(&*self) weakSelf = self;
+    [FLHttpTool postWithUrlString:urlstring param:param success:^(id responseObject) {
+        
+        NSDictionary *dict = (NSDictionary *)responseObject;
+        if ([dict[@"result"] integerValue] == 0) {
+            NSArray *arr = dict[@"list"];
+            if (arr.count == 0) {
+                [weakSelf.kupdatetableView.mj_footer endRefreshingWithNoMoreData];
+                
+            }else{
+                if (_kupdateIndex == 1) {
+                    [_kupdateArr removeAllObjects];
+                }
+                
+                NSArray *modelArr = [FLTopicModel mj_objectArrayWithKeyValuesArray:arr];
+                [_kupdateArr addObjectsFromArray:modelArr];
+               
+                
+                [weakSelf.kupdatetableView reloadData];
+                
+            }
+            
+        }
+        [self.kupdatetableView.mj_header endRefreshing];
+        [self.kupdatetableView.mj_footer endRefreshing];
+        
+    } failure:^(NSError *error) {
+        [self.kupdatetableView.mj_header endRefreshing];
+        [self.kupdatetableView.mj_footer endRefreshing];
+        
+    }];
+    
+    
+}
+
+
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -298,7 +394,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return self.segment.selectedSegmentIndex == 0 ? self.fountArr.count : self.knewArr.count;
+    if (tableView == self.ktableView) {
+        return self.fountArr.count;
+    }else if (tableView == self.knewtableView){
+        return self.knewArr.count;
+    }
+    
+   return self.kupdateArr.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -306,8 +408,15 @@
     FLTopicCell *cell = [FLTopicCell cellWithTableView:tableView];
     
     
-    FLTopicModel *topicModel = self.segment.selectedSegmentIndex == 0 ? self.fountArr[indexPath.row]:self.knewArr[indexPath.row];
-    
+    FLTopicModel *topicModel;
+    if (tableView == self.ktableView) {
+        topicModel = self.fountArr[indexPath.row];
+    }else if (tableView == self.knewtableView){
+         topicModel = self.knewArr[indexPath.row];
+    }else if (tableView == self.kupdatetableView){
+         topicModel = self.kupdateArr[indexPath.row];
+    }
+
     cell.topicModel = topicModel;
     return cell;
 }

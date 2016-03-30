@@ -25,6 +25,9 @@
 
 @interface AppDelegate ()
 
+
+@property (nonatomic, strong) Reachability *reach;
+
 @end
 
 @implementation AppDelegate
@@ -40,32 +43,74 @@
     
     [self autoLogin];
     
+    //[self setUpReach];
    
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
-    
-   
-    
+    //[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 
     
     return YES;
 }
 
-//- (void)reachabilityChanged:(NSNotification *)note
-//{
-//    Reachability *curReach = [note object];
-//    
-//    NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
-//    [self setupInterfaceWithReachability:curReach];
-//    
-//}
-//
-//- (void)setupInterfaceWithReachability:(Reachability *)curReach
-//{
-//    NetworkStatus status = [curReach currentReachabilityStatus];
-//    if (status == NotReachable) {
-//       
-//    }
-//}
+- (void)setUpReach
+{
+    //判断能否连接到某一个主机
+    Reachability *reach = [Reachability reachabilityWithHostName:@"baidu.com"];
+    self.reach = reach;
+    
+    
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reachabilityChanged:) name:kReachabilityChangedNotification object:nil];
+    //开始
+    [self.reach startNotifier];
+    
+}
+
+- (void)dealloc
+{
+    //停止
+    [self.reach stopNotifier];
+    
+    //移除
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];
+}
+
+- (void)reachabilityChanged:(NSNotification *)note
+{
+    Reachability *curReach = [note object];
+    
+    NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
+    [self setupInterfaceWithReachability:curReach];
+    
+}
+
+- (void)setupInterfaceWithReachability:(Reachability *)curReach
+{
+    NetworkStatus status = [curReach currentReachabilityStatus];
+    
+    switch (status) {
+        case NotReachable:
+            NSLog(@"meiyoulianjie");
+            break;
+            
+        case ReachableViaWiFi:
+            NSLog(@"wifi");
+            break;
+            
+        case ReachableViaWWAN:
+            NSLog(@"wwan");
+            break;
+            
+        default:
+            break;
+    }
+    
+
+
+
+
+
+}
 
 
 - (void)autoLogin

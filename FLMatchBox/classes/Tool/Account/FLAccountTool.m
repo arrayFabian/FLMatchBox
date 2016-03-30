@@ -48,9 +48,9 @@ static FLUser *_user;
 
 + (FLUser *)user
 {
-    if (_user == nil) {
-        _user = [NSKeyedUnarchiver unarchiveObjectWithFile:FLUserFilePath];
-    }
+    
+    _user = [NSKeyedUnarchiver unarchiveObjectWithFile:FLUserFilePath];
+    
     return _user;
 }
 
