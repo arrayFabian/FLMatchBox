@@ -49,14 +49,22 @@
     
     
 }
-- (IBAction)btnIntroDIdClick:(id)sender {
+
+- (IBAction)btnFollowDidClick:(id)sender
+{
+    id vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FLAddressVC"];
+    [vc setValue:@(YES) forKey:@"isFollowVC"];
+    
+    [self.navigationController pushViewController:vc animated:YES];
 }
-- (IBAction)btnFollowDidClick:(id)sender {
+- (IBAction)btnFansDidClick:(id)sender
+{
+    id vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FLAddressVC"];
+    [vc setValue:@(YES) forKey:@"isFansVC"];
+
+    [self.navigationController pushViewController:vc animated:YES];
 }
-- (IBAction)btnFansDidClick:(id)sender {
-}
-- (IBAction)btnColletDidClick:(id)sender {
-}
+
 
 
 - (void)viewWillAppear:(BOOL)animated

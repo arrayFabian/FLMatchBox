@@ -60,7 +60,7 @@
         
         __weak __typeof(&*self) weakSelf = self;
 
-        [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/userupdateUserInfo",BaseUrl] param:@{@"user.id":@(_user.userId),@"user.sex":@"男"} success:^(id responseObject) {
+        [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/userupdateUserInfo",BaseUrl] param:@{@"user.id":@(_user.userId),@"user.userName":_user.userName,@"user.sex":@"男",@"user.myInfo":_user.myInfo} success:^(id responseObject) {
            
             if ([responseObject[@"result"] integerValue] == 0) {
                 
@@ -86,7 +86,7 @@
         
         __weak __typeof(&*self) weakSelf = self;
         
-        [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/userupdateUserInfo",BaseUrl] param:@{@"user.id":@(_user.userId),@"user.sex":@"女"} success:^(id responseObject) {
+        [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/userupdateUserInfo",BaseUrl] param:@{@"user.id":@(_user.userId),@"user.userName":_user.userName,@"user.sex":@"女",@"user.myInfo":_user.myInfo} success:^(id responseObject) {
             
             if ([responseObject[@"result"] integerValue] == 0) {
                 

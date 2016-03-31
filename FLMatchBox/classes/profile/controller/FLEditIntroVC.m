@@ -24,7 +24,7 @@
 {
     [self.view endEditing:YES];
     
-    [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/MMatchbox/userupdate",BaseUrl] param:@{@"user.id":@(_user.userId),@"user.myInfo":self.textViewIntro.text} success:^(id responseObject) {
+    [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/userupdateUserInfo",BaseUrl] param:@{@"user.id":@(_user.userId),@"user.userName":_user.userName,@"user.sex":_user.sex,@"user.myInfo":self.textViewIntro.text}success:^(id responseObject) {
         if ([responseObject[@"result"] integerValue] == 0) {
             
             _user.myInfo = self.textViewIntro.text;
@@ -80,5 +80,7 @@
     
     self.lbTextNum.text = [@(30 -self.textViewIntro.text.length) stringValue];
 }
+
+
 
 @end

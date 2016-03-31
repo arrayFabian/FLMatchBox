@@ -150,7 +150,8 @@
                     FLUser *user = [FLUser mj_objectWithKeyValues:dict];
                     [FLAccountTool saveUser:user];
                     
-                    
+                  
+
                  
                     
                 } failure:^(NSError *error) {

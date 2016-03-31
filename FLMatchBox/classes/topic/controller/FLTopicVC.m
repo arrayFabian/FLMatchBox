@@ -10,8 +10,10 @@
 #import "FLTopicCell.h"
 #import "FLTopicModel.h"
 
-#import "FLHeaderScrollView.h"
+#import "FLAccountTool.h"
+#import "FLAccount.h"
 
+#import "FLHeaderScrollView.h"
 
 #import <MJExtension/MJExtension.h>
 #import <MJRefresh/MJRefresh.h>
@@ -30,8 +32,6 @@
 
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segment;
-
-
 
 
 @property (nonatomic, strong) NSMutableArray *fountArr;
@@ -215,7 +215,9 @@
 //ktableView
 - (void)loadFoundData
 {
-    NSDictionary *param = @{@"userId":@1,
+   FLAccount *account = [FLAccountTool account];
+    
+    NSDictionary *param = @{@"userId":@([account.userId integerValue]),
                 @"pageModel.pageSize":@10,
                @"pageModel.pageIndex":@(_foundIndex)};
     
@@ -267,7 +269,9 @@
 //knewtableView
 - (void)loadNewData
 {
-    NSDictionary *param = @{@"userId":@1,
+     FLAccount *account = [FLAccountTool account];
+    
+    NSDictionary *param = @{@"userId":@([account.userId integerValue]),
                             @"pageModel.pageSize":@20,
                             @"pageModel.pageIndex":@(_knewIndex)};
     
@@ -311,7 +315,9 @@
 //kupdatetableView
 - (void)loadUpdateData
 {
-    NSDictionary *param = @{@"userId":@1,
+     FLAccount *account = [FLAccountTool account];
+    
+    NSDictionary *param = @{@"userId":@([account.userId integerValue]),
                             @"pageModel.pageSize":@20,
                             @"pageModel.pageIndex":@(_kupdateIndex)};
     
@@ -388,6 +394,8 @@
     return 60;
 }
 
+
+
 #pragma maek- tableview data source
 
 
@@ -412,12 +420,13 @@
     if (tableView == self.ktableView) {
         topicModel = self.fountArr[indexPath.row];
     }else if (tableView == self.knewtableView){
-         topicModel = self.knewArr[indexPath.row];
+        topicModel = self.knewArr[indexPath.row];
     }else if (tableView == self.kupdatetableView){
-         topicModel = self.kupdateArr[indexPath.row];
+        topicModel = self.kupdateArr[indexPath.row];
     }
-
+    
     cell.topicModel = topicModel;
+    
     return cell;
 }
 

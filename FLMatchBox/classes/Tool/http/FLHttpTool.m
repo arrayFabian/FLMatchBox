@@ -8,14 +8,21 @@
 
 #import "FLHttpTool.h"
 
-#import <AFNetworking.h>
+#import <MBProgressHUD.h>
+
+#import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
 
 @implementation FLHttpTool
 
 + (void)postWithUrlString:(NSString *)urlString param:(NSDictionary *)param success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure
 {
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json",
                                                                               @"text/html",
                                                                               @"text/json",
@@ -28,6 +35,7 @@
     
     
     [manager POST:urlString parameters:param progress:^(NSProgress * _Nonnull uploadProgress) {
+      
         
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -40,7 +48,9 @@
         
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:FLKeyWindow animated:YES];
+        hud.labelText = @"请求失败";
+        [hud show:YES];
         FLLog(@"%@",error);
         if (failure) {
             failure(error);
@@ -55,6 +65,8 @@
 + (void)uploadWithImage:(UIImage *)image url:(NSString *)url filename:(NSString *)filename name:(NSString *)name  mimeType:(NSString *)mimeType params:(NSDictionary *)param progress:(void (^)(NSProgress *uploadProgress))progress success:(void (^)(id))success failure:(void (^)(NSError *error))failure
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
     
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json",
                                                                               @"text/html",

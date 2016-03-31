@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+
+
 @class FLAccount,FLUser;
+
 @interface FLAccountTool : NSObject
 
 + (void)saveAccount:(FLAccount *)account;

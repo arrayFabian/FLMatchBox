@@ -20,6 +20,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 @property (copy, nonatomic) NSString *userName;
 
+
+@property (nonatomic, strong)FLUser *user;
+
 @end
 
 @implementation FLEditNameVC
@@ -37,6 +40,7 @@
     [super viewWillAppear:animated];
     
     FLUser *user = [FLAccountTool user];
+    _user = user;
     self.tfName.text = user.userName;
     [self.tfName becomeFirstResponder];
     self.saveBtn.enabled = NO;
@@ -80,17 +84,17 @@
 - (IBAction)saveName:(UIButton *)sender
 {
     [self.view endEditing:YES];
-     FLUser *user = [FLAccountTool user];
+    
    
     __weak __typeof(&*self) weakSelf = self;
     
-    [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/userupdateUserInfo",BaseUrl] param:@{@"user.id":@(user.userId),@"user.userName":self.tfName.text} success:^(id responseObject) {
+    [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/userupdateUserInfo",BaseUrl] param:@{@"user.id":@(_user.userId),@"user.userName":self.tfName.text,@"user.sex":_user.sex,@"user.myInfo":_user.myInfo} success:^(id responseObject) {
         FLLog(@"%@",responseObject);
         
         if ([responseObject[@"result"] integerValue] == 0) {
             
-            user.userName = self.tfName.text;
-            [FLAccountTool saveUser:user];
+            _user.userName = self.tfName.text;
+            [FLAccountTool saveUser:_user];
             //跳转
             [weakSelf.navigationController popViewControllerAnimated:YES];
             

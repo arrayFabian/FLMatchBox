@@ -7,6 +7,8 @@
 //
 
 #import "FLAccountTool.h"
+#import "FLAccount.h"
+#import "FLUser.h"
 
 
 #define FLAccountFilePath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"account.data"]

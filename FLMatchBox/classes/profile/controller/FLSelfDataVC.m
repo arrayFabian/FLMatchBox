@@ -12,6 +12,7 @@
 #import "FLHttpTool.h"
 #import "FLUser.h"
 #import "FLAccountTool.h"
+
 #import <MJExtension/MJExtension.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
@@ -189,6 +190,7 @@
     }
     
     if (self.quitLoginCell.selected == YES) {//退出登录
+        
         
         
         FLKeyWindow.rootViewController = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateViewControllerWithIdentifier:@"FLWelcomeNaviVC"];

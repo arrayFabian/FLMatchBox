@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FLAccountTool.h"
+#define kUserModel [FLAccountTool user]
 
 @interface FLUser : NSObject
 
