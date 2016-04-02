@@ -20,7 +20,7 @@
 
 #import "FLHttpTool.h"
 
-@interface FLTopicVC ()<UITableViewDataSource,UITableViewDelegate>
+@interface FLTopicVC ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *kupdatetableView;
 
 @property (weak, nonatomic) IBOutlet UITableView *ktableView;
@@ -43,12 +43,50 @@
 @property (nonatomic, strong) NSMutableArray *kupdateArr;
 @property (nonatomic, assign) NSUInteger kupdateIndex;
 
+@property (weak, nonatomic) IBOutlet UITableView *searchTableview;
 
+@property (strong, nonatomic) NSMutableArray * searchArr;
+@property (strong, nonatomic) UISearchBar * searchBar; //强引用
 
+@property (nonatomic, strong)UIView *aphlaView;
 
 @end
 
 @implementation FLTopicVC
+
+- (IBAction)btnSearchDidClick:(UIButton *)sender
+{
+   // [self.view bringSubviewToFront:self.searchTableview];
+    
+    [self.view bringSubviewToFront:self.aphlaView];
+    
+    CABasicAnimation *baseAniOpacity = [CABasicAnimation animationWithKeyPath:@"opacity"];
+    baseAniOpacity.fromValue = @0.3;
+    baseAniOpacity.toValue = @1.0;
+    
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    animation.fromValue = @0.6;
+    animation.toValue = @1;
+    animation.duration = 0.38;
+    animation.removedOnCompletion = NO;
+    animation.fillMode = kCAFillModeForwards;
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.animations = @[baseAniOpacity,animation];
+    
+    [self.aphlaView.layer addAnimation:group forKey:@"group"];
+    
+    self.tabBarController.tabBar.hidden = YES;
+    
+    [self.navigationController.navigationBar addSubview:self.searchBar];
+    [self.searchBar.layer addAnimation:baseAniOpacity forKey:@"searchop"];
+    [self.searchBar becomeFirstResponder];
+    
+    
+    
+}
+
+
 - (IBAction)segmentValueChange:(id)sender
 {
     if (self.segment.selectedSegmentIndex == 1 ) {
@@ -197,6 +235,36 @@
     self.btnTopicNew.selected = YES;
     self.btnTopicUpdate.selected = NO;
     
+    
+    //searchbar
+    UISearchBar *searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(8, 0, self.view.width-16, 44)];
+    _searchBar = searchBar;
+    searchBar.backgroundColor = [UIColor colorWithRed:249/255.0 green:249/255.0 blue:249/255.0 alpha:1];
+    searchBar.searchBarStyle = UISearchBarStyleMinimal;
+    searchBar.showsCancelButton = YES;
+    searchBar.placeholder = @"搜索话题/用户";
+    searchBar.delegate = self;
+    
+   // NSLog(@"%@",[searchBar performSelector:@selector(recursiveDescription)]);
+    
+    for (UIView *view  in [[[searchBar subviews] objectAtIndex:0] subviews]) {
+        if ([view isKindOfClass:[NSClassFromString(@"UINavigationButton") class]]) {
+            UIButton *cancelBtn = (UIButton *)view;
+            [cancelBtn setTitle:@"取消" forState:UIControlStateNormal];
+            [cancelBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+            break;
+        }
+    }
+    
+    //aphlaview
+    UIView *aphlaview = [[UIView alloc]initWithFrame:self.view.bounds];
+    aphlaview.backgroundColor = [UIColor whiteColor];
+    aphlaview.alpha = 0.95;
+    [self.view addSubview:aphlaview];
+    _aphlaView = aphlaview;
+    [self.view sendSubviewToBack:_aphlaView];
+    
+   
 }
 
 - (void)initData
@@ -394,6 +462,10 @@
     return 60;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
 
 
 #pragma maek- tableview data source
@@ -401,6 +473,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (tableView == self.searchTableview) {
+        return self.searchArr.count;
+    }
+    
     
     if (tableView == self.ktableView) {
         return self.fountArr.count;
@@ -417,7 +493,9 @@
     
     
     FLTopicModel *topicModel;
-    if (tableView == self.ktableView) {
+    if (tableView == self.searchTableview) {
+        topicModel = self.searchArr[indexPath.row];
+    }else if (tableView == self.ktableView) {
         topicModel = self.fountArr[indexPath.row];
     }else if (tableView == self.knewtableView){
         topicModel = self.knewArr[indexPath.row];
@@ -428,6 +506,55 @@
     cell.topicModel = topicModel;
     
     return cell;
+}
+
+
+#pragma mark- search bar delegate
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    self.tabBarController.tabBar.hidden = NO;
+    
+    [self.view sendSubviewToBack:self.searchTableview];
+    [self.view sendSubviewToBack:self.aphlaView];
+    [self.searchBar removeFromSuperview];
+    
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    [self searchTopic];
+}
+
+
+- (void)searchTopic
+{
+    if (self.searchBar.text.length<1) {
+        [self.searchBar resignFirstResponder];
+        [self.view sendSubviewToBack:self.searchTableview];
+        return;
+    }
+    // 搜索
+    __weak __typeof(&*self) weakSelf = self;
+    
+    [self.view bringSubviewToFront:self.searchTableview];
+    
+//    [HYBNetworking postWithUrl:@"/Matchbox/usergetTopicList" params:@{@"userId":@1,@"user.name":_searchBar.text} success:^(id response) {
+//        [weakSelf.searchArr removeAllObjects];
+//        NSDictionary * dict = response;
+//        if ([dict[@"result"]integerValue] == 0) {
+//            NSArray * arr = dict[@"list"];
+//            
+//            for (NSDictionary * modelDict in arr) {
+//                TopicModel * model = [TopicModel mj_objectWithKeyValues:modelDict];
+//                
+//                [weakSelf.searchArr addObject:model];
+//            }
+//            [weakSelf.searchTableView reloadData];
+//        }
+//    } fail:^(NSError *error) {
+//        
+//    }];
+    
 }
 
 @end

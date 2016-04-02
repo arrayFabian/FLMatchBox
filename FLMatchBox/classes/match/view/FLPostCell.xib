@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FLPostCell" rowHeight="387" id="KGk-i7-Jjw" customClass="FLPostCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FLPostCell" rowHeight="387" id="KGk-i7-Jjw" customClass="FLPostCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="387"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -26,6 +26,7 @@
                             </button>
                             <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f3u-aY-rhn" customClass="CustomImageView">
                                 <rect key="frame" x="136" y="32" width="50" height="50"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Zjw-Cq-nbc"/>
                                     <constraint firstAttribute="height" constant="50" id="aAd-Kh-AVC"/>
@@ -102,6 +103,7 @@
                     </view>
                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fHV-ru-yJE">
                         <rect key="frame" x="0.0" y="113" width="320" height="191"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="height" constant="191" id="tt7-iv-2f2"/>
                         </constraints>
@@ -150,7 +152,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.52245289750000001" green="0.8772933088" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="uVF-zg-dpU" firstAttribute="centerY" secondItem="GDx-iG-XCr" secondAttribute="centerY" id="1gZ-FN-jUw"/>
                             <constraint firstItem="GDx-iG-XCr" firstAttribute="leading" secondItem="uVF-zg-dpU" secondAttribute="trailing" constant="8" id="24D-D3-1iO"/>
@@ -191,6 +193,7 @@
                     <constraint firstItem="8Pc-hc-S1l" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="qzQ-CC-ISi"/>
                 </constraints>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="btnComment" destination="GDx-iG-XCr" id="w3b-ax-Cfc"/>
                 <outlet property="btnFollow" destination="AFL-dV-Os9" id="ZMv-sT-WHT"/>

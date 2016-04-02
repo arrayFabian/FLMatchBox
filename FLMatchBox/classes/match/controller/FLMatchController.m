@@ -10,25 +10,24 @@
 
 #import "FLPostCell.h"
 #import "FLPostCellModel.h"
+#import "FLUser.h"
 
 #import <MJRefresh/MJRefresh.h>
 #import <MJExtension/MJExtension.h>
 
 #import "FLHttpTool.h"
 
-@interface FLMatchController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
+@interface FLMatchController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,FLPostCellModelDelegate>
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segment;
 @property (nonatomic, strong)UIScrollView *scrollview;
 
 @property (nonatomic, strong)UITableView *friendTableView;
-
 @property (nonatomic, strong)UITableView *likeTableView;
-
-
 @property (nonatomic, strong)NSMutableArray *friendsArr;
-
 @property (nonatomic, strong)NSMutableArray *likesArr;
+
+
 
 @end
 
@@ -66,6 +65,7 @@
 {
     _friendsArr = [@[] mutableCopy];
     _likesArr = [@[] mutableCopy];
+   
 }
 
 - (void)setUpRefresh
@@ -76,46 +76,34 @@
     
     self.friendTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
-      
+        
         [weakSelf loadFriendData];
         
     }];
-    
-    
-    MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
-        
-        [weakSelf loadLikeData];
-        
-    }];
-    NSMutableArray *imagesArr = [@[] mutableCopy];
-    for (int i = 1; i <= 8; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"More%d.png",i]];
-        [imagesArr addObject:image];
-    }
-    [header setImages:imagesArr forState:MJRefreshStateIdle];
-    [header setImages:imagesArr forState:MJRefreshStatePulling];
-    [header setImages:imagesArr forState:MJRefreshStateRefreshing];
-    
-    self.likeTableView.mj_header = header;
-    
-    //第一次自动创新
-    [self.friendTableView.mj_header beginRefreshing];
-    
     
     self.friendTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         
-       
+        
         [weakSelf loadFriendData];
         
     }];
     
+   
+    self.likeTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        [weakSelf loadLikeData];
+        
+    }];
     
-    MJRefreshBackGifFooter *footer = [MJRefreshBackGifFooter footerWithRefreshingBlock:^{
-       
+    
+    self.likeTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        
         [weakSelf loadLikeData];
     }];
-    [footer setImages:imagesArr forState:MJRefreshStateRefreshing];
-    self.likeTableView.mj_footer = footer;
+    
+    //第一次自动创新
+    [self.friendTableView.mj_header beginRefreshing];
+    [self.likeTableView.mj_header beginRefreshing];
     
 }
 
@@ -165,7 +153,7 @@
 //friend tableview
 - (void)loadFriendData
 {
-    NSDictionary *param = @{@"userId":@1};
+    NSDictionary *param = @{@"userId":@(kUserModel.userId)};
     
     NSString *urlstring = [NSString stringWithFormat:@"%@/Matchbox/usergetMyFriendPost",BaseUrl];
     
@@ -175,14 +163,16 @@
         NSDictionary *dict = (NSDictionary *)responseObject;
         
         if ([dict[@"result"] integerValue] == 0) {
+            
             NSArray *arr = dict[@"List"];
             if (arr.count == 0) {
+                [weakSelf.friendTableView.mj_footer endRefreshing];
                 [weakSelf.friendTableView.mj_footer endRefreshingWithNoMoreData];
-                
+                return ;
             }else{
                 
-                NSArray *modelArr = [FLPostCellModel mj_objectArrayWithKeyValuesArray:arr];
-                _friendsArr = [modelArr mutableCopy];;
+                _friendsArr = [FLPostCellModel mj_objectArrayWithKeyValuesArray:arr];
+                
                 
                 //                for (NSDictionary *dict in arr) {
                 //                    FLTopicModel *model = [FLTopicModel mj_objectWithKeyValues:dict];
@@ -196,12 +186,12 @@
         
         }
         
-        [self.friendTableView.mj_header endRefreshing];
-        [self.friendTableView.mj_footer endRefreshing];
+        [weakSelf.friendTableView.mj_header endRefreshing];
+        [weakSelf.friendTableView.mj_footer endRefreshing];
         
     } failure:^(NSError *error) {
-        [self.friendTableView.mj_header endRefreshing];
-        [self.friendTableView.mj_footer endRefreshing];
+        [weakSelf.friendTableView.mj_header endRefreshing];
+        [weakSelf.friendTableView.mj_footer endRefreshing];
         
     }];
     
@@ -212,41 +202,36 @@
 - (void)loadLikeData
 {
     
-    NSDictionary *param = @{@"userId":@1,
-                            @"topicId":@2
-                            };
+    NSDictionary *param = @{@"userId":@(kUserModel.userId)};
     
-    NSString *urlstring = [NSString stringWithFormat:@"%@/Matchbox/usergetFriendCircles",BaseUrl];
+    NSString *urlstring = [NSString stringWithFormat:@"%@/Matchbox/usergetMyActionTopIcByUserId",BaseUrl];
     
     __weak __typeof(&*self) weakSelf = self;
     [FLHttpTool postWithUrlString:urlstring param:param success:^(id responseObject) {
         
         NSDictionary *dict = (NSDictionary *)responseObject;
-        
-       
-        
         if ([dict[@"result"] integerValue] == 0) {
+                          
+                
             NSArray *arr = dict[@"List"];
             if (arr.count == 0) {
+                 [weakSelf.likeTableView.mj_footer endRefreshing];
                 [weakSelf.likeTableView.mj_footer endRefreshingWithNoMoreData];
-                
+                return ;
             }else{
                 
-                 NSArray *modelArr = [FLPostCellModel mj_objectArrayWithKeyValuesArray:arr];
-                
-                _likesArr = [modelArr mutableCopy];
-                
+                 _likesArr = [FLPostCellModel mj_objectArrayWithKeyValuesArray:arr];
                 [weakSelf.likeTableView reloadData];
                 
             }
             
         }
-        [self.likeTableView.mj_header endRefreshing];
-        [self.likeTableView.mj_footer endRefreshing];
+        [weakSelf.likeTableView.mj_header endRefreshing];
+        [weakSelf.likeTableView.mj_footer endRefreshing];
         
     } failure:^(NSError *error) {
-        [self.likeTableView.mj_header endRefreshing];
-        [self.likeTableView.mj_footer endRefreshing];
+        [weakSelf.likeTableView.mj_header endRefreshing];
+        [weakSelf.likeTableView.mj_footer endRefreshing];
         
     }];
     
@@ -268,7 +253,8 @@
     FLPostCellModel *model = tableView == self.friendTableView ? self.friendsArr[indexPath.row]:self.likesArr[indexPath.row];
     
     FLPostCell *cell = [FLPostCell cellWithTableView:tableView model:model];
-    
+    cell.tag = indexPath.row;
+    cell.delegate = self;
     return cell;
     
     
@@ -321,6 +307,42 @@
     FLLog(@"%s",__func__);
 }
 
+#pragma mark- FLPostCellModelDelegate
+
+- (void)postCell:(FLPostCell *)postCell btnCommentDidClick:(NSInteger)friendId
+{
+    FLLog(@"%s",__func__);
+     FLLog(@"%ld",postCell.tag);
+}
+- (void)postCell:(FLPostCell *)postCell btnRetweetDidClick:(NSInteger)friendId
+{
+     FLLog(@"%s",__func__);
+}
+
+- (void)postCell:(FLPostCell *)postCell btnViewDidClick:(NSInteger)friendId
+{
+     FLLog(@"%s",__func__);
+}
+
+- (void)postCell:(FLPostCell *)postCell btnTopicDidClick:(NSInteger)topicId
+{
+     FLLog(@"%s",__func__);
+}
+
+- (void)postCell:(FLPostCell *)postCell btnOperationDidClick:(FLPostCellModel *)cellModel
+{
+     FLLog(@"%s",__func__);
+}
+
+- (void)postCell:(FLPostCell *)postCell imgViewTapped:(NSArray<Photolist *> *)photoList
+{
+     FLLog(@"%s",__func__);
+}
+
+- (void)postCell:(FLPostCell *)postCell imgHeadTapped:(NSInteger)userId
+{
+     FLLog(@"%s",__func__);
+}
 
 
 @end

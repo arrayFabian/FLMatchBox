@@ -1274,16 +1274,16 @@
 
 /* Begin PBXFileReference section */
 		91E6277AE3EE70F37E7909FB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		933633BB1CA3C553008A7ADE /* FLSetupTopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSetupTopicVC.h; sourceTree = "<group>"; };
-		933633BC1CA3C553008A7ADE /* FLSetupTopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSetupTopicVC.m; sourceTree = "<group>"; };
-		933633BE1CA3C56A008A7ADE /* FLChooseTypeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLChooseTypeVC.h; sourceTree = "<group>"; };
-		933633BF1CA3C56A008A7ADE /* FLChooseTypeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLChooseTypeVC.m; sourceTree = "<group>"; };
-		933633C11CA3C5A2008A7ADE /* FLPreSetupTopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPreSetupTopicVC.h; sourceTree = "<group>"; };
-		933633C21CA3C5A2008A7ADE /* FLPreSetupTopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPreSetupTopicVC.m; sourceTree = "<group>"; };
-		933633C41CA3C5EA008A7ADE /* FLUploadTopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLUploadTopicVC.h; sourceTree = "<group>"; };
-		933633C51CA3C5EA008A7ADE /* FLUploadTopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLUploadTopicVC.m; sourceTree = "<group>"; };
-		933633C71CA3C66D008A7ADE /* FLSetupCompleteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSetupCompleteVC.h; sourceTree = "<group>"; };
-		933633C81CA3C66D008A7ADE /* FLSetupCompleteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSetupCompleteVC.m; sourceTree = "<group>"; };
+		933633BB1CA3C553008A7ADE /* FLSetupTopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLSetupTopicVC.h; path = ../FLSetupTopicVC.h; sourceTree = "<group>"; };
+		933633BC1CA3C553008A7ADE /* FLSetupTopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLSetupTopicVC.m; path = ../FLSetupTopicVC.m; sourceTree = "<group>"; };
+		933633BE1CA3C56A008A7ADE /* FLChooseTypeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLChooseTypeVC.h; path = ../FLChooseTypeVC.h; sourceTree = "<group>"; };
+		933633BF1CA3C56A008A7ADE /* FLChooseTypeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLChooseTypeVC.m; path = ../FLChooseTypeVC.m; sourceTree = "<group>"; };
+		933633C11CA3C5A2008A7ADE /* FLPreSetupTopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLPreSetupTopicVC.h; path = ../FLPreSetupTopicVC.h; sourceTree = "<group>"; };
+		933633C21CA3C5A2008A7ADE /* FLPreSetupTopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLPreSetupTopicVC.m; path = ../FLPreSetupTopicVC.m; sourceTree = "<group>"; };
+		933633C41CA3C5EA008A7ADE /* FLUploadTopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLUploadTopicVC.h; path = ../FLUploadTopicVC.h; sourceTree = "<group>"; };
+		933633C51CA3C5EA008A7ADE /* FLUploadTopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLUploadTopicVC.m; path = ../FLUploadTopicVC.m; sourceTree = "<group>"; };
+		933633C71CA3C66D008A7ADE /* FLSetupCompleteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLSetupCompleteVC.h; path = ../FLSetupCompleteVC.h; sourceTree = "<group>"; };
+		933633C81CA3C66D008A7ADE /* FLSetupCompleteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLSetupCompleteVC.m; path = ../FLSetupCompleteVC.m; sourceTree = "<group>"; };
 		933633CA1CA3CC53008A7ADE /* FLTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLTopicCell.h; sourceTree = "<group>"; };
 		933633CB1CA3CC53008A7ADE /* FLTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLTopicCell.m; sourceTree = "<group>"; };
 		933633CC1CA3CC53008A7ADE /* FLTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FLTopicCell.xib; sourceTree = "<group>"; };
@@ -2635,6 +2635,23 @@
 			path = Account;
 			sourceTree = "<group>";
 		};
+		9377AE941CAFB17800F42FBC /* creatTopic */ = {
+			isa = PBXGroup;
+			children = (
+				933633C11CA3C5A2008A7ADE /* FLPreSetupTopicVC.h */,
+				933633C21CA3C5A2008A7ADE /* FLPreSetupTopicVC.m */,
+				933633BB1CA3C553008A7ADE /* FLSetupTopicVC.h */,
+				933633BC1CA3C553008A7ADE /* FLSetupTopicVC.m */,
+				933633BE1CA3C56A008A7ADE /* FLChooseTypeVC.h */,
+				933633BF1CA3C56A008A7ADE /* FLChooseTypeVC.m */,
+				933633C41CA3C5EA008A7ADE /* FLUploadTopicVC.h */,
+				933633C51CA3C5EA008A7ADE /* FLUploadTopicVC.m */,
+				933633C71CA3C66D008A7ADE /* FLSetupCompleteVC.h */,
+				933633C81CA3C66D008A7ADE /* FLSetupCompleteVC.m */,
+			);
+			path = creatTopic;
+			sourceTree = "<group>";
+		};
 		937F29271C96B4D200912C98 = {
 			isa = PBXGroup;
 			children = (
@@ -2907,16 +2924,7 @@
 			children = (
 				93A18F671C9E7F4D00F46544 /* FLTopicVC.h */,
 				93A18F681C9E7F4D00F46544 /* FLTopicVC.m */,
-				933633C11CA3C5A2008A7ADE /* FLPreSetupTopicVC.h */,
-				933633C21CA3C5A2008A7ADE /* FLPreSetupTopicVC.m */,
-				933633BB1CA3C553008A7ADE /* FLSetupTopicVC.h */,
-				933633BC1CA3C553008A7ADE /* FLSetupTopicVC.m */,
-				933633BE1CA3C56A008A7ADE /* FLChooseTypeVC.h */,
-				933633BF1CA3C56A008A7ADE /* FLChooseTypeVC.m */,
-				933633C41CA3C5EA008A7ADE /* FLUploadTopicVC.h */,
-				933633C51CA3C5EA008A7ADE /* FLUploadTopicVC.m */,
-				933633C71CA3C66D008A7ADE /* FLSetupCompleteVC.h */,
-				933633C81CA3C66D008A7ADE /* FLSetupCompleteVC.m */,
+				9377AE941CAFB17800F42FBC /* creatTopic */,
 			);
 			path = controller;
 			sourceTree = "<group>";

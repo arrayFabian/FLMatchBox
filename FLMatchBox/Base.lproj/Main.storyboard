@@ -1533,6 +1533,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UBi-w5-CYl">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t6I-3t-uYH">
                                 <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                                 <subviews>
@@ -1610,8 +1614,8 @@
                                     <outlet property="delegate" destination="Jx9-lX-hPl" id="lAS-lV-JD8"/>
                                 </connections>
                             </tableView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HcK-2c-CmS">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HcK-2c-CmS">
+                                <rect key="frame" x="0.0" y="57" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Jx9-lX-hPl" id="FBg-sB-Iqb"/>
@@ -1624,16 +1628,16 @@
                             <constraint firstAttribute="trailingMargin" secondItem="u03-wf-MtX" secondAttribute="trailing" constant="-16" id="0v5-RK-dFQ"/>
                             <constraint firstItem="oSe-G1-odW" firstAttribute="top" secondItem="t6I-3t-uYH" secondAttribute="bottom" id="3f0-TZ-C23"/>
                             <constraint firstItem="oSe-G1-odW" firstAttribute="leading" secondItem="4U1-bb-Jwz" secondAttribute="leadingMargin" constant="-16" id="Gku-aC-P3g"/>
+                            <constraint firstItem="N60-Oy-WlG" firstAttribute="top" secondItem="UBi-w5-CYl" secondAttribute="bottom" id="MLg-ND-M5j"/>
                             <constraint firstAttribute="trailingMargin" secondItem="t6I-3t-uYH" secondAttribute="trailing" constant="-16" id="Qil-lh-xcQ"/>
                             <constraint firstItem="N60-Oy-WlG" firstAttribute="top" secondItem="oSe-G1-odW" secondAttribute="bottom" id="VDv-Xe-iV2"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="HcK-2c-CmS" secondAttribute="trailing" constant="-16" id="W73-dQ-Ziy"/>
-                            <constraint firstItem="HcK-2c-CmS" firstAttribute="leading" secondItem="4U1-bb-Jwz" secondAttribute="leadingMargin" constant="-16" id="ft1-xN-oF5"/>
+                            <constraint firstItem="UBi-w5-CYl" firstAttribute="leading" secondItem="4U1-bb-Jwz" secondAttribute="leadingMargin" constant="-16" id="WWH-fa-Xdj"/>
+                            <constraint firstItem="UBi-w5-CYl" firstAttribute="top" secondItem="mhP-6f-WSf" secondAttribute="bottom" id="dma-FC-Z5K"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UBi-w5-CYl" secondAttribute="trailing" constant="-16" id="ei6-Zd-ICc"/>
                             <constraint firstItem="u03-wf-MtX" firstAttribute="leading" secondItem="4U1-bb-Jwz" secondAttribute="leadingMargin" constant="-16" id="gT1-Yf-MFZ"/>
                             <constraint firstItem="u03-wf-MtX" firstAttribute="top" secondItem="t6I-3t-uYH" secondAttribute="bottom" id="hnq-7n-WFF"/>
-                            <constraint firstItem="HcK-2c-CmS" firstAttribute="top" secondItem="mhP-6f-WSf" secondAttribute="bottom" id="iOx-0w-WZo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oSe-G1-odW" secondAttribute="trailing" constant="-16" id="kGx-ds-e9c"/>
                             <constraint firstItem="t6I-3t-uYH" firstAttribute="leading" secondItem="4U1-bb-Jwz" secondAttribute="leadingMargin" constant="-16" id="qMN-Pa-VGb"/>
-                            <constraint firstItem="N60-Oy-WlG" firstAttribute="top" secondItem="HcK-2c-CmS" secondAttribute="bottom" id="t2X-CO-GKU"/>
                             <constraint firstItem="N60-Oy-WlG" firstAttribute="top" secondItem="u03-wf-MtX" secondAttribute="bottom" id="xup-I2-oHg"/>
                             <constraint firstItem="t6I-3t-uYH" firstAttribute="top" secondItem="mhP-6f-WSf" secondAttribute="bottom" id="yME-KR-Xtc"/>
                         </constraints>
@@ -1670,6 +1674,9 @@
                                 <rect key="frame" x="274" y="7" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="searchIcon.png"/>
+                                <connections>
+                                    <action selector="btnSearchDidClick:" destination="Jx9-lX-hPl" eventType="touchUpInside" id="n9e-on-AAC"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
@@ -1681,12 +1688,13 @@
                         <outlet property="ktableView" destination="HcK-2c-CmS" id="vMh-Vu-Lxd"/>
                         <outlet property="kupdatetableView" destination="oSe-G1-odW" id="8hD-a9-PlH"/>
                         <outlet property="lbMoveLine" destination="Tjy-ph-Nn6" id="IqE-u4-mE0"/>
+                        <outlet property="searchTableview" destination="UBi-w5-CYl" id="JPR-yO-E4B"/>
                         <outlet property="segment" destination="INz-cX-cmX" id="MVL-WI-q5s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iQf-bE-J5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11" y="673"/>
+            <point key="canvasLocation" x="-7" y="673"/>
         </scene>
         <!--创建话题-->
         <scene sceneID="wCH-yd-fu8">

@@ -28,8 +28,16 @@
     
 }
 
+
+
 - (void)initUI
 {
+    
+    self.countBtn.adjustsImageWhenHighlighted = NO;
+    self.followBtn.adjustsImageWhenHighlighted = NO;
+    self.linkphoneBtn.adjustsImageWhenHighlighted = NO;
+    
+    
     if (self.linkphoneBtn.enabled && self.followBtn.enabled && self.countBtn.enabled) {
         self.setUpBtn.enabled = YES;
     }else{
