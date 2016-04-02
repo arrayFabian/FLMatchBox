@@ -1,22 +1,25 @@
 //
-//  FLUploadTopicVC.m
+//  FLTopicDetailVC.m
 //  FLMatchBox
 //
-//  Created by asddfg on 16/3/24.
+//  Created by Mac on 16/4/2.
 //  Copyright © 2016年 fabian. All rights reserved.
 //
 
-#import "FLUploadTopicVC.h"
+#import "FLTopicDetailVC.h"
 
-@interface FLUploadTopicVC ()
+@interface FLTopicDetailVC ()
 
 @end
 
-@implementation FLUploadTopicVC
+@implementation FLTopicDetailVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+   
+    NSLog(@"%ld",[self.topicId integerValue]);
+
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet CunstomButton *countBtn;
 
 @property (weak, nonatomic) IBOutlet CunstomButton *setUpBtn;
+@property (weak, nonatomic) IBOutlet UILabel *lbApplyCount;
 
 @end
 

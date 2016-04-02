@@ -19,6 +19,7 @@
 #import "UIViewController+FLMethod.h"
 
 #define BaseUrl @"http://123.184.33.74:8080"
+#define MAINCOLOR [UIColor colorWithRed:66/255.0 green:83/255.0 blue:86/255.0 alpha:1]
 
 
 #define FLKeyWindow [UIApplication sharedApplication].keyWindow

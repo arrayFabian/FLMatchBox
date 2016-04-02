@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045FB4A91CAFF99A004018B9 /* FLTopicDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FB4A81CAFF99A004018B9 /* FLTopicDetailVC.m */; };
+		045FB4AC1CAFF9B1004018B9 /* FLPostDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FB4AB1CAFF9B1004018B9 /* FLPostDetailVC.m */; };
+		045FB4B81CAFFFB0004018B9 /* FLChooseTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FB4AF1CAFFFB0004018B9 /* FLChooseTypeVC.m */; };
+		045FB4B91CAFFFB0004018B9 /* FLPreSetupTopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FB4B11CAFFFB0004018B9 /* FLPreSetupTopicVC.m */; };
+		045FB4BA1CAFFFB0004018B9 /* FLSetupCompleteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FB4B31CAFFFB0004018B9 /* FLSetupCompleteVC.m */; };
+		045FB4BB1CAFFFB0004018B9 /* FLSetupTopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FB4B51CAFFFB0004018B9 /* FLSetupTopicVC.m */; };
+		045FB4BC1CAFFFB0004018B9 /* FLUploadTopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FB4B71CAFFFB0004018B9 /* FLUploadTopicVC.m */; };
 		5FB3678136E6B2C64AF8DE7F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 91E6277AE3EE70F37E7909FB /* libPods.a */; };
-		933633BD1CA3C553008A7ADE /* FLSetupTopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633BC1CA3C553008A7ADE /* FLSetupTopicVC.m */; };
-		933633C01CA3C56A008A7ADE /* FLChooseTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633BF1CA3C56A008A7ADE /* FLChooseTypeVC.m */; };
-		933633C31CA3C5A2008A7ADE /* FLPreSetupTopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633C21CA3C5A2008A7ADE /* FLPreSetupTopicVC.m */; };
-		933633C61CA3C5EA008A7ADE /* FLUploadTopicVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633C51CA3C5EA008A7ADE /* FLUploadTopicVC.m */; };
-		933633C91CA3C66D008A7ADE /* FLSetupCompleteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633C81CA3C66D008A7ADE /* FLSetupCompleteVC.m */; };
 		933633CD1CA3CC53008A7ADE /* FLTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633CB1CA3CC53008A7ADE /* FLTopicCell.m */; };
 		933633CE1CA3CC53008A7ADE /* FLTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 933633CC1CA3CC53008A7ADE /* FLTopicCell.xib */; };
 		933633D11CA3E3D7008A7ADE /* FLTopicModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633D01CA3E3D7008A7ADE /* FLTopicModel.m */; };
@@ -1273,17 +1275,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		045FB4A71CAFF99A004018B9 /* FLTopicDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLTopicDetailVC.h; sourceTree = "<group>"; };
+		045FB4A81CAFF99A004018B9 /* FLTopicDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLTopicDetailVC.m; sourceTree = "<group>"; };
+		045FB4AA1CAFF9B1004018B9 /* FLPostDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPostDetailVC.h; sourceTree = "<group>"; };
+		045FB4AB1CAFF9B1004018B9 /* FLPostDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPostDetailVC.m; sourceTree = "<group>"; };
+		045FB4AE1CAFFFB0004018B9 /* FLChooseTypeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLChooseTypeVC.h; sourceTree = "<group>"; };
+		045FB4AF1CAFFFB0004018B9 /* FLChooseTypeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLChooseTypeVC.m; sourceTree = "<group>"; };
+		045FB4B01CAFFFB0004018B9 /* FLPreSetupTopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPreSetupTopicVC.h; sourceTree = "<group>"; };
+		045FB4B11CAFFFB0004018B9 /* FLPreSetupTopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPreSetupTopicVC.m; sourceTree = "<group>"; };
+		045FB4B21CAFFFB0004018B9 /* FLSetupCompleteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSetupCompleteVC.h; sourceTree = "<group>"; };
+		045FB4B31CAFFFB0004018B9 /* FLSetupCompleteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSetupCompleteVC.m; sourceTree = "<group>"; };
+		045FB4B41CAFFFB0004018B9 /* FLSetupTopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLSetupTopicVC.h; sourceTree = "<group>"; };
+		045FB4B51CAFFFB0004018B9 /* FLSetupTopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLSetupTopicVC.m; sourceTree = "<group>"; };
+		045FB4B61CAFFFB0004018B9 /* FLUploadTopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLUploadTopicVC.h; sourceTree = "<group>"; };
+		045FB4B71CAFFFB0004018B9 /* FLUploadTopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLUploadTopicVC.m; sourceTree = "<group>"; };
 		91E6277AE3EE70F37E7909FB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		933633BB1CA3C553008A7ADE /* FLSetupTopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLSetupTopicVC.h; path = ../FLSetupTopicVC.h; sourceTree = "<group>"; };
-		933633BC1CA3C553008A7ADE /* FLSetupTopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLSetupTopicVC.m; path = ../FLSetupTopicVC.m; sourceTree = "<group>"; };
-		933633BE1CA3C56A008A7ADE /* FLChooseTypeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLChooseTypeVC.h; path = ../FLChooseTypeVC.h; sourceTree = "<group>"; };
-		933633BF1CA3C56A008A7ADE /* FLChooseTypeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLChooseTypeVC.m; path = ../FLChooseTypeVC.m; sourceTree = "<group>"; };
-		933633C11CA3C5A2008A7ADE /* FLPreSetupTopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLPreSetupTopicVC.h; path = ../FLPreSetupTopicVC.h; sourceTree = "<group>"; };
-		933633C21CA3C5A2008A7ADE /* FLPreSetupTopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLPreSetupTopicVC.m; path = ../FLPreSetupTopicVC.m; sourceTree = "<group>"; };
-		933633C41CA3C5EA008A7ADE /* FLUploadTopicVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLUploadTopicVC.h; path = ../FLUploadTopicVC.h; sourceTree = "<group>"; };
-		933633C51CA3C5EA008A7ADE /* FLUploadTopicVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLUploadTopicVC.m; path = ../FLUploadTopicVC.m; sourceTree = "<group>"; };
-		933633C71CA3C66D008A7ADE /* FLSetupCompleteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLSetupCompleteVC.h; path = ../FLSetupCompleteVC.h; sourceTree = "<group>"; };
-		933633C81CA3C66D008A7ADE /* FLSetupCompleteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLSetupCompleteVC.m; path = ../FLSetupCompleteVC.m; sourceTree = "<group>"; };
 		933633CA1CA3CC53008A7ADE /* FLTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLTopicCell.h; sourceTree = "<group>"; };
 		933633CB1CA3CC53008A7ADE /* FLTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLTopicCell.m; sourceTree = "<group>"; };
 		933633CC1CA3CC53008A7ADE /* FLTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FLTopicCell.xib; sourceTree = "<group>"; };
@@ -2624,6 +2630,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		045FB4AD1CAFFFB0004018B9 /* creatTopic */ = {
+			isa = PBXGroup;
+			children = (
+				045FB4AE1CAFFFB0004018B9 /* FLChooseTypeVC.h */,
+				045FB4AF1CAFFFB0004018B9 /* FLChooseTypeVC.m */,
+				045FB4B01CAFFFB0004018B9 /* FLPreSetupTopicVC.h */,
+				045FB4B11CAFFFB0004018B9 /* FLPreSetupTopicVC.m */,
+				045FB4B21CAFFFB0004018B9 /* FLSetupCompleteVC.h */,
+				045FB4B31CAFFFB0004018B9 /* FLSetupCompleteVC.m */,
+				045FB4B41CAFFFB0004018B9 /* FLSetupTopicVC.h */,
+				045FB4B51CAFFFB0004018B9 /* FLSetupTopicVC.m */,
+				045FB4B61CAFFFB0004018B9 /* FLUploadTopicVC.h */,
+				045FB4B71CAFFFB0004018B9 /* FLUploadTopicVC.m */,
+			);
+			path = creatTopic;
+			sourceTree = "<group>";
+		};
 		933633E31CA55A00008A7ADE /* Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -2633,23 +2656,6 @@
 				933633EE1CA55B7D008A7ADE /* FLAccount.m */,
 			);
 			path = Account;
-			sourceTree = "<group>";
-		};
-		9377AE941CAFB17800F42FBC /* creatTopic */ = {
-			isa = PBXGroup;
-			children = (
-				933633C11CA3C5A2008A7ADE /* FLPreSetupTopicVC.h */,
-				933633C21CA3C5A2008A7ADE /* FLPreSetupTopicVC.m */,
-				933633BB1CA3C553008A7ADE /* FLSetupTopicVC.h */,
-				933633BC1CA3C553008A7ADE /* FLSetupTopicVC.m */,
-				933633BE1CA3C56A008A7ADE /* FLChooseTypeVC.h */,
-				933633BF1CA3C56A008A7ADE /* FLChooseTypeVC.m */,
-				933633C41CA3C5EA008A7ADE /* FLUploadTopicVC.h */,
-				933633C51CA3C5EA008A7ADE /* FLUploadTopicVC.m */,
-				933633C71CA3C66D008A7ADE /* FLSetupCompleteVC.h */,
-				933633C81CA3C66D008A7ADE /* FLSetupCompleteVC.m */,
-			);
-			path = creatTopic;
 			sourceTree = "<group>";
 		};
 		937F29271C96B4D200912C98 = {
@@ -2802,6 +2808,10 @@
 			children = (
 				937F30F51C99577600912C98 /* FLMatchController.h */,
 				937F30F61C99577600912C98 /* FLMatchController.m */,
+				045FB4A71CAFF99A004018B9 /* FLTopicDetailVC.h */,
+				045FB4A81CAFF99A004018B9 /* FLTopicDetailVC.m */,
+				045FB4AA1CAFF9B1004018B9 /* FLPostDetailVC.h */,
+				045FB4AB1CAFF9B1004018B9 /* FLPostDetailVC.m */,
 				933633D71CA4C70A008A7ADE /* FLMatchFireVC.h */,
 				933633D81CA4C70A008A7ADE /* FLMatchFireVC.m */,
 			);
@@ -2924,7 +2934,7 @@
 			children = (
 				93A18F671C9E7F4D00F46544 /* FLTopicVC.h */,
 				93A18F681C9E7F4D00F46544 /* FLTopicVC.m */,
-				9377AE941CAFB17800F42FBC /* creatTopic */,
+				045FB4AD1CAFFFB0004018B9 /* creatTopic */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -5719,6 +5729,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93FBBB8A1CA91FAA003293DF /* UIViewController+FLMethod.m in Sources */,
+				045FB4BB1CAFFFB0004018B9 /* FLSetupTopicVC.m in Sources */,
 				933633CD1CA3CC53008A7ADE /* FLTopicCell.m in Sources */,
 				93BB4E4E1CAD0D30001C862A /* FLAddressCell.m in Sources */,
 				93A18F691C9E7F4D00F46544 /* FLTopicVC.m in Sources */,
@@ -5731,27 +5742,25 @@
 				93A6B51B1CA1056300771D47 /* CunstomButton.m in Sources */,
 				93A6B4DC1C9FFB5900771D47 /* FLRegiPSWVC.m in Sources */,
 				935D1EF91CAA8CF200719C6D /* FLLoginResponseModel.m in Sources */,
+				045FB4B81CAFFFB0004018B9 /* FLChooseTypeVC.m in Sources */,
 				933633EF1CA55B7D008A7ADE /* FLAccount.m in Sources */,
 				93A6B51D1CA1056300771D47 /* CustomView.m in Sources */,
 				935D1EE41CAA6A7200719C6D /* FLEditSexVC.m in Sources */,
-				933633C91CA3C66D008A7ADE /* FLSetupCompleteVC.m in Sources */,
-				933633C01CA3C56A008A7ADE /* FLChooseTypeVC.m in Sources */,
 				937F31031C99644D00912C98 /* UIImage+FLImage.m in Sources */,
 				937F30F71C99577600912C98 /* FLMatchController.m in Sources */,
 				937F29741C96BD0C00912C98 /* FLScrollView.m in Sources */,
 				935D1EEA1CAA6AAD00719C6D /* FLEditCityVC.m in Sources */,
 				937F30D21C97EA9A00912C98 /* FLSignInVC.m in Sources */,
 				935D1EED1CAA6AC200719C6D /* FLEditIntroVC.m in Sources */,
-				933633C61CA3C5EA008A7ADE /* FLUploadTopicVC.m in Sources */,
 				935D1EF31CAA6B0D00719C6D /* FLEditPSWChangeVC.m in Sources */,
 				93BB4E571CAD1A00001C862A /* FLAddressCellModel.m in Sources */,
 				935D1EE11CAA6A5600719C6D /* FLEditNameVC.m in Sources */,
 				937F30CF1C97E9E800912C98 /* FLWelcomeNaviVC.m in Sources */,
 				937F31041C99644D00912C98 /* UIView+FLFrame.m in Sources */,
 				937F29381C96B4D200912C98 /* AppDelegate.m in Sources */,
-				933633BD1CA3C553008A7ADE /* FLSetupTopicVC.m in Sources */,
 				93BB4E521CAD0D5F001C862A /* FLAddressView.m in Sources */,
 				93A6B4D91C9FFB3E00771D47 /* FLRegiCheckVC.m in Sources */,
+				045FB4BA1CAFFFB0004018B9 /* FLSetupCompleteVC.m in Sources */,
 				93FBBB8D1CA92148003293DF /* FLUser.m in Sources */,
 				93A18F601C9E7F1E00F46544 /* FLBoxVC.m in Sources */,
 				93A6B52F1CA12BDB00771D47 /* FLHttpTool.m in Sources */,
@@ -5759,7 +5768,6 @@
 				937F31021C99644D00912C98 /* UIBarButtonItem+Item.m in Sources */,
 				93A6B51C1CA1056300771D47 /* CustomImageView.m in Sources */,
 				93A6B51E1CA1056300771D47 /* KSegement.m in Sources */,
-				933633C31CA3C5A2008A7ADE /* FLPreSetupTopicVC.m in Sources */,
 				937F31011C99644D00912C98 /* NSDate+MJ.m in Sources */,
 				937F30BE1C97D31F00912C98 /* FLTabBarController.m in Sources */,
 				933633D91CA4C70A008A7ADE /* FLMatchFireVC.m in Sources */,
@@ -5771,6 +5779,7 @@
 				935D1EF01CAA6AF300719C6D /* FLEditAccountLinkVC.m in Sources */,
 				93A18F5A1C9AA85200F46544 /* FLResetPSWVC.m in Sources */,
 				937F30C11C97D33D00912C98 /* FLNavigationController.m in Sources */,
+				045FB4AC1CAFF9B1004018B9 /* FLPostDetailVC.m in Sources */,
 				93BB4E4A1CAD0D0B001C862A /* FLAddressVC.m in Sources */,
 				935D1EF61CAA6B2C00719C6D /* FLEditBlackListVC.m in Sources */,
 				93A6B51F1CA1056300771D47 /* ViewConfig.m in Sources */,
@@ -5779,10 +5788,13 @@
 				93829A851CAD575100841280 /* FLCollectionVC.m in Sources */,
 				93A6B4DF1C9FFB7A00771D47 /* FLRegiEditVC.m in Sources */,
 				933633D41CA409A8008A7ADE /* FLHeaderScrollView.m in Sources */,
+				045FB4A91CAFF99A004018B9 /* FLTopicDetailVC.m in Sources */,
 				93A18F631C9E7F2D00F46544 /* FLMessageVC.m in Sources */,
 				937F30D51C97EAAF00912C98 /* FLSignUpVC.m in Sources */,
 				937F31071C996FDB00912C98 /* FLLogin.m in Sources */,
 				93A6B4E21C9FFB9800771D47 /* FLLikeTopicVC.m in Sources */,
+				045FB4BC1CAFFFB0004018B9 /* FLUploadTopicVC.m in Sources */,
+				045FB4B91CAFFFB0004018B9 /* FLPreSetupTopicVC.m in Sources */,
 				93829A7A1CAD3E6900841280 /* FLAddressSort.m in Sources */,
 				93FBBB901CA93048003293DF /* FLSetting.m in Sources */,
 				93A6B4D61C9FFAEB00771D47 /* FLCheckVC.m in Sources */,

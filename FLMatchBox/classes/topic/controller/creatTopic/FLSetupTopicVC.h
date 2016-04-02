@@ -1,5 +1,5 @@
 //
-//  FLUploadTopicVC.h
+//  FLSetupTopicVC.h
 //  FLMatchBox
 //
 //  Created by asddfg on 16/3/24.
@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FLUploadTopicVC : UIViewController
+@interface FLSetupTopicVC : UIViewController
+
+
+@property (nonatomic, assign) BOOL isPicType;
 
 @end

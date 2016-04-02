@@ -47,19 +47,7 @@
 }
 
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-     FLLog(@"%s",__func__);
-   
-    [self initData];
-    
-    [self initUI];
-    
-    [self setUpRefresh];
-    
-    
-    
-}
+
 
 - (void)initData
 {
@@ -261,7 +249,14 @@
 }
 
 #pragma mark- tableview delegate
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    //FLPostCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    
+    
+}
 
 
 #pragma mark- scrollview delegate
@@ -280,7 +275,22 @@
 
 
 
-#pragma mark- live method
+#pragma mark- liveCycle
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    FLLog(@"%s",__func__);
+    
+    [self initData];
+    
+    [self initUI];
+    
+    [self setUpRefresh];
+    
+    
+    
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -313,6 +323,10 @@
 {
     FLLog(@"%s",__func__);
      FLLog(@"%ld",postCell.tag);
+    [self performSegueWithIdentifier:@"FLPostDetailVC" sender:@(friendId)];
+    
+    
+    
 }
 - (void)postCell:(FLPostCell *)postCell btnRetweetDidClick:(NSInteger)friendId
 {
@@ -322,26 +336,72 @@
 - (void)postCell:(FLPostCell *)postCell btnViewDidClick:(NSInteger)friendId
 {
      FLLog(@"%s",__func__);
+    //跳转到帖子详情
+    
+    [self performSegueWithIdentifier:@"FLPostDetailVC" sender:@(friendId)];
+    
+    
+    
 }
 
 - (void)postCell:(FLPostCell *)postCell btnTopicDidClick:(NSInteger)topicId
 {
      FLLog(@"%s",__func__);
+    //跳转到话题详情
+    [self performSegueWithIdentifier:@"FLTopicDetailVC" sender:@(topicId)];
+    
+    
 }
 
 - (void)postCell:(FLPostCell *)postCell btnOperationDidClick:(FLPostCellModel *)cellModel
 {
      FLLog(@"%s",__func__);
+    //底部view 更多操作
+    
+    
+    
 }
 
 - (void)postCell:(FLPostCell *)postCell imgViewTapped:(NSArray<Photolist *> *)photoList
 {
      FLLog(@"%s",__func__);
+    //查看大图
+    
+    
+    
 }
 
 - (void)postCell:(FLPostCell *)postCell imgHeadTapped:(NSInteger)userId
 {
      FLLog(@"%s",__func__);
+    //进人用户个人界面
+
+    id vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FLProfileVC"];
+    
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"FLPostDetailVC"]) {
+        id vc = segue.destinationViewController;
+        [vc setValue:sender forKeyPath:@"friendId"];
+        
+        
+    }else if ([segue.identifier isEqualToString:@"FLTopicDetailVC"]){
+        id vc = segue.destinationViewController;
+        [vc setValue:sender forKeyPath:@"topicId"];
+        
+        
+        
+    }
+    
+    
+    
 }
 
 

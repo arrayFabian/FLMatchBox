@@ -185,6 +185,7 @@
 {
     IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager];
     keyboardManager.enable = YES;
+    keyboardManager.canAdjustTextView = NO;
     keyboardManager.keyboardDistanceFromTextField = 100;
     keyboardManager.toolbarDoneBarButtonItemText = @"完成";
     keyboardManager.shouldShowTextFieldPlaceholder = NO;

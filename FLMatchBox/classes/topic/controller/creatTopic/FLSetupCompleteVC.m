@@ -1,24 +1,18 @@
 //
-//  FLSetupTopicVC.m
+//  FLSetupCompleteVC.m
 //  FLMatchBox
 //
 //  Created by asddfg on 16/3/24.
 //  Copyright © 2016年 fabian. All rights reserved.
 //
 
-#import "FLSetupTopicVC.h"
-#import "CunstomButton.h"
+#import "FLSetupCompleteVC.h"
 
-@interface FLSetupTopicVC ()
+@interface FLSetupCompleteVC ()
 
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet CustomImageView *imgCreatSuccess;
 
-@property (weak, nonatomic) IBOutlet CunstomButton *nextBtn;
-
-@property (weak, nonatomic) IBOutlet UITableView *ktableView;
-
-
-
+@property (weak, nonatomic) IBOutlet CunstomButton *btnBackTopic;
 
 
 
@@ -27,17 +21,13 @@
 
 @end
 
-@implementation FLSetupTopicVC
+@implementation FLSetupCompleteVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
-- (IBAction)nextBtnClick:(id)sender {
-}
-- (IBAction)continueBtnClick:(id)sender {
-}
-- (IBAction)reInputBtnClick:(id)sender {
+- (IBAction)btnBackTopicDidClick:(id)sender {
 }
 
 - (void)didReceiveMemoryWarning {
