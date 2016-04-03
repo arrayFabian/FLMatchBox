@@ -34,9 +34,6 @@
 @property (nonatomic, strong)NSMutableArray   *lastArr;
 @property (nonatomic, strong)NSMutableArray  *hotArr;
 
-@property (assign, nonatomic) NSInteger pageLatestIndex;
-@property (assign, nonatomic) NSInteger pageHotIndex;
-@property (assign, nonatomic) NSInteger pageSize;
 
 
 
@@ -72,9 +69,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    NSLog(@"%ld",[self.topicId integerValue]);
+    NSLog(@"%@",_cellModel);
 
-    
+    [self initData];
     [self initUI];
     
     
@@ -88,15 +85,13 @@
     _lastArr = [@[] mutableCopy];
     _hotArr = [@[] mutableCopy];
     
-    _pageSize = 10;
-    _pageHotIndex = 1;
-    _pageLatestIndex = 1;
     
     
 }
 
 - (void)initUI
 {
+    self.title = _cellModel.topicName;
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     UIScrollView *scrollview = [[UIScrollView alloc]initWithFrame:CGRectMake(0,108 , self.view.width, self.view.height-108)];
@@ -117,7 +112,9 @@
     lastTableview.backgroundColor = [UIColor whiteColor];
     lastTableview.delegate = self;
     lastTableview.dataSource = self;
-    
+    lastTableview.rowHeight = UITableViewAutomaticDimension;
+    lastTableview.estimatedRowHeight = 400;
+    lastTableview.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     UITableView *hotTableview = [[UITableView alloc] initWithFrame:CGRectMake(scrollview.width, 0, scrollview.width, scrollview.height)];
     [self.scrollView addSubview:hotTableview];
@@ -125,7 +122,9 @@
     hotTableview.backgroundColor = [UIColor blackColor];
     hotTableview.dataSource = self;
     hotTableview.delegate = self;
-    
+    hotTableview.rowHeight = UITableViewAutomaticDimension;
+    hotTableview.estimatedRowHeight = 400;
+    hotTableview.separatorStyle = UITableViewCellSeparatorStyleNone;
     
   
     [self setUpRefresh];
@@ -138,7 +137,6 @@
 {
     
     MJRefreshNormalHeader *mj_header1 = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        _pageLatestIndex = 1;
         [self loadLastData];
         
     }];
@@ -147,13 +145,13 @@
     
     MJRefreshAutoNormalFooter *mj_footer1 = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         
-        _pageLatestIndex++;
+        
         [self loadLastData];
     }];
     self.lastTableview.mj_footer = mj_footer1;
     
     MJRefreshNormalHeader *mj_header2 = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        _pageHotIndex = 1;
+       
         [self loadHotData];
         
     }];
@@ -162,7 +160,7 @@
     
     MJRefreshAutoNormalFooter *mj_footer2 = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         
-        _pageHotIndex++;
+       
         [self loadHotData];
     }];
     self.hotTableview.mj_footer = mj_footer2;
@@ -172,12 +170,20 @@
 //lasttableview
 - (void)loadLastData
 {
-    /*
-    NSDictionary *param = @{@"userId":@(kUserModel.userId)};
-    
-    NSString *urlstring = [NSString stringWithFormat:@"%@/Matchbox/usergetIsNewFriendCircle",BaseUrl];
+   
+//    NSDictionary *param = @{@"userId":@(kUserModel.userId),
+//                            @"topicId":self.topicId,
+//                            @"pageModel.pageSize":@(_pageSize),
+//                            @"pageModel.pageIndex":@(_pageLatestIndex)};
+
+NSDictionary *param = @{@"userId":@(kUserModel.userId),
+                        @"topicId":@(_cellModel.topicId)
+                        };
+///Matchbox/usergetIsNewFriendCircle
+    NSString *urlstring = [NSString stringWithFormat:@"%@/Matchbox/usergetFriendCircles",BaseUrl];
     
     __weak __typeof(&*self) weakSelf = self;
+    
     [FLHttpTool postWithUrlString:urlstring param:param success:^(id responseObject) {
         
         NSDictionary *dict = (NSDictionary *)responseObject;
@@ -185,80 +191,78 @@
         if ([dict[@"result"] integerValue] == 0) {
             
             NSArray *arr = dict[@"List"];
+            
+           
             if (arr.count == 0) {
-                [weakSelf.friendTableView.mj_header endRefreshing];
-                [weakSelf.friendTableView.mj_footer endRefreshing];
+                [weakSelf.lastTableview.mj_header endRefreshing];
+                [weakSelf.lastTableview.mj_footer endRefreshing];
                 
                 return ;
-            }else{
-                
-                _friendsArr = [FLPostCellModel mj_objectArrayWithKeyValuesArray:arr];
-                
-                
-                //                for (NSDictionary *dict in arr) {
-                //                    FLTopicModel *model = [FLTopicModel mj_objectWithKeyValues:dict];
-                //                    [_fountArr addObject:model];
-                //                }
-                
-                
-                [weakSelf.friendTableView reloadData];
-                
             }
+            
+            
+            _lastArr = [FLPostCellModel mj_objectArrayWithKeyValuesArray:arr];
+            
+            
+            [weakSelf.lastTableview reloadData];
+                
+           
             
         }
         
-        [weakSelf.friendTableView.mj_header endRefreshing];
-        [weakSelf.friendTableView.mj_footer endRefreshing];
+        [weakSelf.lastTableview.mj_header endRefreshing];
+        [weakSelf.lastTableview.mj_footer endRefreshing];
         
     } failure:^(NSError *error) {
-        [weakSelf.friendTableView.mj_header endRefreshing];
-        [weakSelf.friendTableView.mj_footer endRefreshing];
+        [weakSelf.lastTableview.mj_header endRefreshing];
+        [weakSelf.lastTableview.mj_footer endRefreshing];
         
     }];
-    */
+    
     
 }
 
 //hottableview
 - (void)loadHotData
 {
-    /*
+  
     NSDictionary *param = @{@"userId":@(kUserModel.userId),
-                            @"topicId":@(2)};
-    ///Matchbox/usergetMyActionTopIcByUserId
+                            @"topicId":@(_cellModel.topicId)
+                            };
+    ///Matchbox/usergetFriendCircleIsHot
     NSString *urlstring = [NSString stringWithFormat:@"%@/Matchbox/usergetFriendCircles",BaseUrl];
     
     __weak __typeof(&*self) weakSelf = self;
+    
     [FLHttpTool postWithUrlString:urlstring param:param success:^(id responseObject) {
         
         NSDictionary *dict = (NSDictionary *)responseObject;
         if ([dict[@"result"] integerValue] == 0) {
             
-            
             NSArray *arr = dict[@"List"];
             if (arr.count == 0) {
-                [weakSelf.likeTableView.mj_header endRefreshing];
-                [weakSelf.likeTableView.mj_footer endRefreshing];
+                [weakSelf.hotTableview.mj_header endRefreshing];
+                [weakSelf.hotTableview.mj_footer endRefreshing];
                 
                 return ;
-            }else{
-                
-                _likesArr = [FLPostCellModel mj_objectArrayWithKeyValuesArray:arr];
-                [weakSelf.likeTableView reloadData];
-                
             }
             
+            _hotArr = [FLPostCellModel mj_objectArrayWithKeyValuesArray:arr];
+           
+            [weakSelf.hotTableview reloadData];
+                
+            
         }
-        [weakSelf.likeTableView.mj_header endRefreshing];
-        [weakSelf.likeTableView.mj_footer endRefreshing];
+        [weakSelf.hotTableview.mj_header endRefreshing];
+        [weakSelf.hotTableview.mj_footer endRefreshing];
         
     } failure:^(NSError *error) {
-        [weakSelf.likeTableView.mj_header endRefreshing];
-        [weakSelf.likeTableView.mj_footer endRefreshing];
+        [weakSelf.hotTableview.mj_header endRefreshing];
+        [weakSelf.hotTableview.mj_footer endRefreshing];
         
     }];
     
-    */
+  
 }
 
 
@@ -272,11 +276,10 @@
 {
     if (tableView == self.lastTableview) {
         return self.lastArr.count;
-    }if (tableView == self.hotTableview) {
-        return self.hotArr.count;
     }
     
-    return 0;
+        return self.hotArr.count;
+  
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -285,6 +288,7 @@
     
     
     FLPostCell *cell = [FLPostCell cellWithTableView:tableView model:cellModel];
+    cell.isCellInTopicDetail = YES;
     
     return cell;
     

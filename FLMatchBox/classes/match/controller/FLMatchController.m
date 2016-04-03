@@ -143,8 +143,9 @@
     
     friendTableview.dataSource = self;
     friendTableview.delegate = self;
+    friendTableview.separatorStyle = UITableViewCellSeparatorStyleNone;
     friendTableview.rowHeight = UITableViewAutomaticDimension;
-    friendTableview.estimatedRowHeight = 457;
+    friendTableview.estimatedRowHeight = 400;
     
     UITableView *likeTableview = [[UITableView alloc]initWithFrame:CGRectMake(_scrollview.width, 0, _scrollview.width, _scrollview.height)];
     [_scrollview addSubview:likeTableview];
@@ -152,8 +153,9 @@
    
     likeTableview.dataSource = self;
     likeTableview.delegate = self;
+    likeTableview.separatorStyle = UITableViewCellSeparatorStyleNone;
     likeTableview.rowHeight = UITableViewAutomaticDimension;
-    likeTableview.estimatedRowHeight = 457;
+    likeTableview.estimatedRowHeight = 400;
 
 }
 
@@ -396,11 +398,11 @@
     
 }
 
-- (void)postCell:(FLPostCell *)postCell btnTopicDidClick:(NSInteger)topicId
+- (void)postCell:(FLPostCell *)postCell btnTopicDidClick:(FLPostCellModel *)cellModel
 {
      FLLog(@"%s",__func__);
     //跳转到话题详情
-    [self performSegueWithIdentifier:@"FLTopicDetailVC" sender:@(topicId)];
+    [self performSegueWithIdentifier:@"FLTopicDetailVC" sender:cellModel];
     
     
 }
@@ -570,7 +572,7 @@
         
     }else if ([segue.identifier isEqualToString:@"FLTopicDetailVC"]){
         id vc = segue.destinationViewController;
-        [vc setValue:sender forKeyPath:@"topicId"];
+        [vc setValue:sender forKeyPath:@"cellModel"];
         
         
         

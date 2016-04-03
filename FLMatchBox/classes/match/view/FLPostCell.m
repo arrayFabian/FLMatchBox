@@ -42,7 +42,9 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *lbToImageView;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imgHeadToCellTop;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ImgHeadToTopic;
 
 
 
@@ -80,7 +82,9 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:reuseID owner:nil options:nil] lastObject];
        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.imgView.clipsToBounds = YES;
         cell.imgView.contentMode = UIViewContentModeScaleAspectFill;
+        
     }
     
     cell.cellmodel = cellmodel;
@@ -116,8 +120,7 @@
         self.imgView.hidden = NO;
         
          NSString *path1 = [NSString stringWithFormat:@"%@/Matchbox%@",BaseUrl,[cellmodel.photoList firstObject].imgUrl];
-         FLLog(@"%@",path1);
-        [self.imgView sd_setImageWithURL:[NSURL URLWithString:path1] placeholderImage:[UIImage imageNamed:@"DefaultAvatar"]];
+        [self.imgView sd_setImageWithURL:[NSURL URLWithString:path1] placeholderImage:[UIImage imageNamed:@"DefaultAvatar.png"]];
         
     }
      //帖子文本内容
@@ -142,6 +145,47 @@
     
 }
 
+
+- (void)setIsCellInTopicDetail:(BOOL)isCellInTopicDetail
+{
+    _isCellInTopicDetail = isCellInTopicDetail;
+    
+    if (isCellInTopicDetail) {
+        self.imgHeadToCellTop.priority = UILayoutPriorityDefaultHigh;
+        self.ImgHeadToTopic.priority = UILayoutPriorityDefaultLow;
+        self.btnTopic.hidden = YES;
+    }else{
+        self.imgHeadToCellTop.priority = UILayoutPriorityDefaultLow;
+        self.ImgHeadToTopic.priority = UILayoutPriorityDefaultHigh;
+        self.btnTopic.hidden = NO;
+    }
+    
+}
+
+
+- (void)setIsCellInUserDetail:(BOOL)isCellInUserDetail
+{
+    _isCellInUserDetail = isCellInUserDetail;
+    
+    if (isCellInUserDetail) {
+        self.btnFollow.hidden = YES;
+    }else{
+        self.btnFollow.hidden = NO;
+    }
+    
+}
+
+- (void)setIsCellInPostDetail:(BOOL)isCellInPostDetail
+{
+    _isCellInPostDetail = isCellInPostDetail;
+    if (isCellInPostDetail) {
+        self.btnFollow.hidden = YES;
+        self.btnOperation.hidden = YES;
+    }else{
+        self.btnFollow.hidden = NO;
+        self.btnOperation.hidden = NO;
+    }
+}
 
 - (IBAction)btnCommentDidClick:(UIButton *)sender
 {
@@ -243,7 +287,7 @@
 {
     FLLog(@"%s",__func__);
     if ([self.delegate respondsToSelector:@selector(postCell:btnTopicDidClick:)]) {
-        [self.delegate postCell:self btnTopicDidClick:_cellmodel.topicId];
+        [self.delegate postCell:self btnTopicDidClick:_cellmodel];
     }
 
 }

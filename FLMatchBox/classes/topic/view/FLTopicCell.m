@@ -30,6 +30,7 @@
     FLTopicCell *cell = [tableview dequeueReusableCellWithIdentifier:reuseId];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"FLTopicCell" owner:nil options:nil] lastObject];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return cell;
     

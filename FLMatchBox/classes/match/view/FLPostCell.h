@@ -11,7 +11,7 @@
 @class FLPostCellModel,FLPostCell,Photolist;
 @protocol FLPostCellModelDelegate <NSObject>
 @optional
-- (void)postCell:(FLPostCell *)postCell btnTopicDidClick:(NSInteger)topicId;
+- (void)postCell:(FLPostCell *)postCell btnTopicDidClick:(FLPostCellModel *)cellModel;
 
 - (void)postCell:(FLPostCell *)postCell btnOperationDidClick:(FLPostCellModel *)cellModel;
 
@@ -28,6 +28,10 @@
 @end
 
 @interface FLPostCell : UITableViewCell
+
+@property (nonatomic, assign) BOOL isCellInTopicDetail;
+@property (nonatomic, assign) BOOL isCellInUserDetail;
+@property (nonatomic, assign) BOOL isCellInPostDetail;
 
 @property (nonatomic, strong)FLPostCellModel *cellmodel;
 
