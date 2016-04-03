@@ -72,6 +72,8 @@
 #pragma mark- 网络请求
 - (void)searchTopic
 {
+    
+    __weak typeof (&*self) weakSelf = self;
     NSDictionary *param = @{@"userId":@(kUserModel.userId),
                             @"user.name":self.searchBar.text};
     [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/usergetTopicList",BaseUrl] param:param success:^(id responseObject) {
@@ -80,14 +82,21 @@
         if ([dict[@"result"] integerValue] == 0) {//请求成功
             NSArray *list = dict[@"list"];
             if (list.count) {//有相关的话题
-                self.searchTopicArr = [FLTopicModel mj_objectArrayWithKeyValuesArray:list];
+                weakSelf.searchTopicArr = [FLTopicModel mj_objectArrayWithKeyValuesArray:list];
+//                for (FLTopicModel *model in _searchTopicArr) {
+//                    if ([model.name isEqualToString:weakSelf.searchBar.text]) {
+//                        
+//                        [weakSelf sentAlert:@"话题重复" detail:@"去看看"];
+//                        return ;
+//                        
+//                    }
+//                }
                 
-                
-                [self.ktableView reloadData];
+                [weakSelf.ktableView reloadData];
                 
             }else{//没有相关的话题
-                self.searchTopicArr = [@[] mutableCopy];
-                [self.ktableView reloadData];
+                weakSelf.searchTopicArr = [@[] mutableCopy];
+                [weakSelf.ktableView reloadData];
                 
                 MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                 hud.mode = MBProgressHUDModeText;
@@ -95,7 +104,7 @@
                 [hud hide:YES afterDelay:0.5];
                 
             }
-            self.ktableView.hidden = NO;
+            weakSelf.ktableView.hidden = NO;
             
             
         }

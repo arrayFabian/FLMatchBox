@@ -13,9 +13,14 @@
 #import "FLUser.h"
 
 #import <MJRefresh/MJRefresh.h>
+
 #import <MJExtension/MJExtension.h>
 
 #import "FLHttpTool.h"
+#import <MMPopupView.h>
+#import <MMSheetView.h>
+#import "ProgressView.h"
+#import <UIImageView+WebCache.h>
 
 @interface FLMatchController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,FLPostCellModelDelegate>
 
@@ -27,7 +32,10 @@
 @property (nonatomic, strong)NSMutableArray *friendsArr;
 @property (nonatomic, strong)NSMutableArray *likesArr;
 
-
+@property (strong, nonatomic) UIButton  * imgBrowser;
+@property (strong, nonatomic) UIScrollView * imageScrollView;
+@property (strong, nonatomic) UIImageView * bigImageView;
+@property (strong, nonatomic) ProgressView * progressview;
 
 @end
 
@@ -62,32 +70,43 @@
     //数据处理：  下拉清空之前数据，把新得到的数据赋给数组； 上啦加载将请求到的数据添加进数组
     __weak __typeof(&*self) weakSelf = self;
     
-    self.friendTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    MJRefreshNormalHeader *mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
         
         [weakSelf loadFriendData];
         
     }];
+    mj_header.lastUpdatedTimeLabel.hidden = YES;
+    self.friendTableView.mj_header = mj_header;
     
-    self.friendTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    MJRefreshAutoNormalFooter *mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         
         
         [weakSelf loadFriendData];
         
     }];
+    [mj_footer endRefreshingWithNoMoreData];
+    mj_footer.automaticallyHidden = YES;
+    self.friendTableView.mj_footer = mj_footer;
     
-   
-    self.likeTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    
+    
+    MJRefreshNormalHeader *mj_header1 = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
         [weakSelf loadLikeData];
         
     }];
+    mj_header1.lastUpdatedTimeLabel.hidden = YES;
+    self.likeTableView.mj_header = mj_header1;
     
-    
-    self.likeTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    MJRefreshAutoNormalFooter *mj_footer1 = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         
         [weakSelf loadLikeData];
     }];
+    [mj_footer1 endRefreshingWithNoMoreData];
+    mj_footer1.automaticallyHidden = YES;
+    self.likeTableView.mj_footer = mj_footer1;
+    
     
     //第一次自动创新
     [self.friendTableView.mj_header beginRefreshing];
@@ -154,8 +173,9 @@
             
             NSArray *arr = dict[@"List"];
             if (arr.count == 0) {
+                [weakSelf.friendTableView.mj_header endRefreshing];
                 [weakSelf.friendTableView.mj_footer endRefreshing];
-                [weakSelf.friendTableView.mj_footer endRefreshingWithNoMoreData];
+               
                 return ;
             }else{
                 
@@ -190,9 +210,10 @@
 - (void)loadLikeData
 {
     
-    NSDictionary *param = @{@"userId":@(kUserModel.userId)};
-    
-    NSString *urlstring = [NSString stringWithFormat:@"%@/Matchbox/usergetMyActionTopIcByUserId",BaseUrl];
+    NSDictionary *param = @{@"userId":@(kUserModel.userId),
+                            @"topicId":@(2)};
+    ///Matchbox/usergetMyActionTopIcByUserId
+    NSString *urlstring = [NSString stringWithFormat:@"%@/Matchbox/usergetFriendCircles",BaseUrl];
     
     __weak __typeof(&*self) weakSelf = self;
     [FLHttpTool postWithUrlString:urlstring param:param success:^(id responseObject) {
@@ -203,8 +224,9 @@
                 
             NSArray *arr = dict[@"List"];
             if (arr.count == 0) {
+                [weakSelf.likeTableView.mj_header endRefreshing];
                  [weakSelf.likeTableView.mj_footer endRefreshing];
-                [weakSelf.likeTableView.mj_footer endRefreshingWithNoMoreData];
+               
                 return ;
             }else{
                 
@@ -273,6 +295,36 @@
     }
 }
 
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
+{
+    if (scrollView == _imageScrollView) {
+        return _bigImageView;
+    }
+    
+    
+    return nil;
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView
+{
+    if (scrollView == _imageScrollView) {
+        
+        CGFloat W = scrollView.contentSize.width > scrollView.bounds.size.width?scrollView.contentSize.width:scrollView.bounds.size.width;
+        
+        CGFloat H = scrollView.contentSize.height > scrollView.bounds.size.height?scrollView.contentSize.height:scrollView.bounds.size.height;
+        _bigImageView.center = CGPointMake(W/2.0, H/2.0);
+        
+    }
+    
+
+    
+}
+
+//- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
+//{
+//    
+//}
 
 
 #pragma mark- liveCycle
@@ -358,16 +410,140 @@
      FLLog(@"%s",__func__);
     //底部view 更多操作
     
+    MMPopupItem *item1 = MMItemMake(@"取消关注", MMItemTypeNormal, ^(NSInteger index) {
+        
+        
+        
+        
+    });
+    
+    MMPopupItem *item2 = MMItemMake(@"收藏帖子", MMItemTypeNormal, ^(NSInteger index) {
+        
+        
+        
+        
+    });
+
+    MMPopupItem *item3 = MMItemMake(@"分享至第三方", MMItemTypeNormal, ^(NSInteger index) {
+        
+        
+        
+        
+    });
+
+   
+    
+    MMSheetView *sheet = [[MMSheetView alloc]initWithTitle:nil items:@[item1,item2,item3]];
+    
+    [sheet show];
     
     
+    
+    
+    
+    
+    
+}
+
+- (void)cancelImgae
+{
+    [self.imgBrowser removeFromSuperview];
+}
+- (void)downloadImage
+{
+    UIImageWriteToSavedPhotosAlbum(_bigImageView.image, self, @selector(image: didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    if (error != NULL) {
+        UIAlertView *photoSave = [[UIAlertView alloc] initWithTitle:nil message:[NSString stringWithFormat:@"%@",error] delegate:nil cancelButtonTitle:nil otherButtonTitles: nil];
+        [photoSave show];
+        [photoSave dismissWithClickedButtonIndex:0 animated:YES];
+        photoSave = nil;
+        
+        
+        
+    }else{
+        UIAlertView *photoSave = [[UIAlertView alloc] initWithTitle:@"\n\n保存成功" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles: nil];
+        [photoSave show];
+        [photoSave dismissWithClickedButtonIndex:0 animated:YES];
+        photoSave = nil;
+
+    }
 }
 
 - (void)postCell:(FLPostCell *)postCell imgViewTapped:(NSArray<Photolist *> *)photoList
 {
      FLLog(@"%s",__func__);
     //查看大图
+    //btn做背景 加scrollview 装imageview .
     
+    if (!_imgBrowser) {
+        _imgBrowser = [[UIButton alloc]initWithFrame:FLKeyWindow.bounds];
+        _imgBrowser.backgroundColor = [UIColor blackColor];
+       // [_imgBrowser addTarget:self action:@selector(cancelImgae)  forControlEvents:UIControlEventTouchUpInside];//不会起到效果
+        
+        _imageScrollView = [[UIScrollView alloc]initWithFrame:_imgBrowser.bounds];
+        _imageScrollView.delegate = self;
+        _imageScrollView.minimumZoomScale = 1;
+        _imageScrollView.maximumZoomScale = 3.5f;
+        _imageScrollView.showsVerticalScrollIndicator = NO;
+        _imageScrollView.showsHorizontalScrollIndicator = NO;
+        [_imgBrowser addSubview:_imageScrollView];
+        
+        
+        UIButton *btnCover = [[UIButton alloc]initWithFrame:_imgBrowser.bounds];
+        [btnCover addTarget:self action:@selector(cancelImgae)  forControlEvents:UIControlEventTouchUpInside];
+        [_imageScrollView addSubview:btnCover];
+
+        
+        
+        _bigImageView = [[UIImageView alloc]initWithFrame:CGRectZero];
+        [_imageScrollView addSubview:_bigImageView];
+
+        
+        
+        UIButton *btnDownload = [[UIButton alloc]initWithFrame:CGRectMake(_imgBrowser.width/4.0-22, _imgBrowser.height-44, 44, 44)];
+        [btnDownload setImage:[UIImage imageNamed:@"save_button"] forState:UIControlStateNormal];
+        [btnDownload addTarget:self action:@selector(downloadImage) forControlEvents:UIControlEventTouchUpInside];
+        [_imgBrowser addSubview:btnDownload];
+        
+        UIButton *btnCancle = [[UIButton alloc]initWithFrame:CGRectMake(3*_imgBrowser.width/4.0 -22 , _imgBrowser.height-44, 44, 44)];
+        [btnCancle setImage:[UIImage imageNamed:@"MBScanCancel"] forState:UIControlStateNormal];
+        [btnCancle addTarget:self action:@selector(cancelImgae) forControlEvents:UIControlEventTouchUpInside];
+        [_imgBrowser addSubview:btnCancle];
+        
+        
+        
+        
+        _progressview = [[ProgressView alloc]initWithFrame:CGRectMake(0, 0, 80, 80)];
+       
+    }
     
+     _progressview.center = _imgBrowser.center;
+    [_imgBrowser addSubview:_progressview];
+    [FLKeyWindow addSubview:_imgBrowser];
+    
+    NSString *path = [NSString stringWithFormat:@"%@/Matchbox%@",BaseUrl,[photoList firstObject].url];
+   // NSString *path1 = [NSString stringWithFormat:@"%@/Matchbox%@",BaseUrl,[cellmodel.photoList firstObject].imgUrl];
+    [_bigImageView sd_setImageWithURL:[NSURL URLWithString:path] placeholderImage:nil options:SDWebImageCacheMemoryOnly progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        
+        _progressview.persent = (CGFloat)receivedSize/expectedSize;
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        //调整size
+        
+        CGFloat W = _imgBrowser.width;
+        CGFloat H = (W*image.size.height)/image.size.width;
+        _bigImageView.frame = CGRectMake(0, 0, W, H);
+        _bigImageView.center = _imgBrowser.center;
+       
+        
+        [_progressview removeFromSuperview];
+        _progressview.persent = 0;
+        
+        
+    }];
     
 }
 

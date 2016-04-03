@@ -8,6 +8,11 @@
 
 #import "FLUploadTopicVC.h"
 
+#import "FLUser.h"
+#import "FLHttpTool.h"
+
+
+
 @interface FLUploadTopicVC ()<UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *lbPlaceHolder;
@@ -43,10 +48,33 @@
     //网络请求
     NSLog(@"%@",self.textView.text);
     
+    __weak typeof (&*self) weakSelf = self;
+    NSDictionary *param = @{@"userId":@(kUserModel.userId),
+                            @"name":self.topicName};
+    
+    [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/usersaveTopic",BaseUrl] param:param success:^(id responseObject) {//次接口有问题，创建成功但没有返回
+        FLLog(@"%@",responseObject);
+        
+        //跳转
+   
+        [weakSelf performSegueWithIdentifier:@"FLSetupCompleteVC" sender:nil];
+        
+    } failure:^(NSError *error) {
+        
+        
+    }];
+    
+    
+    
     
 }
 
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  
+
+}
 
 
 

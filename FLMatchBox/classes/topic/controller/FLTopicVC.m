@@ -154,12 +154,14 @@
     __weak __typeof(&*self) weakSelf = self;
     
     //ktableView
-    self.ktableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    MJRefreshNormalHeader *kheader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
         _foundIndex = 1;
         [weakSelf loadFoundData];
         
     }];
+    kheader.lastUpdatedTimeLabel.hidden = YES;
+    self.ktableView.mj_header = kheader;
     
     self.ktableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         
@@ -175,6 +177,8 @@
         [weakSelf loadNewData];
         
     }];
+    header.lastUpdatedTimeLabel.hidden = YES;
+    header.stateLabel.hidden = YES;
     NSMutableArray *imagesArr = [@[] mutableCopy];
     for (int i = 1; i <= 8; i++) {
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"More%d.png",i]];
@@ -191,6 +195,8 @@
         [weakSelf loadNewData];
         
     }];
+    footer.automaticallyHidden = YES;
+    footer.stateLabel.hidden = YES;
     [footer setImages:imagesArr forState:MJRefreshStateRefreshing];
     self.knewtableView.mj_footer = footer;
     

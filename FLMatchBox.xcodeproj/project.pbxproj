@@ -26,6 +26,7 @@
 		933633E11CA4EAE3008A7ADE /* FLPostCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633E01CA4EAE3008A7ADE /* FLPostCellModel.m */; };
 		933633EF1CA55B7D008A7ADE /* FLAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633EE1CA55B7D008A7ADE /* FLAccount.m */; };
 		933633F21CA55FD1008A7ADE /* FLAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633F11CA55FD1008A7ADE /* FLAccountTool.m */; };
+		93441BF11CB0FC0300D87960 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93441BF01CB0FC0300D87960 /* ProgressView.m */; };
 		935D1EE11CAA6A5600719C6D /* FLEditNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 935D1EE01CAA6A5600719C6D /* FLEditNameVC.m */; };
 		935D1EE41CAA6A7200719C6D /* FLEditSexVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 935D1EE31CAA6A7200719C6D /* FLEditSexVC.m */; };
 		935D1EE71CAA6A9800719C6D /* FLEditSexChooseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 935D1EE61CAA6A9800719C6D /* FLEditSexChooseVC.m */; };
@@ -1309,6 +1310,8 @@
 		933633EE1CA55B7D008A7ADE /* FLAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAccount.m; sourceTree = "<group>"; };
 		933633F01CA55FD1008A7ADE /* FLAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAccountTool.h; sourceTree = "<group>"; };
 		933633F11CA55FD1008A7ADE /* FLAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAccountTool.m; sourceTree = "<group>"; };
+		93441BEF1CB0FC0300D87960 /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
+		93441BF01CB0FC0300D87960 /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
 		935D1EDF1CAA6A5600719C6D /* FLEditNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEditNameVC.h; sourceTree = "<group>"; };
 		935D1EE01CAA6A5600719C6D /* FLEditNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEditNameVC.m; sourceTree = "<group>"; };
 		935D1EE21CAA6A7200719C6D /* FLEditSexVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEditSexVC.h; sourceTree = "<group>"; };
@@ -4383,6 +4386,8 @@
 				93A6B5181CA1056300771D47 /* KSegement.m */,
 				93A6B5191CA1056300771D47 /* ViewConfig.h */,
 				93A6B51A1CA1056300771D47 /* ViewConfig.m */,
+				93441BEF1CB0FC0300D87960 /* ProgressView.h */,
+				93441BF01CB0FC0300D87960 /* ProgressView.m */,
 			);
 			path = "自定义View";
 			sourceTree = "<group>";
@@ -5751,6 +5756,7 @@
 				937F29741C96BD0C00912C98 /* FLScrollView.m in Sources */,
 				935D1EEA1CAA6AAD00719C6D /* FLEditCityVC.m in Sources */,
 				937F30D21C97EA9A00912C98 /* FLSignInVC.m in Sources */,
+				93441BF11CB0FC0300D87960 /* ProgressView.m in Sources */,
 				935D1EED1CAA6AC200719C6D /* FLEditIntroVC.m in Sources */,
 				935D1EF31CAA6B0D00719C6D /* FLEditPSWChangeVC.m in Sources */,
 				93BB4E571CAD1A00001C862A /* FLAddressCellModel.m in Sources */,
