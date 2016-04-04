@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class FLPostCellModel;
 @interface FLPostDetailVC : UIViewController
 
-@property (nonatomic, assign) NSNumber *friendId;
+@property (nonatomic, strong) FLPostCellModel *cellModel;
+
 
 @end

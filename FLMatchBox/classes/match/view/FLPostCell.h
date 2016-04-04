@@ -15,13 +15,13 @@
 
 - (void)postCell:(FLPostCell *)postCell btnOperationDidClick:(FLPostCellModel *)cellModel;
 
-- (void)postCell:(FLPostCell *)postCell btnCommentDidClick:(NSInteger)friendId;
+- (void)postCell:(FLPostCell *)postCell btnCommentDidClick:(FLPostCellModel *)cellModel;
 
-- (void)postCell:(FLPostCell *)postCell btnRetweetDidClick:(NSInteger)friendId;
+- (void)postCell:(FLPostCell *)postCell btnRetweetDidClick:(FLPostCellModel *)cellModel;
 
-- (void)postCell:(FLPostCell *)postCell btnViewDidClick:(NSInteger)friendId;
+- (void)postCell:(FLPostCell *)postCell btnViewDidClick:(FLPostCellModel *)cellModel;
 
-- (void)postCell:(FLPostCell *)postCell imgHeadTapped:(NSInteger)userId;
+- (void)postCell:(FLPostCell *)postCell imgHeadTapped:(FLPostCellModel *)cellModel;
 
 - (void)postCell:(FLPostCell *)postCell imgViewTapped:( NSArray<Photolist *> *)photoList;
 

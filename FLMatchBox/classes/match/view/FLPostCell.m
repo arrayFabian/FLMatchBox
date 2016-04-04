@@ -60,7 +60,7 @@
     FLLog(@"%s",__func__);
     
     if ([self.delegate respondsToSelector:@selector(postCell:imgHeadTapped:)]) {
-        [self.delegate postCell:self imgHeadTapped:_cellmodel.userId];
+        [self.delegate postCell:self imgHeadTapped:_cellmodel];
     }
 }
 
@@ -181,9 +181,11 @@
     if (isCellInPostDetail) {
         self.btnFollow.hidden = YES;
         self.btnOperation.hidden = YES;
+        self.toolView.hidden = YES;
     }else{
         self.btnFollow.hidden = NO;
         self.btnOperation.hidden = NO;
+        self.toolView.hidden = NO;
     }
 }
 
@@ -191,7 +193,7 @@
 {
     FLLog(@"%s",__func__);
     if ([self.delegate respondsToSelector:@selector(postCell:btnCommentDidClick:)]) {
-        [self.delegate postCell:self btnCommentDidClick:_cellmodel.friendId];
+        [self.delegate postCell:self btnCommentDidClick:_cellmodel];
     }
 }
 
@@ -199,7 +201,7 @@
 {
     FLLog(@"%s",__func__);
     if ([self.delegate respondsToSelector:@selector(postCell:btnRetweetDidClick:)]) {
-        [self.delegate postCell:self btnRetweetDidClick:_cellmodel.friendId];
+        [self.delegate postCell:self btnRetweetDidClick:_cellmodel];
     }
 
 }
@@ -246,7 +248,7 @@
     FLLog(@"%s",__func__);
     
     if ([self.delegate respondsToSelector:@selector(postCell:btnViewDidClick:)]) {
-        [self.delegate postCell:self btnViewDidClick:_cellmodel.friendId];
+        [self.delegate postCell:self btnViewDidClick:_cellmodel];
     }
     
 

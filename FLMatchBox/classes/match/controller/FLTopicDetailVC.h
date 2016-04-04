@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-@class FLPostCellModel;
+@class FLPostCellModel,FLTopicModel;
 @interface FLTopicDetailVC : UIViewController
 
 @property (nonatomic, strong) FLPostCellModel *cellModel;
+
+
+@property (nonatomic, strong) FLTopicModel *topicModel;
 
 @end

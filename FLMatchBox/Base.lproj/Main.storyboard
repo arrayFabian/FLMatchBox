@@ -211,8 +211,8 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="我" id="dO1-Qf-y5O">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Hij-cQ-Fzu">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XPE-qC-bfs">
-                                <rect key="frame" x="233" y="7" width="71" height="30"/>
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="XPE-qC-bfs">
+                                <rect key="frame" x="229" y="2" width="75" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -243,7 +243,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-3439" y="527"/>
+            <point key="canvasLocation" x="-3279" y="486"/>
         </scene>
         <!--我的收藏-->
         <scene sceneID="UeJ-MB-P7F">
@@ -1487,7 +1487,7 @@
             </objects>
             <point key="canvasLocation" x="-91" y="-367"/>
         </scene>
-        <!--postdetail-->
+        <!--详情-->
         <scene sceneID="4CX-sd-0P1">
             <objects>
                 <viewController storyboardIdentifier="FLPostDetailVC" id="i1N-rF-l7d" customClass="FLPostDetailVC" sceneMemberID="viewController">
@@ -1500,11 +1500,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="postdetail" id="6rW-N2-bE4" customClass="FL"/>
+                    <navigationItem key="navigationItem" title="详情" id="6rW-N2-bE4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BAD-2h-rVp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1211" y="-954"/>
+            <point key="canvasLocation" x="1150" y="-977"/>
         </scene>
         <!--Topic DetailVC-->
         <scene sceneID="PZT-1S-qJU">
@@ -1554,7 +1554,7 @@
                                             <constraint firstAttribute="height" constant="1" id="4e3-tt-pIV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUC-Oj-K0N">
@@ -1564,7 +1564,7 @@
                                             <constraint firstAttribute="height" constant="1" id="nZN-FI-lNe"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -1606,7 +1606,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zuo-s4-YKS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1126" y="-204"/>
+            <point key="canvasLocation" x="1177" y="-247"/>
         </scene>
         <!--火柴盒-->
         <scene sceneID="JHH-pR-QZ7">
@@ -2286,7 +2286,7 @@
                                     <constraint firstAttribute="height" constant="1" id="lzO-bE-gnP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="as7-tz-UhW">
@@ -2402,7 +2402,7 @@
                                     <constraint firstAttribute="height" constant="21" id="ryA-mC-dem"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topic_qualify.png" translatesAutoresizingMaskIntoConstraints="NO" id="ir6-6F-6oh" customClass="CustomImageView">
@@ -2604,6 +2604,146 @@
             </objects>
             <point key="canvasLocation" x="-1877" y="1929"/>
         </scene>
+        <!--otherUser-->
+        <scene sceneID="7sM-4o-xjD">
+            <objects>
+                <tableViewController storyboardIdentifier="FLOtherUserVC" id="Ig6-nB-v1w" customClass="FLOtherUserVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="RBW-r2-Cf4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="tAs-3W-p6K">
+                            <rect key="frame" x="0.0" y="64" width="320" height="192"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCu-H0-nVL">
+                                    <rect key="frame" x="42" y="94" width="237" height="24"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="24" id="JQL-1o-fKt"/>
+                                        <constraint firstAttribute="width" constant="237" id="wdb-2J-SIn"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqm-Bo-aiR">
+                                    <rect key="frame" x="104" y="116" width="112" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="112" id="Wx6-Rw-ds1"/>
+                                        <constraint firstAttribute="height" constant="21" id="ms0-ET-PGm"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h6Z-dv-6TO">
+                                    <rect key="frame" x="85" y="137" width="74" height="28"/>
+                                    <state key="normal" image="follow_user.png">
+                                        <color key="titleColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <state key="selected" image="following_user.png"/>
+                                    <connections>
+                                        <action selector="btnFollowDidClick:" destination="Ig6-nB-v1w" eventType="touchUpInside" id="J4s-JK-yHv"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvR-sj-csc">
+                                    <rect key="frame" x="172" y="137" width="74" height="28"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="74" id="QYb-no-k3l"/>
+                                        <constraint firstAttribute="height" constant="28" id="k07-dO-zGd"/>
+                                    </constraints>
+                                    <state key="normal" image="send_im_btn.png">
+                                        <color key="titleColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="btnChatDidClick:" destination="Ig6-nB-v1w" eventType="touchUpInside" id="MJK-l2-i1u"/>
+                                    </connections>
+                                </button>
+                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultAvatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="dVL-gb-nEj" customClass="CustomImageView">
+                                    <rect key="frame" x="130" y="19" width="60" height="60"/>
+                                    <gestureRecognizers/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="60" id="Mqz-mp-OOl"/>
+                                        <constraint firstAttribute="height" constant="60" id="aE9-C3-4Lo"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="isCircle" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="04D-7G-4np" appends="YES" id="Emp-5r-t6a"/>
+                                    </connections>
+                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8O-GB-Wew">
+                                    <rect key="frame" x="14" y="162" width="293" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="293" id="64S-hW-Mvi"/>
+                                        <constraint firstAttribute="height" constant="30" id="Yf3-Ud-u8u"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <state key="normal">
+                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="pvR-sj-csc" firstAttribute="leading" secondItem="h6Z-dv-6TO" secondAttribute="trailing" constant="13" id="41t-A1-l1h"/>
+                                <constraint firstItem="RCu-H0-nVL" firstAttribute="centerX" secondItem="dVL-gb-nEj" secondAttribute="centerX" id="5Mh-R4-izn"/>
+                                <constraint firstItem="h6Z-dv-6TO" firstAttribute="height" secondItem="pvR-sj-csc" secondAttribute="height" id="Amf-9r-7p0"/>
+                                <constraint firstItem="dVL-gb-nEj" firstAttribute="centerX" secondItem="tAs-3W-p6K" secondAttribute="centerX" id="LPR-AB-Tll"/>
+                                <constraint firstItem="pvR-sj-csc" firstAttribute="centerX" secondItem="dVL-gb-nEj" secondAttribute="centerX" constant="49" id="Pdy-cG-AbC"/>
+                                <constraint firstItem="oqm-Bo-aiR" firstAttribute="centerX" secondItem="RCu-H0-nVL" secondAttribute="centerX" id="UqV-ZR-MnS"/>
+                                <constraint firstItem="oqm-Bo-aiR" firstAttribute="top" secondItem="RCu-H0-nVL" secondAttribute="bottom" constant="-2" id="b7q-MO-PBf"/>
+                                <constraint firstItem="B8O-GB-Wew" firstAttribute="top" secondItem="pvR-sj-csc" secondAttribute="bottom" constant="-3" id="e2j-sH-RPJ"/>
+                                <constraint firstItem="h6Z-dv-6TO" firstAttribute="centerY" secondItem="pvR-sj-csc" secondAttribute="centerY" id="lck-Nz-Fed"/>
+                                <constraint firstItem="h6Z-dv-6TO" firstAttribute="width" secondItem="pvR-sj-csc" secondAttribute="width" id="oHg-q4-xfd"/>
+                                <constraint firstItem="RCu-H0-nVL" firstAttribute="top" secondItem="dVL-gb-nEj" secondAttribute="bottom" constant="15" id="qNp-sO-aR8"/>
+                                <constraint firstItem="pvR-sj-csc" firstAttribute="top" secondItem="dVL-gb-nEj" secondAttribute="bottom" constant="58" id="syn-ZV-eA8"/>
+                                <constraint firstItem="B8O-GB-Wew" firstAttribute="centerX" secondItem="tAs-3W-p6K" secondAttribute="centerX" id="vkS-8T-Wa3"/>
+                                <constraint firstItem="dVL-gb-nEj" firstAttribute="top" secondItem="tAs-3W-p6K" secondAttribute="top" constant="19" id="yCp-dX-hpE"/>
+                            </constraints>
+                        </view>
+                        <connections>
+                            <outlet property="dataSource" destination="Ig6-nB-v1w" id="2nR-Ng-uyT"/>
+                            <outlet property="delegate" destination="Ig6-nB-v1w" id="UeY-ie-ASG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="otherUser" id="8mo-9l-aOB">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="l8M-FW-P1Y">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="dea-1n-Z7B">
+                                <rect key="frame" x="229" y="2" width="75" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" image="simpleTopicMore_sel.png">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnMoreClick:" destination="Ig6-nB-v1w" eventType="touchUpInside" id="y3b-a5-IHj"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="btnChat" destination="pvR-sj-csc" id="QkA-bs-nfO"/>
+                        <outlet property="btnFollow" destination="h6Z-dv-6TO" id="eJi-nW-6S3"/>
+                        <outlet property="btnIntroduce" destination="B8O-GB-Wew" id="jxy-YA-rbF"/>
+                        <outlet property="btnMore" destination="dea-1n-Z7B" id="3k8-wk-FjO"/>
+                        <outlet property="imgHeadView" destination="dVL-gb-nEj" id="nT1-AP-FKF"/>
+                        <outlet property="lbName" destination="RCu-H0-nVL" id="i31-A6-JsE"/>
+                        <outlet property="lbUserId" destination="oqm-Bo-aiR" id="Zzl-P2-raS"/>
+                        <outlet property="tapGestureImgHead" destination="idV-3w-pW2" id="Rxo-II-paR"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yHO-Rn-A9g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="04D-7G-4np">
+                    <connections>
+                        <action selector="tapGesture:" destination="Ig6-nB-v1w" id="mee-s0-7Cd"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1555" y="-997"/>
+        </scene>
     </scenes>
     <resources>
         <image name="DefaultAvatar.png" width="100" height="100"/>
@@ -2613,10 +2753,14 @@
         <image name="bisexual.png" width="20" height="20"/>
         <image name="edit_profile_btn.png" width="75" height="24"/>
         <image name="fav_box.png" width="11" height="12"/>
+        <image name="follow_user.png" width="74" height="28"/>
+        <image name="following_user.png" width="74" height="28"/>
         <image name="man.png" width="20" height="20"/>
         <image name="phone_ios.png" width="32" height="32"/>
         <image name="qq_ios.png" width="32" height="32"/>
         <image name="searchIcon.png" width="30" height="30"/>
+        <image name="send_im_btn.png" width="74" height="28"/>
+        <image name="simpleTopicMore_sel.png" width="35" height="40"/>
         <image name="topicNew_sel.png" width="20" height="13"/>
         <image name="topicUpdate_sel.png" width="20" height="13"/>
         <image name="topic_follow.png" width="20" height="20"/>

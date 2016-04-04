@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045AA7681CB276C9009FC22D /* FLOtherUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AA7671CB276C9009FC22D /* FLOtherUserVC.m */; };
 		045FB4A91CAFF99A004018B9 /* FLTopicDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FB4A81CAFF99A004018B9 /* FLTopicDetailVC.m */; };
 		045FB4AC1CAFF9B1004018B9 /* FLPostDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FB4AB1CAFF9B1004018B9 /* FLPostDetailVC.m */; };
 		045FB4B81CAFFFB0004018B9 /* FLChooseTypeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FB4AF1CAFFFB0004018B9 /* FLChooseTypeVC.m */; };
@@ -1276,6 +1277,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		045AA7661CB276C9009FC22D /* FLOtherUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOtherUserVC.h; sourceTree = "<group>"; };
+		045AA7671CB276C9009FC22D /* FLOtherUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOtherUserVC.m; sourceTree = "<group>"; };
 		045FB4A71CAFF99A004018B9 /* FLTopicDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLTopicDetailVC.h; sourceTree = "<group>"; };
 		045FB4A81CAFF99A004018B9 /* FLTopicDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLTopicDetailVC.m; sourceTree = "<group>"; };
 		045FB4AA1CAFF9B1004018B9 /* FLPostDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPostDetailVC.h; sourceTree = "<group>"; };
@@ -2817,6 +2820,8 @@
 				045FB4AB1CAFF9B1004018B9 /* FLPostDetailVC.m */,
 				933633D71CA4C70A008A7ADE /* FLMatchFireVC.h */,
 				933633D81CA4C70A008A7ADE /* FLMatchFireVC.m */,
+				045AA7661CB276C9009FC22D /* FLOtherUserVC.h */,
+				045AA7671CB276C9009FC22D /* FLOtherUserVC.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -5795,6 +5800,7 @@
 				93A6B4DF1C9FFB7A00771D47 /* FLRegiEditVC.m in Sources */,
 				933633D41CA409A8008A7ADE /* FLHeaderScrollView.m in Sources */,
 				045FB4A91CAFF99A004018B9 /* FLTopicDetailVC.m in Sources */,
+				045AA7681CB276C9009FC22D /* FLOtherUserVC.m in Sources */,
 				93A18F631C9E7F2D00F46544 /* FLMessageVC.m in Sources */,
 				937F30D51C97EAAF00912C98 /* FLSignUpVC.m in Sources */,
 				937F31071C996FDB00912C98 /* FLLogin.m in Sources */,

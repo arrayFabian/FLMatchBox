@@ -20,6 +20,8 @@
 
 #import "FLHttpTool.h"
 
+#import "FLTopicDetailVC.h"
+
 @interface FLTopicVC ()<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *kupdatetableView;
 
@@ -470,6 +472,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    FLTopicCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    FLTopicDetailVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FLTopicDetailVC"];
+    [vc setValue:cell.topicModel forKeyPath:@"topicModel"];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+
+    
     
 }
 

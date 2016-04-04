@@ -48,9 +48,6 @@
         
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:FLKeyWindow animated:YES];
-        hud.labelText = @"请求失败";
-        [hud show:YES];
         FLLog(@"%@",error);
         if (failure) {
             failure(error);

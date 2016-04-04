@@ -21,6 +21,7 @@
 #import <MMSheetView.h>
 #import "ProgressView.h"
 #import <UIImageView+WebCache.h>
+#import "FLOtherUserVC.h"
 
 @interface FLMatchController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,FLPostCellModelDelegate>
 
@@ -158,6 +159,7 @@
     likeTableview.estimatedRowHeight = 400;
 
 }
+
 
 //friend tableview
 - (void)loadFriendData
@@ -373,26 +375,46 @@
 
 #pragma mark- FLPostCellModelDelegate
 
-- (void)postCell:(FLPostCell *)postCell btnCommentDidClick:(NSInteger)friendId
+- (void)postCell:(FLPostCell *)postCell btnCommentDidClick:(FLPostCellModel *)cellModel
 {
     FLLog(@"%s",__func__);
      FLLog(@"%ld",postCell.tag);
-    [self performSegueWithIdentifier:@"FLPostDetailVC" sender:@(friendId)];
+    [self performSegueWithIdentifier:@"FLPostDetailVC" sender:cellModel];
     
     
     
 }
-- (void)postCell:(FLPostCell *)postCell btnRetweetDidClick:(NSInteger)friendId
+- (void)postCell:(FLPostCell *)postCell btnRetweetDidClick:(FLPostCellModel *)cellModel
 {
      FLLog(@"%s",__func__);
+    MMPopupItem *item1 = MMItemMake(@"推荐", MMItemTypeNormal, ^(NSInteger index) {
+        
+        
+        
+        
+    });
+    
+    MMPopupItem *item2 = MMItemMake(@"转发并描述", MMItemTypeNormal, ^(NSInteger index) {
+        
+        
+        
+        
+    });
+    
+    
+    MMSheetView *sheet = [[MMSheetView alloc]initWithTitle:nil items:@[item1,item2]];
+    
+    [sheet show];
+    
+
 }
 
-- (void)postCell:(FLPostCell *)postCell btnViewDidClick:(NSInteger)friendId
+- (void)postCell:(FLPostCell *)postCell btnViewDidClick:(FLPostCellModel *)cellModel
 {
      FLLog(@"%s",__func__);
     //跳转到帖子详情
     
-    [self performSegueWithIdentifier:@"FLPostDetailVC" sender:@(friendId)];
+    [self performSegueWithIdentifier:@"FLPostDetailVC" sender:cellModel];
     
     
     
@@ -549,12 +571,13 @@
     
 }
 
-- (void)postCell:(FLPostCell *)postCell imgHeadTapped:(NSInteger)userId
+- (void)postCell:(FLPostCell *)postCell imgHeadTapped:(FLPostCellModel *)cellModel
 {
      FLLog(@"%s",__func__);
     //进人用户个人界面
 
-    id vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FLProfileVC"];
+    FLOtherUserVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FLOtherUserVC"];
+    vc.cellModel = cellModel;
     
     
     [self.navigationController pushViewController:vc animated:YES];
@@ -567,7 +590,7 @@
 {
     if ([segue.identifier isEqualToString:@"FLPostDetailVC"]) {
         id vc = segue.destinationViewController;
-        [vc setValue:sender forKeyPath:@"friendId"];
+        [vc setValue:sender forKeyPath:@"cellModel"];
         
         
     }else if ([segue.identifier isEqualToString:@"FLTopicDetailVC"]){
