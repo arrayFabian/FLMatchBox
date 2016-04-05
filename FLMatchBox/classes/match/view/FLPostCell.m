@@ -126,8 +126,8 @@
      //帖子文本内容
     self.lbText.text = cellmodel.msg;
     
+
     //创建时间
-    
     self.lbTime.text = cellmodel.createDate;
     
     //评论数
@@ -266,21 +266,9 @@
 - (IBAction)btnFollowDidClick:(id)sender
 {
     FLLog(@"%s",__func__);
-    NSDictionary *param = @{@"friend.user.id":@(kUserModel.userId),
-                            @"friend.beuser.id":@(_cellmodel.userId)};
-    [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/useraddFocus",BaseUrl] param:param success:^(id responseObject) {
-        NSDictionary *dict = responseObject;
-        if ([dict[@"result"] integerValue] == 0) {
-            _cellmodel.isAction = YES;
-            _btnFollow.hidden = YES;
-            
-            
-        }
-        
-    } failure:^(NSError *error) {
-        
-        
-    }];
+    if ([self.delegate respondsToSelector:@selector(postCell:btnFollowDidClick:)]) {
+        [self.delegate postCell:self btnFollowDidClick:self.cellmodel];
+    }
     
     
 }

@@ -23,7 +23,10 @@
 #import <UIImageView+WebCache.h>
 #import "FLOtherUserVC.h"
 
-@interface FLMatchController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,FLPostCellModelDelegate>
+#import <UMSocialSnsService.h>
+#import <UMSocialSnsPlatformManager.h>
+
+@interface FLMatchController ()<UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,FLPostCellModelDelegate,UMSocialUIDelegate>
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segment;
 @property (nonatomic, strong)UIScrollView *scrollview;
@@ -375,10 +378,48 @@
 
 #pragma mark- FLPostCellModelDelegate
 
+- (void)postCell:(FLPostCell *)postCell btnFollowDidClick:(FLPostCellModel *)cellModel
+{
+    
+    NSDictionary *param = @{@"friend.user.id":@(kUserModel.userId),
+                            @"friend.beuser.id":@(cellModel.userId)};
+    NSString *path = cellModel.isAction ? @"/Matchbox/usercancleFocus":@"/Matchbox/useraddFocus";
+    __weak __typeof(self) weakSelf = self;
+    [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@%@",BaseUrl,path] param:param success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([dict[@"result"] integerValue] == 0) {
+            
+            if (_segment.selectedSegmentIndex == 0) {
+                for (FLPostCellModel *model in self.friendsArr) {
+                    if (model.userId == cellModel.userId) {
+                        model.isAction = !model.isAction;
+                    }
+                }
+                [weakSelf.friendTableView reloadData];
+            }else{
+                
+                for (FLPostCellModel *model in self.likesArr) {
+                    if (model.userId == cellModel.userId) {
+                        model.isAction = !model.isAction;
+                    }
+                }
+                [weakSelf.likeTableView reloadData];
+
+            
+            }
+        }
+        
+    } failure:^(NSError *error) {
+        
+        
+    }];
+
+    
+}
+
 - (void)postCell:(FLPostCell *)postCell btnCommentDidClick:(FLPostCellModel *)cellModel
 {
     FLLog(@"%s",__func__);
-     FLLog(@"%ld",postCell.tag);
     [self performSegueWithIdentifier:@"FLPostDetailVC" sender:cellModel];
     
     
@@ -433,22 +474,82 @@
 {
      FLLog(@"%s",__func__);
     //底部view 更多操作
-    
-    MMPopupItem *item1 = MMItemMake(@"取消关注", MMItemTypeNormal, ^(NSInteger index) {
+    __weak __typeof(self) weakSelf = self;
+    MMPopupItem *item1 = MMItemMake(cellModel.isAction? @"取消关注":@"关注TA", MMItemTypeNormal, ^(NSInteger index) {
+        
+        NSString *path = cellModel.isAction ? @"/Matchbox/usercancleFocus":@"/Matchbox/useraddFocus";
+        NSDictionary *param = @{@"friend.user.id":@(kUserModel.userId),
+                                @"friend.beuser.id":@(cellModel.userId)};
+        
+        
+        [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@%@",BaseUrl,path] param:param success:^(id responseObject) {
+            if ([responseObject[@"result"] integerValue] == 0) {
+                
+                if (_segment.selectedSegmentIndex == 0) {
+                    for (FLPostCellModel *model in self.friendsArr) {
+                        if (model.userId == cellModel.userId) {
+                            model.isAction = !model.isAction;
+                        }
+                    }
+                    [weakSelf.friendTableView reloadData];
+                }else{
+                    
+                    for (FLPostCellModel *model in self.likesArr) {
+                        if (model.userId == cellModel.userId) {
+                            model.isAction = !model.isAction;
+                        }
+                    }
+                    [weakSelf.likeTableView reloadData];
+                    
+                    
+                }
+                
+                
+            }
+            
+        } failure:^(NSError *error) {
+            
+            
+        }];
+        
+
         
         
         
         
     });
     
-    MMPopupItem *item2 = MMItemMake(@"收藏帖子", MMItemTypeNormal, ^(NSInteger index) {
+    MMPopupItem *item2 = MMItemMake(cellModel.isCollection?@"取消收藏":@"收藏帖子", MMItemTypeNormal, ^(NSInteger index) {
         
+        NSString *path = cellModel.isCollection?@"/Matchbox/usercanclecollection":@"/Matchbox/useraddCollection";
+        
+        NSDictionary *param = @{@"collection.user.id":@(kUserModel.userId),
+                                @"collection.friendCircle.id":@(cellModel.friendId)};
+        
+        [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@%@",BaseUrl,path] param:param success:^(id responseObject) {
+            
+            if ([responseObject[@"result"] integerValue] == 0) {
+                
+                cellModel.isCollection = !cellModel.isCollection;
+            }
+            
+            
+        
+        } failure:^(NSError *error) {
+            
+            
+        }];
         
         
         
     });
 
     MMPopupItem *item3 = MMItemMake(@"分享至第三方", MMItemTypeNormal, ^(NSInteger index) {
+        
+        [UMSocialSnsService presentSnsIconSheetView:self appKey:UMentAppKey shareText:@"hehe" shareImage:[UIImage imageNamed:@"icon"] shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToWechatFavorite] delegate:self];
+        
+        
+        
         
         
         
@@ -461,13 +562,17 @@
     
     [sheet show];
     
-    
-    
-    
-    
-    
+  
     
 }
+
+
+- (void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
+{
+    NSLog(@"%@",response);
+}
+
+
 
 - (void)cancelImgae
 {
@@ -489,7 +594,7 @@
         
         
     }else{
-        UIAlertView *photoSave = [[UIAlertView alloc] initWithTitle:@"\n\n保存成功" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles: nil];
+        UIAlertView *photoSave = [[UIAlertView alloc] initWithTitle:@"保存成功" message:nil delegate:nil cancelButtonTitle:nil otherButtonTitles: nil];
         [photoSave show];
         [photoSave dismissWithClickedButtonIndex:0 animated:YES];
         photoSave = nil;
@@ -568,6 +673,9 @@
         
         
     }];
+    
+    
+    
     
 }
 

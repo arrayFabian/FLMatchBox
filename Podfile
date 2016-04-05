@@ -20,3 +20,5 @@ pod 'MMPopupView', '~> 1.7'
 
 pod 'MBProgressHUD', '~> 0.9.2'
 
+pod 'UMengSocial', '~> 4.3'
+

@@ -23,6 +23,12 @@
 
 #import "Reachability.h"
 
+#import <UMSocial.h>
+#import <UMSocialQQHandler.h>
+#import <UMSocialWechatHandler.h>
+
+
+
 @interface AppDelegate ()
 
 
@@ -40,7 +46,7 @@
     [self.window makeKeyAndVisible];
     
     [self setUpIQKeyboard];
-    
+    [self setUpUmentConfig];
     [self autoLogin];
     
     //[self setUpReach];
@@ -49,6 +55,29 @@
 
     
     return YES;
+}
+
+- (void)setUpUmentConfig
+{
+    
+    [UMSocialData setAppKey:UMentAppKey];
+    
+    [UMSocialWechatHandler setWXAppId:@"wx7ccf84096d52e8b1" appSecret:@"8a27f5b6f2ae566cde041348b455626d" url:@"http://123.184.33.74"];
+    
+    [UMSocialQQHandler setQQWithAppId:@"wx7ccf84096d52e8b1" appKey:UMentAppKey url:@"http://123.184.33.74"];
+    
+    
+    
+    
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
+{
+    BOOL result = [UMSocialSnsService handleOpenURL:url];
+    if (result) {
+        
+    }
+    return  result;
 }
 
 - (void)setUpReach

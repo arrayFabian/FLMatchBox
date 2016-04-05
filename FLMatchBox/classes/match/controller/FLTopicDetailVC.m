@@ -161,7 +161,7 @@
     UITableView *hotTableview = [[UITableView alloc] initWithFrame:CGRectMake(scrollview.width, 0, scrollview.width, scrollview.height)];
     [self.scrollView addSubview:hotTableview];
     self.hotTableview = hotTableview;
-    hotTableview.backgroundColor = [UIColor blackColor];
+    hotTableview.backgroundColor = [UIColor whiteColor];
     hotTableview.dataSource = self;
     hotTableview.delegate = self;
     hotTableview.rowHeight = UITableViewAutomaticDimension;
@@ -173,7 +173,8 @@
 - (void)initNavigationBar
 {
     
-    self.title = _cellModel.topicName.length?_cellModel.topicName:_topicModel.name;
+    NSString *title = _cellModel.topicName.length?_cellModel.topicName:_topicModel.name;
+    self.title = title;
     
     UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
     [btn setImage:[UIImage imageNamed:@"careList_care"] forState:UIControlStateNormal];
@@ -184,11 +185,39 @@
     UIBarButtonItem *item1 = [[UIBarButtonItem alloc]initWithCustomView:btn];
     self.btnCare = btn;
     
+    
     //请求数据看是否关注了话题
-    //因为接口问题 默认未关注 online进行
-    self.btnCare.selected = NO;
+    NSInteger topicId = _cellModel == nil?_topicModel.topicId:_cellModel.topicId;
+    NSLog(@"%ld",topicId);
     
+    [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/usergetMyFocusTopic",BaseUrl] param:@{@"userId":@(kUserModel.userId)} success:^(id responseObject) {
+        NSDictionary *dict = responseObject;
+        if ([dict[@"result"] integerValue] == 0) {
+            
+            //假设未关注此话题
+            self.btnCare.selected = NO;
+            
+            NSArray *arr = dict[@"list"];
+            NSLog(@"%@",arr);
+            for (NSDictionary *dict in arr) {
+                if ([dict[@"topicId"] integerValue] == topicId) {
+                    
+                    self.btnCare.selected = YES;
+                    break;
+                }
+            }
+            
+           
+            
+        }
+        
+        
+    } failure:^(NSError *error) {
+        
+        
+    }];
     
+        
     UIButton *btn2 = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 35, 35)];
     [btn2 setImage:[UIImage imageNamed:@"simpleTopicMore_sel"] forState:UIControlStateNormal];
     [btn2 setAdjustsImageWhenHighlighted:NO];
@@ -204,42 +233,33 @@
     
 }
 
+
+#pragma mark- 关注话题按钮
 - (void)btnCareCLick:(UIButton *)btn
 {
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-       
-            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-            hud.mode = MBProgressHUDModeText;
-            hud.labelText = btn.selected?@"取消关注成功":@"关注成功";
-        
-        self.btnCare.selected = !self.btnCare.selected;
-        
-        [hud hide:YES afterDelay:0.3];
-    });
-    
-    
-    
-    /*
     NSString *path;
-    if (self.btnCare.selected) {
+    if (!self.btnCare.selected) {
         path = @"/Matchbox/useraddFocusTopic";
     }else{
         path = @"/Matchbox/usercancleFocusTopic";
     }
     
     //网络请求
-    
+    NSInteger topicId = _cellModel == nil?_topicModel.topicId:_cellModel.topicId;
     NSDictionary *param = @{@"userTopic.user.id":@(kUserModel.userId),
-                            @"userTopic.topic.id":@(self.cellModel.topicId)};
+                            @"userTopic.topic.id":@(topicId)};
     
-    [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@",BaseUrl] param:param success:^(id responseObject) {
+    [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@%@",BaseUrl,path] param:param success:^(id responseObject) {
         NSDictionary *dict = responseObject;
         if ([dict[@"result"] integerValue] == 0) {
             
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = btn.selected?@"取消关注成功":@"关注成功";
+            
             self.btnCare.selected = !self.btnCare.selected;
             
+             [hud hide:YES afterDelay:0.3];
         }
         
         
@@ -249,8 +269,7 @@
     }];
     
     
-    */
-    
+  
 }
 
 - (void)btnMoreCLick:(UIButton *)btn
@@ -313,10 +332,11 @@
     
     NSInteger topicId = _cellModel == nil?_topicModel.topicId:_cellModel.topicId;
 NSDictionary *param = @{@"userId":@(kUserModel.userId),
-                        @"topicId":@(topicId)
+                        @"topicId":@(topicId),
+                        @"type":@1
                         };
-///Matchbox/usergetIsNewFriendCircle
-    NSString *urlstring = [NSString stringWithFormat:@"%@/Matchbox/usergetFriendCircles",BaseUrl];
+// /Matchbox/usergetIsNewFriendCircle  // /Matchbox/usergetFriendCircles
+    NSString *urlstring = [NSString stringWithFormat:@"%@/Matchbox/usergetHotOrNewFriendCircles",BaseUrl];
     
     __weak __typeof(&*self) weakSelf = self;
     
@@ -364,10 +384,11 @@ NSDictionary *param = @{@"userId":@(kUserModel.userId),
     NSInteger topicId = _cellModel == nil?_topicModel.topicId:_cellModel.topicId;
 
     NSDictionary *param = @{@"userId":@(kUserModel.userId),
-                            @"topicId":@(topicId)
+                            @"topicId":@(topicId),
+                            @"type":@2
                             };
-    ///Matchbox/usergetFriendCircleIsHot
-    NSString *urlstring = [NSString stringWithFormat:@"%@/Matchbox/usergetFriendCircles",BaseUrl];
+    // /Matchbox/usergetFriendCircleIsHot // /Matchbox/usergetFriendCircles
+    NSString *urlstring = [NSString stringWithFormat:@"%@/Matchbox/usergetHotOrNewFriendCircles",BaseUrl];
     
     __weak __typeof(&*self) weakSelf = self;
     

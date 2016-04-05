@@ -87,6 +87,7 @@
     self.threeView = threeView;
     [self.view addSubview:threeView];
 }
+
 - (IBAction)loginBtnClick:(id)sender
 {
     //
@@ -175,14 +176,16 @@
     
     return YES;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(BOOL)textFieldShouldClear:(UITextField *)textField
+{
+    
+    self.LogInBtn.enabled = NO;
+    self.LogInBtn.backgroundColor = [UIColor colorWithRed:196/255.0 green:204/255.0 blue:203/255.0 alpha:1];
+    
+    
+    return YES;
 }
-*/
+
 
 @end

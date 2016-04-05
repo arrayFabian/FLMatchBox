@@ -234,11 +234,12 @@
     self.navigationItem.titleView.layer.borderWidth = 1;
     self.navigationItem.titleView.layer.borderColor = [[UIColor blackColor]CGColor];
     
-    //table headerview
+    //table headerview  广告
     FLHeaderScrollView *scrollView = [[FLHeaderScrollView alloc] initWithFrame:CGRectMake(0, 0, self.ktableView.width, 150)];
     scrollView.itemsArr = @[@"logBanner1.jpg",@"logBanner2.jpg",@"logBanner3.jpg",@"logBanner4.jpg",@"logBanner5.jpg"];
     self.ktableView.tableHeaderView = scrollView;
-   
+    
+       
     
     self.btnTopicNew.selected = YES;
     self.btnTopicUpdate.selected = NO;

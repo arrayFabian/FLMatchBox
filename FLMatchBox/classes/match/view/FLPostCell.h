@@ -15,6 +15,8 @@
 
 - (void)postCell:(FLPostCell *)postCell btnOperationDidClick:(FLPostCellModel *)cellModel;
 
+- (void)postCell:(FLPostCell *)postCell btnFollowDidClick:(FLPostCellModel *)cellModel;
+
 - (void)postCell:(FLPostCell *)postCell btnCommentDidClick:(FLPostCellModel *)cellModel;
 
 - (void)postCell:(FLPostCell *)postCell btnRetweetDidClick:(FLPostCellModel *)cellModel;

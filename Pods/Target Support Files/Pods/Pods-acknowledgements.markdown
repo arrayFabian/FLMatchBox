@@ -279,6 +279,11 @@ including Freepik Icons. Please consult their
 respective headers for the terms of their individual licenses.
 
 
+## UMengSocial
+
+Copyright 2011 - 2015 UMeng.com. All rights reserved.
+
+
 ## YLGIFImage
 
 The MIT License (MIT)
