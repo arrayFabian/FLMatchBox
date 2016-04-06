@@ -546,12 +546,34 @@
 
     MMPopupItem *item3 = MMItemMake(@"分享至第三方", MMItemTypeNormal, ^(NSInteger index) {
         
-        [UMSocialSnsService presentSnsIconSheetView:self appKey:UMentAppKey shareText:@"hehe" shareImage:[UIImage imageNamed:@"icon"] shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToSina,UMShareToWechatFavorite] delegate:self];
+        //分享帖子内容  获取要分享的 图片  如果帖子没有图片 则分享 应用icon
+        UIImage *shareImage;
+        Photolist *photo = [cellModel.photoList lastObject];
+        shareImage = [UIImage imageNamed:@"AppIcon60x60@3x.png"];
         
+        //判断是否合法
+        if ([photo.imgUrl hasSuffix:@".jpg"] || [photo.imgUrl hasSuffix:@".png"] ) {
+            NSString *path1 = [NSString stringWithFormat:@"%@/Matchbox%@",BaseUrl,photo.imgUrl];
+            //查看是否有缓存这张图片
+            SDWebImageManager *manager = [SDWebImageManager sharedManager];
+            if ([manager diskImageExistsForURL:[NSURL URLWithString:path1]]) {
+                shareImage = [[manager imageCache] imageFromDiskCacheForKey:path1];
+            }
+        }
         
+        [UMSocialData defaultData].extConfig.wechatSessionData.title = cellModel.topicName;
         
+        [UMSocialData defaultData].extConfig.wechatFavoriteData.title = cellModel.topicName;
+        [UMSocialData defaultData].extConfig.wechatTimelineData.title = cellModel.topicName;
         
+        [UMSocialData defaultData].extConfig.wechatSessionData.url = @"http://weibo.com/1748921590/profile?topnav=1&wvr=6&is_all=1";
         
+        [UMSocialData defaultData].extConfig.wechatFavoriteData.url = @"http://weibo.com/1748921590/profile?topnav=1&wvr=6&is_all=1";
+        [UMSocialData defaultData].extConfig.wechatTimelineData.url = @"http://weibo.com/1748921590/profile?topnav=1&wvr=6&is_all=1";
+        
+        [UMSocialSnsService presentSnsIconSheetView:self appKey:UMentAppKey shareText:cellModel.msg shareImage:shareImage shareToSnsNames:@[UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite] delegate:self];
+        
+     
         
         
     });
@@ -566,10 +588,13 @@
     
 }
 
-
+//实现回调方法（可选）：
 - (void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
 {
     NSLog(@"%@",response);
+    
+    
+    
 }
 
 

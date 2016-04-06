@@ -23,7 +23,9 @@
 #import <MMSheetView.h>
 #import "ProgressView.h"
 #import "FLPostDetailVC.h"
+
 #import "FLOtherUserVC.h"
+#import "FLCreatePostVC.h"
 
 
 @interface FLTopicDetailVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,FLPostCellModelDelegate>
@@ -37,6 +39,7 @@
 @property (nonatomic, strong)UIScrollView  *scrollView;
 @property (nonatomic, strong)UITableView   *lastTableview;
 @property (nonatomic, strong)UITableView  *hotTableview;
+@property (nonatomic, strong)UIView  *toolBar;
 
 @property (nonatomic, strong)NSMutableArray   *lastArr;
 @property (nonatomic, strong)NSMutableArray  *hotArr;
@@ -116,19 +119,49 @@
 - (void)initToolBar
 {
     
+    UIView *bar = [[UIView alloc]initWithFrame:CGRectMake(-1, self.view.height-44, self.view.width +2, 45)];
+    
+    bar.backgroundColor = [UIColor whiteColor];
+    bar.layer.borderColor = [UIColor grayColor].CGColor;
+    bar.layer.borderWidth = 1.f;
+    _toolBar = bar;
+    [self.view addSubview:bar];
+    
+    UIImageView *imgV = [[UIImageView alloc] initWithFrame:CGRectMake(8, 9, 25, 25)];
+    imgV.image = [UIImage imageNamed:@"sharemore_pic"];
+    [bar addSubview:imgV];
+    
+    UILabel *lb = [[UILabel alloc]initWithFrame:CGRectMake(44, 0, 250, 44)];
+    lb.textColor = [UIColor lightGrayColor];
+    lb.font = [UIFont systemFontOfSize:10];
+    lb.text = @"点此输入文字";
+    [bar addSubview:lb];
+    
+    UILabel *lb1 = [[UILabel alloc]initWithFrame:CGRectMake(self.view.width-44, 0, 44, 44)];
+    lb1.textColor = [UIColor blackColor];
+    lb1.font = [UIFont systemFontOfSize:12];
+    lb1.text = @"发帖";
+    [bar addSubview:lb1];
+
+    UIButton *btn = [[UIButton alloc]initWithFrame:bar.bounds];
+    [bar addSubview:btn];
+    [btn addTarget:self action:@selector(btnPostCLick) forControlEvents:UIControlEventTouchUpInside];
     
     
+}
+
+- (void)btnPostCLick
+{
+    FLCreatePostVC * vc  = [[FLCreatePostVC alloc]init];
     
+    NSString *title = _cellModel.topicName.length?_cellModel.topicName:_topicModel.name;
+    NSInteger topicId = _cellModel == nil?_topicModel.topicId:_cellModel.topicId;
+    vc.topicId = topicId;
+    vc.topicName = title;
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    vc.view.backgroundColor =[UIColor whiteColor];
+    [self.navigationController presentViewController:vc animated:YES completion:nil];
+
     
     
 }
@@ -294,6 +327,7 @@
         
     }];
     self.lastTableview.mj_header = mj_header1;
+    mj_header1.lastUpdatedTimeLabel.hidden = YES;
     [mj_header1 beginRefreshing];
     
     MJRefreshAutoNormalFooter *mj_footer1 = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
@@ -302,6 +336,7 @@
         [self loadLastData];
     }];
     self.lastTableview.mj_footer = mj_footer1;
+    mj_footer1.automaticallyHidden = YES;
     
     MJRefreshNormalHeader *mj_header2 = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
        
@@ -309,6 +344,7 @@
         
     }];
     self.hotTableview.mj_header = mj_header2;
+    mj_header2.lastUpdatedTimeLabel.hidden = YES;
     [mj_header2 beginRefreshing];
     
     MJRefreshAutoNormalFooter *mj_footer2 = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
@@ -317,6 +353,7 @@
         [self loadHotData];
     }];
     self.hotTableview.mj_footer = mj_footer2;
+    mj_footer2.automaticallyHidden = YES;
     
 }
 
@@ -508,6 +545,13 @@ NSDictionary *param = @{@"userId":@(kUserModel.userId),
     
 }
 
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (scrollView == self.scrollView) {
+        _toolBar.alpha = 1 - ((CGFloat)scrollView.contentOffset.x/scrollView.width);
+    }
+}
 
 
 #pragma mark- postcell delegate

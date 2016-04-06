@@ -204,12 +204,14 @@
     
     
     //kupdatetableView
-    self.kupdatetableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+     MJRefreshNormalHeader *kupdateheader  = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
         _kupdateIndex = 1;
         [weakSelf loadUpdateData];
         
     }];
+    kupdateheader.lastUpdatedTimeLabel.hidden = YES;
+    self.kupdatetableView.mj_header = kupdateheader;
     
     self.kupdatetableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         

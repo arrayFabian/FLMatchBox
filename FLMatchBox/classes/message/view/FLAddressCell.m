@@ -41,7 +41,7 @@
    // NSString *urlstr = [NSString stringWithFormat:@"%@",cellModel.url];
         [self.imgHead sd_setImageWithURL:[NSURL URLWithString:cellModel.url] placeholderImage:[UIImage imageNamed:@"DefaultAvatar.png"]];
         self.lbID.text = [NSString stringWithFormat:@"ID:%ld",cellModel.userId];
-        self.lbName.text = cellModel.userName;
+    self.lbName.text = cellModel.userName?cellModel.userName:@"";
     
      
 }

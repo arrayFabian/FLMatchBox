@@ -21,6 +21,12 @@
 
 @property (nonatomic, copy) NSString *userName;
 
+/**
+ *  首字母
+ */
+@property (nonatomic, copy) NSString *aleph;
 
+
+- (instancetype)initWithDict:(NSDictionary *)dict;
 
 @end

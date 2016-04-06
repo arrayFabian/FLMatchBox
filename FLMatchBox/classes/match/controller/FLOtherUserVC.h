@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-@class FLPostCellModel;
+@class FLPostCellModel,FLAddressCellModel;
 @interface FLOtherUserVC : UITableViewController
 
 
 @property (nonatomic, strong) FLPostCellModel *cellModel;
+
+@property (nonatomic, strong) FLAddressCellModel *addressModel;
+
 
 @end

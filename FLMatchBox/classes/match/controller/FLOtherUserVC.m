@@ -16,6 +16,8 @@
 #import "FLTopicModel.h"
 #import "FLPostCell.h"
 
+#import "FLAddressCellModel.h"
+
 #import "FLHttpTool.h"
 
 #import <SDWebImage/UIImageView+WebCache.h>
@@ -73,7 +75,7 @@
     
     NSString *path = btn.selected?@"/Matchbox/usercancleFocus":@"/Matchbox/useraddFocus";
     NSDictionary *param = @{@"friend.user.id":@(kUserModel.userId),
-                            @"friend.beuser.id":@(_cellModel.userId)};
+                            @"friend.beuser.id":@(_otherUser.userId)};
     
     [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@%@",BaseUrl,path] param:param success:^(id responseObject) {
         if ([responseObject[@"result"] integerValue] == 0) {
@@ -113,6 +115,11 @@
     });
     MMPopupItem *item2 = MMItemMake(@"私信TA", MMItemTypeNormal, ^(NSInteger index) {
         
+        UIViewController *vc = [[UIViewController alloc]init];
+        vc.view.backgroundColor = [UIColor whiteColor];
+        vc.title = _otherUser.userName.length>0 ? _otherUser.userName:_otherUser.name;
+        
+        [self.navigationController pushViewController:vc animated:YES];
         
     });
     MMPopupItem *item3 = MMItemMake(@"加入黑名单", MMItemTypeNormal, ^(NSInteger index) {
@@ -160,14 +167,35 @@
 - (void)initUI
 {
     
-    self.title = _cellModel.userName;
+    self.title = _cellModel? _cellModel.userName: _addressModel.userName;
     self.btnMore.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, -10);
     
     
-    self.btnFollow.selected = _cellModel.isAction?YES:NO;
-    
     //根据userId获取用户信息
-    NSDictionary *param = @{@"userId":@(_cellModel.userId)};
+    NSInteger userId = _cellModel? _cellModel.userId : _addressModel.userId;
+    
+    [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/usergetMyAction",BaseUrl] param:@{@"userId":@(kUserModel.userId)} success:^(id responseObject) {
+        NSLog(@"%@",responseObject);
+        NSDictionary *dict = responseObject;
+        if ([dict[@"result"] integerValue] == 0) {
+            
+            NSArray *arr = dict[@"Firends"];
+            for (NSDictionary *dict in arr) {
+                if ([dict[@"userId"] integerValue] == userId) {
+                    self.btnFollow.selected = YES;
+                    break;
+                }
+            }
+            
+        }
+        
+    } failure:^(NSError *error) {
+        
+        
+    }];
+    
+    
+    NSDictionary *param = @{@"userId":@(userId)};
     __weak __typeof(&*self) weakSelf = self;
     [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/usergetUserInfoById",BaseUrl] param:param success:^(id responseObject) {
         if ([responseObject[@"result"] integerValue] == 0) {
@@ -182,8 +210,7 @@
             [weakSelf.btnIntroduce setTitle:_otherUser.myInfo.length>0 ? _otherUser.myInfo:@"TA还没设置签名" forState:UIControlStateNormal];
             
             weakSelf.lbUserId.text = [NSString stringWithFormat:@"ID:%ld",_otherUser.userId];
-            [weakSelf.btnFollow setTitle:@"关注" forState:UIControlStateNormal];
-            [weakSelf.btnChat setTitle:@"私信" forState:UIControlStateNormal];
+            
             
         }
         
@@ -341,6 +368,10 @@
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.width, 40)];
     view.backgroundColor = [UIColor whiteColor];
     self.sectionHeadView = view;
+    
+    UIView *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, view.height-1, view.width, 1)];
+    [view addSubview:lineView];
+    lineView.backgroundColor = [UIColor lightGrayColor];
     
     
     UIButton *btn1 = [[UIButton alloc] initWithFrame:CGRectMake(15, 5, self.view.width/2.0 - 15, 30)];

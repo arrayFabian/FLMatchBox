@@ -35,10 +35,22 @@
 
 - (IBAction)btnChatClicl:(id)sender
 {
+    if ([self.delegate respondsToSelector:@selector(addressView:btnChatDidClick:)]) {
+        [self.delegate addressView:self btnChatDidClick:self.model];
+    }
+    
+    
+    
+    
     
 }
 - (IBAction)btnHomeClick:(id)sender
 {
+    if ([self.delegate respondsToSelector:@selector(addressView:btnHomeDidClick:)]) {
+        [self.delegate addressView:self btnHomeDidClick:self.model];
+    }
+    
+    
     
 }
 - (IBAction)btnFollowClick:(id)sender

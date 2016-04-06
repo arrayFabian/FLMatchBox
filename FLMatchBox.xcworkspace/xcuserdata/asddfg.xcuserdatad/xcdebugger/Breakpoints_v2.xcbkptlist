@@ -90,7 +90,7 @@
                   moduleName = "FLMatchBox"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/asddfg/Desktop/FLMatchBox/FLMatchBox/classes/profile/controller/FLEditIntroVC.m"
-                  timestampString = "481552651.387693"
+                  timestampString = "481635706.567504"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "27"
@@ -105,7 +105,7 @@
                   moduleName = "FLMatchBox"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/asddfg/Desktop/FLMatchBox/FLMatchBox/classes/profile/controller/FLEditIntroVC.m"
-                  timestampString = "481552651.387836"
+                  timestampString = "481635706.56765"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "28"
@@ -154,7 +154,7 @@
                   moduleName = "FLMatchBox"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/asddfg/Desktop/FLMatchBox/FLMatchBox/classes/profile/controller/FLEditIntroVC.m"
-                  timestampString = "481552651.38958"
+                  timestampString = "481635706.569437"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
@@ -169,7 +169,7 @@
                   moduleName = "FLMatchBox"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/asddfg/Desktop/FLMatchBox/FLMatchBox/classes/profile/controller/FLEditIntroVC.m"
-                  timestampString = "481552651.389717"
+                  timestampString = "481635706.569584"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
@@ -184,7 +184,7 @@
                   moduleName = "FLMatchBox"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/asddfg/Desktop/FLMatchBox/FLMatchBox/classes/profile/controller/FLEditIntroVC.m"
-                  timestampString = "481552651.389822"
+                  timestampString = "481635706.569706"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
@@ -199,7 +199,7 @@
                   moduleName = "FLMatchBox"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/asddfg/Desktop/FLMatchBox/FLMatchBox/classes/profile/controller/FLEditIntroVC.m"
-                  timestampString = "481552651.389919"
+                  timestampString = "481635706.569924"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "41"
@@ -231,54 +231,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FLMatchBox/classes/topic/controller/FLTopicVC.m"
-            timestampString = "481358550.98542"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
-            landmarkName = "-loadFoundData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FLMatchBox/classes/topic/controller/FLTopicVC.m"
-            timestampString = "481358550.98542"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "349"
-            endingLineNumber = "349"
-            landmarkName = "-loadNewData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FLMatchBox/classes/topic/controller/FLTopicVC.m"
-            timestampString = "481358550.98542"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "396"
-            endingLineNumber = "396"
-            landmarkName = "-loadUpdateData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "FLMatchBox/classes/profile/controller/FLSelfDataVC.m"
             timestampString = "481036389.506535"
             startingColumnNumber = "9223372036854775807"
@@ -296,7 +248,7 @@
                   moduleName = "FLMatchBox"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/asddfg/Desktop/FLMatchBox/FLMatchBox/classes/profile/controller/FLSelfDataVC.m"
-                  timestampString = "481552651.394349"
+                  timestampString = "481635706.572296"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "290"
@@ -311,7 +263,7 @@
                   moduleName = "FLMatchBox"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/asddfg/Desktop/FLMatchBox/FLMatchBox/classes/profile/controller/FLSelfDataVC.m"
-                  timestampString = "481552651.394553"
+                  timestampString = "481635706.572425"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "290"
@@ -326,7 +278,7 @@
                   moduleName = "FLMatchBox"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/asddfg/Desktop/FLMatchBox/FLMatchBox/classes/profile/controller/FLSelfDataVC.m"
-                  timestampString = "481552651.394741"
+                  timestampString = "481635706.572534"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "292"
@@ -334,22 +286,6 @@
                   offsetFromSymbolStart = "68">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FLMatchBox/classes/profile/controller/FLSelfDataVC.m"
-            timestampString = "481035921.319965"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
-            landmarkName = "-initUI"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -423,11 +359,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FLMatchBox/classes/match/controller/FLTopicDetailVC.m"
-            timestampString = "481549990.723788"
+            timestampString = "481639709.683333"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
+            startingLineNumber = "221"
+            endingLineNumber = "221"
             landmarkName = "-initNavigationBar"
             landmarkType = "5">
          </BreakpointContent>
@@ -439,11 +375,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FLMatchBox/classes/match/controller/FLTopicDetailVC.m"
-            timestampString = "481550917.64164"
+            timestampString = "481639709.683333"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
             landmarkName = "-btnCareCLick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -455,11 +391,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FLMatchBox/classes/match/controller/FLTopicDetailVC.m"
-            timestampString = "481550917.64164"
+            timestampString = "481639709.683333"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "-initNavigationBar"
             landmarkType = "5">
          </BreakpointContent>
@@ -471,11 +407,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FLMatchBox/classes/match/controller/FLTopicDetailVC.m"
-            timestampString = "481552170.59846"
+            timestampString = "481639709.683333"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
             landmarkName = "-btnCareCLick:"
             landmarkType = "5">
          </BreakpointContent>
@@ -487,11 +423,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FLMatchBox/classes/match/controller/FLTopicDetailVC.m"
-            timestampString = "481552171.491111"
+            timestampString = "481639709.683333"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
+            startingLineNumber = "300"
+            endingLineNumber = "300"
             landmarkName = "-btnCareCLick:"
             landmarkType = "5">
          </BreakpointContent>

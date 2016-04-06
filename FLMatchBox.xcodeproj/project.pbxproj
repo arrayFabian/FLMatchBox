@@ -28,6 +28,7 @@
 		933633EF1CA55B7D008A7ADE /* FLAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633EE1CA55B7D008A7ADE /* FLAccount.m */; };
 		933633F21CA55FD1008A7ADE /* FLAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 933633F11CA55FD1008A7ADE /* FLAccountTool.m */; };
 		93441BF11CB0FC0300D87960 /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93441BF01CB0FC0300D87960 /* ProgressView.m */; };
+		93441BF41CB5399E00D87960 /* FLCreatePostVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93441BF31CB5399E00D87960 /* FLCreatePostVC.m */; };
 		935D1EE11CAA6A5600719C6D /* FLEditNameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 935D1EE01CAA6A5600719C6D /* FLEditNameVC.m */; };
 		935D1EE41CAA6A7200719C6D /* FLEditSexVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 935D1EE31CAA6A7200719C6D /* FLEditSexVC.m */; };
 		935D1EE71CAA6A9800719C6D /* FLEditSexChooseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 935D1EE61CAA6A9800719C6D /* FLEditSexChooseVC.m */; };
@@ -61,7 +62,6 @@
 		937F31041C99644D00912C98 /* UIView+FLFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F31001C99644D00912C98 /* UIView+FLFrame.m */; };
 		937F31071C996FDB00912C98 /* FLLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 937F31061C996FDB00912C98 /* FLLogin.m */; };
 		937F31091C996FFA00912C98 /* FLLogin.xib in Resources */ = {isa = PBXBuildFile; fileRef = 937F31081C996FFA00912C98 /* FLLogin.xib */; };
-		93829A7A1CAD3E6900841280 /* FLAddressSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 93829A791CAD3E6900841280 /* FLAddressSort.m */; };
 		93829A851CAD575100841280 /* FLCollectionVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 93829A841CAD575100841280 /* FLCollectionVC.m */; };
 		93A18AAA1C998BDE00F46544 /* 3.0guidebottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A186041C998BD600F46544 /* 3.0guidebottom@2x.png */; };
 		93A18AAB1C998BDE00F46544 /* 3.0guideTopLeft@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93A186051C998BD600F46544 /* 3.0guideTopLeft@2x.png */; };
@@ -1315,6 +1315,8 @@
 		933633F11CA55FD1008A7ADE /* FLAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAccountTool.m; sourceTree = "<group>"; };
 		93441BEF1CB0FC0300D87960 /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
 		93441BF01CB0FC0300D87960 /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
+		93441BF21CB5399E00D87960 /* FLCreatePostVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLCreatePostVC.h; sourceTree = "<group>"; };
+		93441BF31CB5399E00D87960 /* FLCreatePostVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCreatePostVC.m; sourceTree = "<group>"; };
 		935D1EDF1CAA6A5600719C6D /* FLEditNameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEditNameVC.h; sourceTree = "<group>"; };
 		935D1EE01CAA6A5600719C6D /* FLEditNameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLEditNameVC.m; sourceTree = "<group>"; };
 		935D1EE21CAA6A7200719C6D /* FLEditSexVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLEditSexVC.h; sourceTree = "<group>"; };
@@ -1375,8 +1377,6 @@
 		937F31051C996FDB00912C98 /* FLLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FLLogin.h; path = ../../welcome/view/FLLogin.h; sourceTree = "<group>"; };
 		937F31061C996FDB00912C98 /* FLLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FLLogin.m; path = ../../welcome/view/FLLogin.m; sourceTree = "<group>"; };
 		937F31081C996FFA00912C98 /* FLLogin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FLLogin.xib; path = ../../welcome/view/FLLogin.xib; sourceTree = "<group>"; };
-		93829A781CAD3E6900841280 /* FLAddressSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAddressSort.h; sourceTree = "<group>"; };
-		93829A791CAD3E6900841280 /* FLAddressSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAddressSort.m; sourceTree = "<group>"; };
 		93829A831CAD575100841280 /* FLCollectionVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLCollectionVC.h; sourceTree = "<group>"; };
 		93829A841CAD575100841280 /* FLCollectionVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCollectionVC.m; sourceTree = "<group>"; };
 		93A186041C998BD600F46544 /* 3.0guidebottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "3.0guidebottom@2x.png"; sourceTree = "<group>"; };
@@ -2816,6 +2816,8 @@
 				937F30F61C99577600912C98 /* FLMatchController.m */,
 				045FB4A71CAFF99A004018B9 /* FLTopicDetailVC.h */,
 				045FB4A81CAFF99A004018B9 /* FLTopicDetailVC.m */,
+				93441BF21CB5399E00D87960 /* FLCreatePostVC.h */,
+				93441BF31CB5399E00D87960 /* FLCreatePostVC.m */,
 				045FB4AA1CAFF9B1004018B9 /* FLPostDetailVC.h */,
 				045FB4AB1CAFF9B1004018B9 /* FLPostDetailVC.m */,
 				933633D71CA4C70A008A7ADE /* FLMatchFireVC.h */,
@@ -2871,8 +2873,6 @@
 			children = (
 				93BB4E551CAD1A00001C862A /* FLAddressCellModel.h */,
 				93BB4E561CAD1A00001C862A /* FLAddressCellModel.m */,
-				93829A781CAD3E6900841280 /* FLAddressSort.h */,
-				93829A791CAD3E6900841280 /* FLAddressSort.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -5778,6 +5778,7 @@
 				937F30ED1C9922B600912C98 /* FLThreeSignInView.m in Sources */,
 				937F31021C99644D00912C98 /* UIBarButtonItem+Item.m in Sources */,
 				93A6B51C1CA1056300771D47 /* CustomImageView.m in Sources */,
+				93441BF41CB5399E00D87960 /* FLCreatePostVC.m in Sources */,
 				93A6B51E1CA1056300771D47 /* KSegement.m in Sources */,
 				937F31011C99644D00912C98 /* NSDate+MJ.m in Sources */,
 				937F30BE1C97D31F00912C98 /* FLTabBarController.m in Sources */,
@@ -5807,7 +5808,6 @@
 				93A6B4E21C9FFB9800771D47 /* FLLikeTopicVC.m in Sources */,
 				045FB4BC1CAFFFB0004018B9 /* FLUploadTopicVC.m in Sources */,
 				045FB4B91CAFFFB0004018B9 /* FLPreSetupTopicVC.m in Sources */,
-				93829A7A1CAD3E6900841280 /* FLAddressSort.m in Sources */,
 				93FBBB901CA93048003293DF /* FLSetting.m in Sources */,
 				93A6B4D61C9FFAEB00771D47 /* FLCheckVC.m in Sources */,
 			);
@@ -5947,6 +5947,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = FLMatchBox/PrefixHeader.pch;
@@ -5963,6 +5964,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				ENABLE_BITCODE = NO;
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = FLMatchBox/PrefixHeader.pch;
