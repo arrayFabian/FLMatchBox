@@ -79,8 +79,8 @@
     
     
     
-    //第一次自动创新
-    [self.friendTableView.mj_header beginRefreshing];
+   
+   
     
 }
 
@@ -248,6 +248,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+     [self.friendTableView.mj_header beginRefreshing];
     
     FLLog(@"%s",__func__);
     

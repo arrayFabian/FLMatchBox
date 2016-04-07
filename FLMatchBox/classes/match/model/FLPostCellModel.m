@@ -9,10 +9,11 @@
 #import "FLPostCellModel.h"
 
 #import "NSDate+MJ.h"
+#import <MJExtension.h>
 
 @implementation FLPostCellModel
 
-
+MJExtensionCodingImplementation
 + (NSDictionary *)objectClassInArray{
     return @{@"photoList" : [Photolist class]};
 }
@@ -70,7 +71,7 @@
 
 
 @implementation Photolist
-
+MJExtensionCodingImplementation
 @end
 
 

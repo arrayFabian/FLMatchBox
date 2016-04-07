@@ -97,6 +97,7 @@
 {
     UIViewController *vc = [[UIViewController alloc]init];
     vc.view.backgroundColor = [UIColor whiteColor];
+
     vc.title = _otherUser.userName.length>0 ? _otherUser.userName:_otherUser.name;
     
     [self.navigationController pushViewController:vc animated:YES];
@@ -166,13 +167,14 @@
 
 - (void)initUI
 {
-    
-    self.title = _cellModel? _cellModel.userName: _addressModel.userName;
+    self.title = _otherUserName;
+    //self.title = _cellModel? _cellModel.userName: _addressModel.userName;
     self.btnMore.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, -10);
     
     
     //根据userId获取用户信息
-    NSInteger userId = _cellModel? _cellModel.userId : _addressModel.userId;
+    NSInteger userId = _otherUserId;
+    //NSInteger userId = _cellModel? _cellModel.userId : _addressModel.userId;
     
     [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/usergetMyAction",BaseUrl] param:@{@"userId":@(kUserModel.userId)} success:^(id responseObject) {
         NSLog(@"%@",responseObject);
@@ -378,8 +380,6 @@
     [view addSubview:btn1];
     [btn1 setBackgroundImage:[UIImage imageNamed:@"Social_Private_Topic.png" ] forState:UIControlStateNormal];
     [btn1 setBackgroundImage:[UIImage imageNamed:@"Social_Private_Topic_Select"] forState:UIControlStateSelected];
-    //[btn1 setTitle:@"话题" forState:UIControlStateNormal];
-    //[btn1 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     
     self.leftBtn = btn1;
     btn1.selected = YES;
@@ -397,8 +397,7 @@
     
     UIButton *btn2 = [[UIButton alloc]initWithFrame:CGRectMake(self.view.width/2.0, 5, self.view.width/2.0 - 15, 30)];
     [view addSubview:btn2];
-    // [btn2 setTitle:@"帖子" forState:UIControlStateNormal];
-    // [btn2 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+  
     [btn2 setBackgroundImage:[UIImage imageNamed:@"Social_Private_Tip"] forState:UIControlStateNormal];
     [btn2 setBackgroundImage:[UIImage imageNamed:@"Social_Private_Tip_Select"] forState:UIControlStateSelected];
     self.rightBtn = btn2;

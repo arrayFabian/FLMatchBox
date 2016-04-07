@@ -13,6 +13,8 @@
 #import "FLUser.h"
 #import "FLAccountTool.h"
 
+#import "FLAccount.h"
+
 #import <MJExtension/MJExtension.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 
@@ -191,7 +193,9 @@
     
     if (self.quitLoginCell.selected == YES) {//退出登录
         
-        
+        FLAccount *account = [FLAccountTool account];
+        account.password = nil;
+        [FLAccountTool saveAccount:account];
         
         FLKeyWindow.rootViewController = [[UIStoryboard storyboardWithName:@"Login" bundle:nil] instantiateViewControllerWithIdentifier:@"FLWelcomeNaviVC"];
      

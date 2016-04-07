@@ -757,7 +757,9 @@ NSDictionary *param = @{@"userId":@(kUserModel.userId),
     //进人用户个人界面
     
     FLOtherUserVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FLOtherUserVC"];
-    vc.cellModel = cellModel;
+    //vc.cellModel = cellModel;
+    vc.otherUserId = cellModel.userId;
+    vc.otherUserName = cellModel.userName;
     
     [self.navigationController pushViewController:vc animated:YES];
     

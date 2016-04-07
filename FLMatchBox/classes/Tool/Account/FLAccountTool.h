@@ -21,5 +21,9 @@
 
 + (void)saveUser:(FLUser *)user;
 
++ (void)saveMatchPostCellModelArr:(NSMutableArray *)modelArr;
+
++ (NSMutableArray *)getMatchPostCellModelArr;
+
 
 @end

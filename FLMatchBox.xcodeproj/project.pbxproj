@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		043FAD4C1CB6198F00AFC206 /* FLTopUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FAD4B1CB6198F00AFC206 /* FLTopUserModel.m */; };
+		043FAD4F1CB619A300AFC206 /* FLCommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FAD4E1CB619A300AFC206 /* FLCommentModel.m */; };
+		043FAD531CB619CB00AFC206 /* FLCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FAD511CB619CB00AFC206 /* FLCommentCell.m */; };
+		043FAD541CB619CB00AFC206 /* FLCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043FAD521CB619CB00AFC206 /* FLCommentCell.xib */; };
+		043FAD581CB6250A00AFC206 /* TopUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 043FAD561CB6250A00AFC206 /* TopUserVC.m */; };
+		043FAD591CB6250A00AFC206 /* TopUserVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 043FAD571CB6250A00AFC206 /* TopUserVC.xib */; };
 		045AA7681CB276C9009FC22D /* FLOtherUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 045AA7671CB276C9009FC22D /* FLOtherUserVC.m */; };
 		045FB4A91CAFF99A004018B9 /* FLTopicDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FB4A81CAFF99A004018B9 /* FLTopicDetailVC.m */; };
 		045FB4AC1CAFF9B1004018B9 /* FLPostDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 045FB4AB1CAFF9B1004018B9 /* FLPostDetailVC.m */; };
@@ -1277,6 +1283,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		043FAD4A1CB6198F00AFC206 /* FLTopUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLTopUserModel.h; sourceTree = "<group>"; };
+		043FAD4B1CB6198F00AFC206 /* FLTopUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLTopUserModel.m; sourceTree = "<group>"; };
+		043FAD4D1CB619A300AFC206 /* FLCommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLCommentModel.h; sourceTree = "<group>"; };
+		043FAD4E1CB619A300AFC206 /* FLCommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCommentModel.m; sourceTree = "<group>"; };
+		043FAD501CB619CB00AFC206 /* FLCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLCommentCell.h; sourceTree = "<group>"; };
+		043FAD511CB619CB00AFC206 /* FLCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCommentCell.m; sourceTree = "<group>"; };
+		043FAD521CB619CB00AFC206 /* FLCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FLCommentCell.xib; sourceTree = "<group>"; };
+		043FAD551CB6250A00AFC206 /* TopUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopUserVC.h; sourceTree = "<group>"; };
+		043FAD561CB6250A00AFC206 /* TopUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopUserVC.m; sourceTree = "<group>"; };
+		043FAD571CB6250A00AFC206 /* TopUserVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopUserVC.xib; sourceTree = "<group>"; };
 		045AA7661CB276C9009FC22D /* FLOtherUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLOtherUserVC.h; sourceTree = "<group>"; };
 		045AA7671CB276C9009FC22D /* FLOtherUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLOtherUserVC.m; sourceTree = "<group>"; };
 		045FB4A71CAFF99A004018B9 /* FLTopicDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLTopicDetailVC.h; sourceTree = "<group>"; };
@@ -2824,6 +2840,9 @@
 				933633D81CA4C70A008A7ADE /* FLMatchFireVC.m */,
 				045AA7661CB276C9009FC22D /* FLOtherUserVC.h */,
 				045AA7671CB276C9009FC22D /* FLOtherUserVC.m */,
+				043FAD551CB6250A00AFC206 /* TopUserVC.h */,
+				043FAD561CB6250A00AFC206 /* TopUserVC.m */,
+				043FAD571CB6250A00AFC206 /* TopUserVC.xib */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -2833,6 +2852,10 @@
 			children = (
 				933633DF1CA4EAE3008A7ADE /* FLPostCellModel.h */,
 				933633E01CA4EAE3008A7ADE /* FLPostCellModel.m */,
+				043FAD4A1CB6198F00AFC206 /* FLTopUserModel.h */,
+				043FAD4B1CB6198F00AFC206 /* FLTopUserModel.m */,
+				043FAD4D1CB619A300AFC206 /* FLCommentModel.h */,
+				043FAD4E1CB619A300AFC206 /* FLCommentModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -2843,6 +2866,9 @@
 				933633DA1CA4DA3A008A7ADE /* FLPostCell.h */,
 				933633DB1CA4DA3A008A7ADE /* FLPostCell.m */,
 				933633DC1CA4DA3A008A7ADE /* FLPostCell.xib */,
+				043FAD501CB619CB00AFC206 /* FLCommentCell.h */,
+				043FAD511CB619CB00AFC206 /* FLCommentCell.m */,
+				043FAD521CB619CB00AFC206 /* FLCommentCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -5292,6 +5318,7 @@
 				93A18C481C998BDE00F46544 /* hetero@2x.png in Resources */,
 				93A18B991C998BDE00F46544 /* Expression_14@2x.png in Resources */,
 				93A18B591C998BDE00F46544 /* contentNav_line_NG@2x.png in Resources */,
+				043FAD541CB619CB00AFC206 /* FLCommentCell.xib in Resources */,
 				93A18B411C998BDE00F46544 /* community_back@3x.png in Resources */,
 				93A18ADC1C998BDE00F46544 /* bisexual@3x.png in Resources */,
 				93A18F291C998BDE00F46544 /* weChat_icon@3x.png in Resources */,
@@ -5327,6 +5354,7 @@
 				93A18B881C998BDE00F46544 /* egopv_right@2x.png in Resources */,
 				93A18C921C998BDE00F46544 /* Intro2@2x.jpg in Resources */,
 				93A18E881C998BDE00F46544 /* Social_Private_Fan_NG@2x.png in Resources */,
+				043FAD591CB6250A00AFC206 /* TopUserVC.xib in Resources */,
 				93A18D7F1C998BDE00F46544 /* QQicon@3x.png in Resources */,
 				93A18EA61C998BDE00F46544 /* Social_Private_Tip_Select_NG@2x.png in Resources */,
 				93A18DB11C998BDE00F46544 /* RecordingSignal007@3x.png in Resources */,
@@ -5759,6 +5787,7 @@
 				937F31031C99644D00912C98 /* UIImage+FLImage.m in Sources */,
 				937F30F71C99577600912C98 /* FLMatchController.m in Sources */,
 				937F29741C96BD0C00912C98 /* FLScrollView.m in Sources */,
+				043FAD581CB6250A00AFC206 /* TopUserVC.m in Sources */,
 				935D1EEA1CAA6AAD00719C6D /* FLEditCityVC.m in Sources */,
 				937F30D21C97EA9A00912C98 /* FLSignInVC.m in Sources */,
 				93441BF11CB0FC0300D87960 /* ProgressView.m in Sources */,
@@ -5769,6 +5798,7 @@
 				937F30CF1C97E9E800912C98 /* FLWelcomeNaviVC.m in Sources */,
 				937F31041C99644D00912C98 /* UIView+FLFrame.m in Sources */,
 				937F29381C96B4D200912C98 /* AppDelegate.m in Sources */,
+				043FAD4C1CB6198F00AFC206 /* FLTopUserModel.m in Sources */,
 				93BB4E521CAD0D5F001C862A /* FLAddressView.m in Sources */,
 				93A6B4D91C9FFB3E00771D47 /* FLRegiCheckVC.m in Sources */,
 				045FB4BA1CAFFFB0004018B9 /* FLSetupCompleteVC.m in Sources */,
@@ -5799,6 +5829,7 @@
 				93A18F661C9E7F3E00F46544 /* FLProfileVC.m in Sources */,
 				93829A851CAD575100841280 /* FLCollectionVC.m in Sources */,
 				93A6B4DF1C9FFB7A00771D47 /* FLRegiEditVC.m in Sources */,
+				043FAD531CB619CB00AFC206 /* FLCommentCell.m in Sources */,
 				933633D41CA409A8008A7ADE /* FLHeaderScrollView.m in Sources */,
 				045FB4A91CAFF99A004018B9 /* FLTopicDetailVC.m in Sources */,
 				045AA7681CB276C9009FC22D /* FLOtherUserVC.m in Sources */,
@@ -5808,6 +5839,7 @@
 				93A6B4E21C9FFB9800771D47 /* FLLikeTopicVC.m in Sources */,
 				045FB4BC1CAFFFB0004018B9 /* FLUploadTopicVC.m in Sources */,
 				045FB4B91CAFFFB0004018B9 /* FLPreSetupTopicVC.m in Sources */,
+				043FAD4F1CB619A300AFC206 /* FLCommentModel.m in Sources */,
 				93FBBB901CA93048003293DF /* FLSetting.m in Sources */,
 				93A6B4D61C9FFAEB00771D47 /* FLCheckVC.m in Sources */,
 			);

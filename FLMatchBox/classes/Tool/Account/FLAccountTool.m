@@ -15,12 +15,30 @@
 
 #define FLUserFilePath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"user.data"]
 
+#define FLMatchPostCellModelArrFilePath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"FLMatchPostCellModelArr.data"]
+
 
 @implementation FLAccountTool
 
 //类方法一般用静态变量代替成员属性
 static FLAccount *_account;
 static FLUser *_user;
+static NSMutableArray *_modelArr;
+
++ (void)saveMatchPostCellModelArr:(NSMutableArray *)modelArr
+{
+    [NSKeyedArchiver archiveRootObject:modelArr toFile:FLMatchPostCellModelArrFilePath];
+    
+}
++ (NSMutableArray *)getMatchPostCellModelArr
+{
+    
+    _modelArr = [NSKeyedUnarchiver unarchiveObjectWithFile:FLMatchPostCellModelArrFilePath];
+    
+    return _modelArr;
+
+    
+}
 
 + (void)saveAccount:(FLAccount *)account
 {

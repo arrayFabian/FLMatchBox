@@ -195,6 +195,9 @@
                 //                }
                 
                 
+                //归档保存
+                [FLAccountTool saveMatchPostCellModelArr:_friendsArr];
+                
                 [weakSelf.friendTableView reloadData];
                 
             }
@@ -343,6 +346,13 @@
     [self initData];
     
     [self initUI];
+    
+    //判断是否有缓存数据
+    _friendsArr = [FLAccountTool getMatchPostCellModelArr];
+    if (_friendsArr) {
+        
+        [self.friendTableView reloadData];
+    }
     
     [self setUpRefresh];
     
@@ -710,7 +720,9 @@
     //进人用户个人界面
 
     FLOtherUserVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FLOtherUserVC"];
-    vc.cellModel = cellModel;
+    //vc.cellModel = cellModel;
+    vc.otherUserId = cellModel.userId;
+    vc.otherUserName = cellModel.userName;
     
     
     [self.navigationController pushViewController:vc animated:YES];

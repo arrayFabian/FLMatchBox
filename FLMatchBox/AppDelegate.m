@@ -27,7 +27,7 @@
 #import <UMSocialQQHandler.h>
 #import <UMSocialWechatHandler.h>
 
-
+#import <HYBNetworking.h>
 
 @interface AppDelegate ()
 
@@ -41,6 +41,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [HYBNetworking updateBaseUrl:BaseUrl];
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
