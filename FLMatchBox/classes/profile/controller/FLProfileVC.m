@@ -60,9 +60,78 @@
     
     [self setUpSectionHeadView];
 
+    //refresh
+    [self setUpRefresh];
+    
+    [self loadData];
     
 }
 
+- (void)loadData
+{
+    __weak __typeof(&*self)weakSelf = self;
+    
+    
+    NSDictionary *param = @{@"userId":@(kUserModel.userId)};
+    
+    [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/usergetTopicList",BaseUrl] param:param success:^(id responseObject) {
+        if ([responseObject[@"result"] integerValue] == 0) {
+            
+            NSArray *arr = responseObject[@"list"];
+            if (arr.count) {
+                weakSelf.topics = [FLTopicModel mj_objectArrayWithKeyValuesArray:arr];
+                
+                weakSelf.tableView.rowHeight = 60;
+                
+                [weakSelf.tableView reloadData];
+                
+            }
+            
+        }
+        
+        [self.tableView.mj_header endRefreshing];
+        
+    } failure:^(NSError *error) {
+        [self.tableView.mj_header endRefreshing];
+        
+    }];
+
+
+    
+        
+        NSString *urlstring = [NSString stringWithFormat:@"%@/Matchbox/usergetMyFriendPost",BaseUrl];
+        NSDictionary *param2 = @{@"userId":@(kUserModel.userId)};
+        
+        
+        [FLHttpTool postWithUrlString:urlstring param:param2 success:^(id responseObject) {
+            
+            NSDictionary *dict = (NSDictionary *)responseObject;
+            
+            if ([dict[@"result"] integerValue] == 0) {
+                
+                NSArray *arr = dict[@"List"];
+                if (arr.count) {
+                    
+                    weakSelf.posts = [FLPostCellModel mj_objectArrayWithKeyValuesArray:arr];
+                    
+                   
+                }
+                
+                
+            }
+            
+            [self.tableView.mj_header endRefreshing];
+            
+        } failure:^(NSError *error) {
+            
+            [self.tableView.mj_header endRefreshing];
+        }];
+        
+
+   
+    
+    
+}
 
 - (IBAction)btnFollowDidClick:(id)sender
 {
@@ -133,8 +202,7 @@
     [self.btnFans setTitle:[NSString stringWithFormat:@"%ld 粉丝",[user.fansCount integerValue]] forState:UIControlStateNormal];
     
     
-    //refresh
-    [self setUpRefresh];
+   
     
  
     
@@ -158,7 +226,7 @@
     }];
     mj_header.lastUpdatedTimeLabel.hidden = YES;
     self.tableView.mj_header = mj_header;
-    [mj_header beginRefreshing];
+   
     
 }
 
@@ -323,9 +391,17 @@
     btn.selected = YES;
     
     if (self.leftBtn.selected) {
-        [self loadTopicData];
+        self.tableView.rowHeight = 60;
+        
+        [self.tableView reloadData];
+        
+        
     }else{
-        [self loadPostData];
+     
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.estimatedRowHeight = 400;
+        [self.tableView reloadData];
+        
     }
   
     

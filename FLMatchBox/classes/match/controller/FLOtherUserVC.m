@@ -64,9 +64,78 @@
     [super viewDidLoad];
     
     [self setUpSectionHeadView];
-   
-   
     
+     [self initUI];
+   
+    [self loadData];
+    
+    [self.tableView.mj_header beginRefreshing];
+    
+
+    
+}
+
+- (void)loadData
+{
+    __weak __typeof(&*self)weakSelf = self;
+    
+    
+    NSDictionary *param = @{@"userId":@(_otherUser.userId)};
+    
+    [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/usergetTopicList",BaseUrl] param:param success:^(id responseObject) {
+        if ([responseObject[@"result"] integerValue] == 0) {
+            
+            NSArray *arr = responseObject[@"list"];
+            if (arr.count) {
+                weakSelf.topics = [FLTopicModel mj_objectArrayWithKeyValuesArray:arr];
+                
+              
+                
+            }
+            
+        }
+        
+        [self.tableView.mj_header endRefreshing];
+        
+    } failure:^(NSError *error) {
+        [self.tableView.mj_header endRefreshing];
+        
+    }];
+    
+    
+    
+    NSString *urlstring = [NSString stringWithFormat:@"%@/Matchbox/usergetMyFriendPost",BaseUrl];
+    NSDictionary *param2 = @{@"userId":@(_otherUser.userId)};
+    
+    
+    [FLHttpTool postWithUrlString:urlstring param:param2 success:^(id responseObject) {
+        
+        NSDictionary *dict = (NSDictionary *)responseObject;
+        
+        if ([dict[@"result"] integerValue] == 0) {
+            
+            NSArray *arr = dict[@"List"];
+            if (arr.count) {
+                
+                weakSelf.posts = [FLPostCellModel mj_objectArrayWithKeyValuesArray:arr];
+                
+                weakSelf.tableView.rowHeight = UITableViewAutomaticDimension;
+                weakSelf.tableView.estimatedRowHeight = 400;
+                
+                [weakSelf.tableView reloadData];
+            }
+            
+            
+        }
+        
+        [self.tableView.mj_header endRefreshing];
+        
+    } failure:^(NSError *error) {
+        
+        [self.tableView.mj_header endRefreshing];
+    }];
+
+
 }
 
 - (IBAction)btnFollowDidClick:(id)sender
@@ -140,7 +209,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-     [self initUI];
+    
+   
     
 }
 
@@ -233,11 +303,11 @@
     
     [self setUpRefresh];
     
-    
-
-    
+ 
     
 }
+
+
 
 
 - (void)setUpRefresh
@@ -256,10 +326,9 @@
         
         
     }];
-    mj_header.lastUpdatedTimeLabel.hidden = YES;
     self.tableView.mj_header = mj_header;
-    [mj_header beginRefreshing];
-    
+    mj_header.lastUpdatedTimeLabel.hidden = YES;
+ 
 }
 
 - (void)loadTopicData
@@ -390,8 +459,7 @@
     [btn1 setBackgroundImage:[UIImage imageNamed:@"Social_Private_Topic_Select"] forState:UIControlStateSelected];
     
     self.leftBtn = btn1;
-    btn1.selected = YES;
-    btn1.tag = 100;
+   
     
     [btn1 addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -409,6 +477,8 @@
     [btn2 setBackgroundImage:[UIImage imageNamed:@"Social_Private_Tip"] forState:UIControlStateNormal];
     [btn2 setBackgroundImage:[UIImage imageNamed:@"Social_Private_Tip_Select"] forState:UIControlStateSelected];
     self.rightBtn = btn2;
+    btn2.selected = YES;
+    btn2.tag = 100;
    
     
     UIImageView *img2 = [[UIImageView alloc]initWithFrame:CGRectMake(btn2.width-16, 11, 8, 8)];
@@ -427,9 +497,17 @@
     btn.selected = YES;
     
     if (self.leftBtn.selected) {
-        [self loadTopicData];
+        self.tableView.rowHeight = 60;
+        
+        [self.tableView reloadData];
+        
+        
     }else{
-        [self loadPostData];
+        
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        self.tableView.estimatedRowHeight = 400;
+        [self.tableView reloadData];
+        
     }
     
     if (btn.tag == 100) {
