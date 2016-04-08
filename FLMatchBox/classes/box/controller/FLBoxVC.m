@@ -11,6 +11,7 @@
 #import "FLPostCell.h"
 #import "FLPostCellModel.h"
 #import "FLUser.h"
+#import "FLAccountTool.h"
 
 #import <MJRefresh/MJRefresh.h>
 
@@ -77,7 +78,7 @@
     mj_footer.automaticallyHidden = YES;
     self.friendTableView.mj_footer = mj_footer;
     
-    
+    [self.friendTableView.mj_header beginRefreshing];
     
    
    
@@ -137,6 +138,9 @@
                 //                    [_fountArr addObject:model];
                 //                }
                 
+                //-----------
+                //归档
+                [FLAccountTool saveBoxPostCellModelArr:_friendsArr];
                 
                 [weakSelf.friendTableView reloadData];
                 
@@ -239,6 +243,13 @@
     
     [self initUI];
     
+    _friendsArr = [FLAccountTool getBoxPostCellModelArr];
+    
+    if (_friendsArr) {
+        
+        [self.friendTableView reloadData];
+    }
+    
     [self setUpRefresh];
     
     
@@ -249,7 +260,7 @@
 {
     [super viewWillAppear:animated];
     
-     [self.friendTableView.mj_header beginRefreshing];
+    // [self.friendTableView.mj_header beginRefreshing];
     
     FLLog(@"%s",__func__);
     
@@ -292,6 +303,7 @@
                         model.isAction = !model.isAction;
                     }
                 }
+            [FLAccountTool saveBoxPostCellModelArr:_friendsArr];
                 [weakSelf.friendTableView reloadData];
         }
         
@@ -386,6 +398,8 @@
                             model.isAction = !model.isAction;
                         }
                     }
+                
+                [FLAccountTool saveBoxPostCellModelArr:_friendsArr];
                     [weakSelf.friendTableView reloadData];
                                
                 
@@ -415,6 +429,7 @@
             if ([responseObject[@"result"] integerValue] == 0) {
                 
                 cellModel.isCollection = !cellModel.isCollection;
+                [FLAccountTool saveBoxPostCellModelArr:_friendsArr];
             }
             
             

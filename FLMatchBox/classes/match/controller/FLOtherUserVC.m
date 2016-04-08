@@ -167,15 +167,23 @@
 
 - (void)initUI
 {
-    self.title = _otherUserName;
-    //self.title = _cellModel? _cellModel.userName: _addressModel.userName;
+    if (_otherUserName) {
+        self.title = _otherUserName;
+    }else{
+        self.title = _cellModel? _cellModel.userName: _addressModel.userName;
+    }
+    
     self.btnMore.contentEdgeInsets = UIEdgeInsetsMake(0, 10, 0, -10);
     
     
     //根据userId获取用户信息
-    NSInteger userId = _otherUserId;
-    //NSInteger userId = _cellModel? _cellModel.userId : _addressModel.userId;
-    
+    NSInteger userId;
+    if (_otherUserId) {
+        userId = _otherUserId;
+    }else{
+        userId = _cellModel? _cellModel.userId : _addressModel.userId;
+    }
+       
     [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/usergetMyAction",BaseUrl] param:@{@"userId":@(kUserModel.userId)} success:^(id responseObject) {
         NSLog(@"%@",responseObject);
         NSDictionary *dict = responseObject;

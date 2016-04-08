@@ -12,18 +12,26 @@
 #import "FLOtherUserVC.h"
 @interface TopUserVC ()<UITableViewDelegate,UITableViewDataSource>
 
+
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
+
+
 @end
 
 @implementation TopUserVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
     [self initUI];
 }
 
 - (void)initUI {
     self.title = @"点赞";
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.tableview.tableFooterView = [[UIView alloc]init];
 }
 
 /******************** tableview delegate *********************/

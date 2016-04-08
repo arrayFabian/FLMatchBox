@@ -18,12 +18,15 @@
 #define FLMatchPostCellModelArrFilePath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"FLMatchPostCellModelArr.data"]
 
 
+#define FLBoxPostCellModelArrFilePath [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"FLBoxPostCellModelArr.data"]
+
 @implementation FLAccountTool
 
 //类方法一般用静态变量代替成员属性
 static FLAccount *_account;
 static FLUser *_user;
 static NSMutableArray *_modelArr;
+static NSMutableArray *_boxArr;
 
 + (void)saveMatchPostCellModelArr:(NSMutableArray *)modelArr
 {
@@ -32,12 +35,31 @@ static NSMutableArray *_modelArr;
 }
 + (NSMutableArray *)getMatchPostCellModelArr
 {
-    
-    _modelArr = [NSKeyedUnarchiver unarchiveObjectWithFile:FLMatchPostCellModelArrFilePath];
+    if (_modelArr == nil) {
+        _modelArr = [NSKeyedUnarchiver unarchiveObjectWithFile:FLMatchPostCellModelArrFilePath];
+
+    }
     
     return _modelArr;
 
     
+}
+
++ (void)saveBoxPostCellModelArr:(NSMutableArray *)modelArr
+{
+    
+     [NSKeyedArchiver archiveRootObject:modelArr toFile:FLBoxPostCellModelArrFilePath];
+    
+}
+
++ (NSMutableArray *)getBoxPostCellModelArr
+{
+    if (_boxArr == nil) {
+        _boxArr = [NSKeyedUnarchiver unarchiveObjectWithFile:FLBoxPostCellModelArrFilePath];
+    }
+    
+    return _boxArr;
+
 }
 
 + (void)saveAccount:(FLAccount *)account

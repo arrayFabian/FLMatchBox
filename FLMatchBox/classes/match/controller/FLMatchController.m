@@ -22,6 +22,7 @@
 #import "ProgressView.h"
 #import <UIImageView+WebCache.h>
 #import "FLOtherUserVC.h"
+#import <MBProgressHUD.h>
 
 #import <UMSocialSnsService.h>
 #import <UMSocialSnsPlatformManager.h>
@@ -640,6 +641,21 @@
 - (void)postCell:(FLPostCell *)postCell imgViewTapped:(NSArray<Photolist *> *)photoList
 {
      FLLog(@"%s",__func__);
+    
+    //判断图片是否合法
+    if (![[photoList firstObject].url hasSuffix:@".jpg"] && ![[photoList firstObject].url hasSuffix:@".png"]) {
+     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.labelText = @"url错误";
+        [hud hide:YES afterDelay:0.5];
+        
+        return;
+        
+    }
+
+    
+    
+    
     //查看大图
     //btn做背景 加scrollview 装imageview .
     
@@ -689,8 +705,10 @@
     [_imgBrowser addSubview:_progressview];
     [FLKeyWindow addSubview:_imgBrowser];
     
+    
+    
     NSString *path = [NSString stringWithFormat:@"%@/Matchbox%@",BaseUrl,[photoList firstObject].url];
-   // NSString *path1 = [NSString stringWithFormat:@"%@/Matchbox%@",BaseUrl,[cellmodel.photoList firstObject].imgUrl];
+    // NSString *path1 = [NSString stringWithFormat:@"%@/Matchbox%@",BaseUrl,[cellmodel.photoList firstObject].imgUrl];
     [_bigImageView sd_setImageWithURL:[NSURL URLWithString:path] placeholderImage:nil options:SDWebImageCacheMemoryOnly progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
         _progressview.persent = (CGFloat)receivedSize/expectedSize;
@@ -701,14 +719,14 @@
         CGFloat H = (W*image.size.height)/image.size.width;
         _bigImageView.frame = CGRectMake(0, 0, W, H);
         _bigImageView.center = _imgBrowser.center;
-       
+        
         
         [_progressview removeFromSuperview];
         _progressview.persent = 0;
         
         
     }];
-    
+
     
     
     

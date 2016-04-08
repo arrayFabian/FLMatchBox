@@ -14,6 +14,7 @@
 @property (nonatomic, strong) FLPostCellModel *cellModel;
 
 @property (nonatomic, strong) FLAddressCellModel *addressModel;
+
 @property (nonatomic, assign) NSInteger otherUserId;
 @property (nonatomic, assign) NSString *otherUserName;
 

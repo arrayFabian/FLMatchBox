@@ -12,6 +12,7 @@
 
 #import "FLAccountTool.h"
 #import "FLAccount.h"
+#import "FLUser.h"
 
 #import "FLHeaderScrollView.h"
 
@@ -19,6 +20,7 @@
 #import <MJRefresh/MJRefresh.h>
 
 #import "FLHttpTool.h"
+#import <HYBNetworking/HYBNetworking.h>
 
 #import "FLTopicDetailVC.h"
 
@@ -288,6 +290,8 @@
     
     _kupdateArr = [@[] mutableCopy];
     _kupdateIndex = 1;
+    
+    _searchArr = [@[] mutableCopy];
    
 }
 
@@ -475,6 +479,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self searchBarCancelButtonClicked:self.searchBar];
+    
     FLTopicCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     FLTopicDetailVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FLTopicDetailVC"];
@@ -556,23 +562,29 @@
     __weak __typeof(&*self) weakSelf = self;
     
     [self.view bringSubviewToFront:self.searchTableview];
+    NSLog(@"%ld",kUserModel.userId);
+    NSDictionary *param = @{@"userId":@(kUserModel.userId),@"user.name":_searchBar.text};
     
-//    [HYBNetworking postWithUrl:@"/Matchbox/usergetTopicList" params:@{@"userId":@1,@"user.name":_searchBar.text} success:^(id response) {
-//        [weakSelf.searchArr removeAllObjects];
-//        NSDictionary * dict = response;
-//        if ([dict[@"result"]integerValue] == 0) {
-//            NSArray * arr = dict[@"list"];
-//            
-//            for (NSDictionary * modelDict in arr) {
-//                TopicModel * model = [TopicModel mj_objectWithKeyValues:modelDict];
-//                
-//                [weakSelf.searchArr addObject:model];
-//            }
-//            [weakSelf.searchTableView reloadData];
-//        }
-//    } fail:^(NSError *error) {
-//        
-//    }];
+    [FLHttpTool postWithUrlString:[NSString stringWithFormat:@"%@/Matchbox/usergetTopicList",BaseUrl] param:param success:^(id responseObject) {
+                NSDictionary * dict = responseObject;
+        if ([dict[@"result"]integerValue] == 0) {
+            NSArray * arr = dict[@"list"];
+            [weakSelf.searchArr removeAllObjects];
+
+            for (NSDictionary * modelDict in arr) {
+                FLTopicModel * model = [FLTopicModel mj_objectWithKeyValues:modelDict];
+                
+                [weakSelf.searchArr addObject:model];
+            }
+            [weakSelf.searchTableview reloadData];
+        }
+
+        
+    } failure:^(NSError *error) {
+        
+        
+    }];
+    
     
 }
 

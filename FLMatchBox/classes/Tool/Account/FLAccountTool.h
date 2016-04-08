@@ -25,5 +25,8 @@
 
 + (NSMutableArray *)getMatchPostCellModelArr;
 
++ (void)saveBoxPostCellModelArr:(NSMutableArray *)modelArr;
+
++ (NSMutableArray *)getBoxPostCellModelArr;
 
 @end

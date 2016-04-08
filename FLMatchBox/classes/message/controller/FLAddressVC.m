@@ -586,6 +586,7 @@
     
     
     UIViewController *vc = [[UIViewController alloc]init];
+    vc.view.backgroundColor = [UIColor whiteColor];
     vc.title = model.userName?model.userName:[NSString stringWithFormat:@"%ld",model.userId];
     
     [self.navigationController pushViewController:vc animated:YES];
